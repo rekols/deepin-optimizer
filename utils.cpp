@@ -25,3 +25,8 @@ QString Utils::getPlatform()
            .arg(QSysInfo::kernelType())
            .arg(QSysInfo::currentCpuArchitecture());
 }
+
+QString Utils::getDistribution()
+{
+    return QSysInfo::prettyProductName();
+}
