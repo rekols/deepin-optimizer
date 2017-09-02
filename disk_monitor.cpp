@@ -39,7 +39,7 @@ DiskMonitor::DiskMonitor(QWidget *parent)
     layout->addWidget(infoLabel, 0, Qt::AlignHCenter);
 
     progress->setTitle("DISK");
-    progress->setColor(QColor("#FF9095"));
+    progress->setColor(QColor("#6F5BEC"));
 }
 
 void DiskMonitor::setPercentValue(const int &value)
