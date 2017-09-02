@@ -15,6 +15,7 @@ public:
 signals:
     void updateCpuPercent(int cpuPercent);
     void updateMemoryPercent(int memoryPercent);
+    void updateMemory(QString memory);
 };
 
 #endif // THREAD_H

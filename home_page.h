@@ -42,6 +42,7 @@ private:
 private slots:
     void updateCpuPercent(int cpuPercent);
     void updateMemoryPercent(int memoryPercent);
+    void updateMemory(QString memory);
 };
 
 #endif // HOME_PAGE_H

@@ -14,7 +14,7 @@ public:
     static QString getCpuModel();
     static QString getCpuCoreCount();
     static unsigned long long getTotalCpuTime(unsigned long long &workTime);
-    static int getMemoryPercent();
+    static int getMemoryPercent(QString &memory);
 };
 
 #endif // UTILS_H

@@ -77,6 +77,7 @@ HomePage::HomePage(QWidget *parent)
 
     connect(thread, &Thread::updateCpuPercent, this, &HomePage::updateCpuPercent);
     connect(thread, &Thread::updateMemoryPercent, this, &HomePage::updateMemoryPercent);
+    connect(thread, &Thread::updateMemory, this, &HomePage::updateMemory);
 }
 
 void HomePage::updateCpuPercent(int cpuPercent)
@@ -87,4 +88,9 @@ void HomePage::updateCpuPercent(int cpuPercent)
 void HomePage::updateMemoryPercent(int memoryPercent)
 {
     memoryMonitor->setPercentValue(memoryPercent);
+}
+
+void HomePage::updateMemory(QString memory)
+{
+    memoryMonitor->setMemoryInfo(memory);
 }
