@@ -9,7 +9,7 @@ HomePage::HomePage(QWidget *parent)
     bottomLayout = new QHBoxLayout();
     infoLayout = new QVBoxLayout();
     networkLayout = new QVBoxLayout();
-    systemInfo = new QLabel("System Info");
+    systemInfo = new QLabel("SYSTEM INFO");
     hostName = new QLabel("Hostname: ");
     platform = new QLabel("Platform: ");
     distribution = new QLabel("Distribution: ");
@@ -17,8 +17,8 @@ HomePage::HomePage(QWidget *parent)
     cpuModel = new QLabel("Cpu Model: ");
     cpuCoreCount = new QLabel("Cpu Core: ");
 
-    uploadInfo = new QLabel("UpLoad");
-    downloadInfo = new QLabel("DownLoad");
+    uploadInfo = new QLabel("UPLOAD");
+    downloadInfo = new QLabel("DOWNLOAD");
     uploadLabel = new QLabel("↑ 0.0 B/s");
     downloadLabel = new QLabel("↓ 0.0 B/s");
 
@@ -71,7 +71,6 @@ HomePage::HomePage(QWidget *parent)
     layout->addStretch();
     layout->addLayout(topLayout);
     layout->addStretch();
-    layout->addSpacing(20);
     layout->addLayout(bottomLayout);
     layout->addStretch();
 

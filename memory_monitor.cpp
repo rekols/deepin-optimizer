@@ -1,11 +1,12 @@
 #include "memory_monitor.h"
+#include <QPainter>
 
 MemoryMonitor::MemoryMonitor(QWidget *parent)
     : QWidget(parent)
 {
     layout = new QVBoxLayout(this);
     progress = new Progress();
-    QLabel *tips = new QLabel("Memory");
+    QLabel *tips = new QLabel("MEMORY");
     infoLabel = new QLabel("0.0GB / 0.0GB");
 
     QFont font;
@@ -30,4 +31,14 @@ void MemoryMonitor::setPercentValue(const int &value)
 void MemoryMonitor::setMemoryInfo(const QString &info)
 {
     infoLabel->setText(info);
+}
+
+void MemoryMonitor::paintEvent(QPaintEvent *)
+{
+    QPainter painter(this);
+    painter.setRenderHint(QPainter::Antialiasing, true);
+
+    painter.setPen(Qt::NoPen);
+    painter.setBrush(QColor("#F1F1F1"));
+    painter.drawRect(rect());
 }

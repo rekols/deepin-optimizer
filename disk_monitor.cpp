@@ -1,11 +1,12 @@
 #include "disk_monitor.h"
+#include <QPainter>
 
 DiskMonitor::DiskMonitor(QWidget *parent)
     : QWidget(parent)
 {
     layout = new QVBoxLayout(this);
     progress = new Progress();
-    QLabel *tips = new QLabel("Disk");
+    QLabel *tips = new QLabel("DISK");
     infoLabel = new QLabel("0GB / 0GB");
 
     QFont font;
@@ -32,3 +33,14 @@ void DiskMonitor::setDiskInfo(const QString &info)
 {
     infoLabel->setText(info);
 }
+
+void DiskMonitor::paintEvent(QPaintEvent *)
+{
+    QPainter painter(this);
+    painter.setRenderHint(QPainter::Antialiasing, true);
+
+    painter.setPen(Qt::NoPen);
+    painter.setBrush(QColor("#F1F1F1"));
+    painter.drawRect(rect());
+}
+
