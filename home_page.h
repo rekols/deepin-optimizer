@@ -7,6 +7,7 @@
 #include "thread.h"
 #include "cpu_monitor.h"
 #include "memory_monitor.h"
+#include "disk_monitor.h"
 
 class HomePage : public QWidget
 {
@@ -30,6 +31,7 @@ private:
     Thread *thread;
     CPUMonitor *cpuMonitor;
     MemoryMonitor *memoryMonitor;
+    DiskMonitor *diskMonitor;
 
 private slots:
     void updateCpuPercent(int cpuPercent);

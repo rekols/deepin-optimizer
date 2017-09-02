@@ -17,6 +17,7 @@ HomePage::HomePage(QWidget *parent)
     thread = new Thread();
     cpuMonitor = new CPUMonitor();
     memoryMonitor = new MemoryMonitor();
+    diskMonitor = new DiskMonitor();
 
     QFont font;
     font.setPointSize(18);
@@ -24,6 +25,7 @@ HomePage::HomePage(QWidget *parent)
 
     topLayout->addWidget(cpuMonitor);
     topLayout->addWidget(memoryMonitor);
+    topLayout->addWidget(diskMonitor);
 
     infoLayout->addWidget(systemInfo);
     infoLayout->addSpacing(5);
@@ -37,6 +39,7 @@ HomePage::HomePage(QWidget *parent)
 
     layout->addStretch();
     layout->addLayout(topLayout);
+    layout->addStretch();
     layout->addLayout(infoLayout);
     layout->addStretch();
 

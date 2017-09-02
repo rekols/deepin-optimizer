@@ -1,17 +1,18 @@
-#include "cpu_monitor.h"
+#include "disk_monitor.h"
 #include <QLabel>
 
-CPUMonitor::CPUMonitor(QWidget *parent)
+DiskMonitor::DiskMonitor(QWidget *parent)
     : QWidget(parent)
 {
     layout = new QVBoxLayout(this);
     progress = new Progress();
-    QLabel *tips = new QLabel("CPU");
-    QLabel *tips2 = new QLabel("");
+    QLabel *tips = new QLabel("Disk");
+    QLabel *tips2 = new QLabel("500GB / 1TB");
 
     QFont font;
     font.setPointSize(20);
     tips->setFont(font);
+    font.setPointSize(15);
     tips2->setFont(font);
 
     layout->addWidget(tips, 0, Qt::AlignHCenter);
@@ -19,10 +20,10 @@ CPUMonitor::CPUMonitor(QWidget *parent)
     layout->addWidget(tips2, 0, Qt::AlignHCenter);
 
     progress->setPercentStyle(Progress::PercentStyle_Wave);
-
+    progress->setValue(50);
 }
 
-void CPUMonitor::setPercentValue(const int &value)
+void DiskMonitor::setPercentValue(const int &value)
 {
     progress->setValue(value);
 }
