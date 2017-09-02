@@ -141,3 +141,48 @@ int Utils::getDiskInfo(QString &disk)
 
     return used * 100.0 / size;
 }
+
+void Utils::getNetworkBandWidth(unsigned long long int &receiveBytes, unsigned long long int &sendBytes)
+{
+    char buffer[255];
+    FILE *fp = fopen("/proc/net/dev", "r");
+
+    // Ignore the first two lines of the file.
+    fgets(buffer, 255, fp);
+    fgets(buffer, 255, fp);
+
+    receiveBytes = 0;
+    sendBytes = 0;
+
+    while (fgets(buffer, 255, fp)) {
+        unsigned long long int rBytes, sBytes;
+        char *line = strdup(buffer);
+
+        char *dev;
+        dev = strtok(line, ":");
+
+        // Filter lo (virtual network device).
+        if (QString::fromStdString(dev).trimmed() != "lo") {
+            sscanf(buffer + strlen(dev) + 2, "%llu %*d %*d %*d %*d %*d %*d %*d %llu", &rBytes, &sBytes);
+
+            receiveBytes += rBytes;
+            sendBytes += sBytes;
+        }
+
+        free(line);
+    }
+
+    fclose(fp);
+}
+
+QString Utils::networkConversion(long bytes)
+{
+    if (bytes < 1024)
+        return QString::number(bytes, 'r', 1) + " B/s";
+
+    if (bytes / 1024 < 1024)
+        return QString::number(bytes / 1024, 'r', 1) + "K/s";
+
+    if (bytes / 1024 / 1024 < 1024)
+        return QString::number(bytes / 1024 / 1024, 'r', 1) + "M/s";
+}

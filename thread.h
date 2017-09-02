@@ -40,6 +40,7 @@ signals:
     void updateMemory(QString memory);
     void updateDiskPercent(int diskPercent);
     void updateDisk(QString disk);
+    void updateNetworkSpeed(QString upload, QString download);
 };
 
 #endif // THREAD_H

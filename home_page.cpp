@@ -80,6 +80,7 @@ HomePage::HomePage(QWidget *parent)
     connect(thread, &Thread::updateMemory, this, &HomePage::updateMemory);
     connect(thread, &Thread::updateDiskPercent, this, &HomePage::updateDiskPercent);
     connect(thread, &Thread::updateDisk, this, &HomePage::updateDisk);
+    connect(thread, &Thread::updateNetworkSpeed, this, &HomePage::updateNetworkSpeed);
 }
 
 void HomePage::updateCpuPercent(int cpuPercent)
@@ -105,4 +106,10 @@ void HomePage::updateDiskPercent(int diskPercent)
 void HomePage::updateDisk(QString disk)
 {
     diskMonitor->setDiskInfo(disk);
+}
+
+void HomePage::updateNetworkSpeed(QString upload, QString download)
+{
+    uploadLabel->setText(upload);
+    downloadLabel->setText(download);
 }

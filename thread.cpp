@@ -12,6 +12,8 @@ void Thread::run()
 {
     unsigned long long currentWorkTime = 0, prevWorkTime = 0;
     unsigned long long currentTotalTime = 0, prevTotalTime = 0;
+    unsigned long long int prevRecv = 0, prevSend = 0;
+    unsigned long long int recv = 0, send = 0;
     QString memory = "";
     QString disk = "";
 
@@ -22,9 +24,12 @@ void Thread::run()
         emit updateDisk(disk);
 
         prevTotalTime = Utils::getTotalCpuTime(prevWorkTime);
+        Utils::getNetworkBandWidth(prevRecv, prevSend);
         sleep(2);
         currentTotalTime = Utils::getTotalCpuTime(currentWorkTime);
+        Utils::getNetworkBandWidth(recv, send);
 
+        emit updateNetworkSpeed("Upload: " + Utils::networkConversion(send - prevSend), "Download: " + Utils::networkConversion(recv - prevRecv));
         emit updateCpuPercent((currentWorkTime - prevWorkTime) * 100.0 / (currentTotalTime - prevTotalTime));
     }
 }
