@@ -20,12 +20,14 @@ SOURCES += \
         main_window.cpp \
     tabbar.cpp \
     utils.cpp \
-    home_page.cpp
+    home_page.cpp \
+    clear_page.cpp
 
 HEADERS += \
         main_window.h \
     tabbar.h \
     utils.h \
-    home_page.h
+    home_page.h \
+    clear_page.h
 
 RESOURCES = optimizer.qrc

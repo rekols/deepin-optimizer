@@ -9,11 +9,13 @@ MainWindow::MainWindow(QWidget *parent)
     layout = new QStackedLayout();
     tabbar = new TabBar();
     homePage = new HomePage();
+    clearPage = new ClearPage();
 
     titlebar()->setCustomWidget(tabbar, Qt::AlignVCenter, false);
     titlebar()->setSeparatorVisible(true);
 
     layout->addWidget(homePage);
+    layout->addWidget(clearPage);
 
     mainWidget->setLayout(layout);
     setCentralWidget(mainWidget);
