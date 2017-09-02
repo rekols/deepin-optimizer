@@ -1,4 +1,6 @@
-## Deepin Optimizer
+# Deepin Optimizer
+
+Deepin optimizer is Deepin Desktop Environment Optimizer.
 
 ### Build dependencies
 
