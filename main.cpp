@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
     a.setTheme("light");
 
     MainWindow w;
-    w.setMinimumSize(800, 600);
+    w.setMinimumSize(815, 615);
     //w.setWindowIcon(QIcon(":/images/360logo.svg"));
     w.show();
     w.move((QApplication::desktop()->width() - w.width()) / 2,

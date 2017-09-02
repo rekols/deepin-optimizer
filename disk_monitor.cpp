@@ -43,7 +43,7 @@ DiskMonitor::DiskMonitor(QWidget *parent)
 
     progress->setCircleColor(QColor("#F3F3F3"));
     progress->setTextColor(QColor("#303030"));
-    progress->setUsedColor(QColor("#E07F76"));
+    progress->setUsedColor(QColor("#FF9095"));
     progress->setPercentStyle(Progress::PercentStyle_Polo);
 }
 

@@ -95,10 +95,8 @@ HomePage::HomePage(QWidget *parent)
     networkLayout->addWidget(downloadLabel);
     networkLayout->addStretch();
 
-    layout->addStretch();
     layout->addWidget(monitorWidget);
     layout->addStretch();
-    layout->addSpacing(10);
     layout->addLayout(bottomLayout);
     layout->addStretch();
 
