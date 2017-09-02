@@ -46,8 +46,7 @@ QString Utils::getCpuModel()
     file.open(QIODevice::ReadOnly);
 
     QString info = file.readAll();
-    QStringList list = info.trimmed().split("\n");
-    QStringList lines = list.filter(QRegExp("^model name"));
+    QStringList lines = info.trimmed().split("\n").filter(QRegExp("^model name"));
     QStringList model = lines.first().split(":").at(1).split("@");
 
     file.close();
@@ -69,3 +68,29 @@ QString Utils::getCpuCoreCount()
     return QString::number(cout);
 }
 
+unsigned long long Utils::getTotalCpuTime(unsigned long long &workTime)
+{
+    QFile file("/proc/stat");
+    file.open(QIODevice::ReadOnly);
+    QString info = file.readAll();
+    file.close();
+
+    QStringList list = info.split("\n").filter(QRegExp("^cpu "));
+    QString line = list.first();
+    QStringList line_list = line.trimmed().split(QRegExp("\\s+"));
+
+    unsigned long long user = line_list.at(1).toLong();
+    unsigned long long nice = line_list.at(2).toLong();
+    unsigned long long system = line_list.at(3).toLong();
+    unsigned long long idle = line_list.at(4).toLong();
+    unsigned long long iowait = line_list.at(5).toLong();
+    unsigned long long irq = line_list.at(6).toLong();
+    unsigned long long softirq = line_list.at(7).toLong();
+    unsigned long long steal = line_list.at(8).toLong();
+    unsigned long long guest = line_list.at(9).toLong();
+    unsigned long long guestnice = line_list.at(10).toLong();
+
+    workTime = user + nice + system;
+
+    return user + nice + system + idle + iowait + irq + softirq + steal;
+}

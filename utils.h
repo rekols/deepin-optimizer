@@ -13,6 +13,7 @@ public:
     static QString getKernel();
     static QString getCpuModel();
     static QString getCpuCoreCount();
+    static unsigned long long getTotalCpuTime(unsigned long long &workTime);
 };
 
 #endif // UTILS_H
