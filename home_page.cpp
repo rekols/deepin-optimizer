@@ -27,7 +27,6 @@ HomePage::HomePage(QWidget *parent)
     : QWidget(parent)
 {
     layout = new QVBoxLayout(this);
-    topLayout = new QHBoxLayout();
     bottomLayout = new QHBoxLayout();
     infoLayout = new QVBoxLayout();
     networkLayout = new QVBoxLayout();
@@ -45,6 +44,7 @@ HomePage::HomePage(QWidget *parent)
     downloadLabel = new QLabel("↓ 0.0 B/s");
 
     thread = new Thread();
+    monitorWidget = new MonitorWidget();
     cpuMonitor = new CPUMonitor();
     memoryMonitor = new MemoryMonitor();
     diskMonitor = new DiskMonitor();
@@ -67,11 +67,11 @@ HomePage::HomePage(QWidget *parent)
     uploadInfo->setFont(font);
     downloadInfo->setFont(font);
 
-    topLayout->addSpacing(15);
-    topLayout->addWidget(cpuMonitor);
-    topLayout->addWidget(memoryMonitor);
-    topLayout->addWidget(diskMonitor);
-    topLayout->addSpacing(15);
+    monitorWidget->layout->addSpacing(15);
+    monitorWidget->layout->addWidget(cpuMonitor);
+    monitorWidget->layout->addWidget(memoryMonitor);
+    monitorWidget->layout->addWidget(diskMonitor);
+    monitorWidget->layout->addSpacing(15);
 
     bottomLayout->addSpacing(25);
     bottomLayout->addLayout(infoLayout);
@@ -96,7 +96,7 @@ HomePage::HomePage(QWidget *parent)
     networkLayout->addStretch();
 
     layout->addStretch();
-    layout->addLayout(topLayout);
+    layout->addWidget(monitorWidget);
     layout->addStretch();
     layout->addSpacing(20);
     layout->addLayout(bottomLayout);
