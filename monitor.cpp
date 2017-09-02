@@ -13,9 +13,6 @@ Monitor::Monitor(QWidget *parent)
     cpuLabel->setFont(font);
     memoryLabel->setFont(font);
 
-    layout->addWidget(cpuLabel);
-    layout->addWidget(memoryLabel);
-
     thread->start();
 
     connect(thread, &Thread::updateCpuPercent, this, &Monitor::updateCpuPercent);

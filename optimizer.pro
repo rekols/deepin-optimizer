@@ -23,7 +23,8 @@ SOURCES += \
     home_page.cpp \
     clear_page.cpp \
     monitor.cpp \
-    thread.cpp
+    thread.cpp \
+    widget/progress.cpp
 
 HEADERS += \
         main_window.h \
@@ -32,6 +33,7 @@ HEADERS += \
     home_page.h \
     clear_page.h \
     monitor.h \
-    thread.h
+    thread.h \
+    widget/progress.h
 
 RESOURCES = optimizer.qrc

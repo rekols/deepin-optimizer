@@ -33,9 +33,9 @@ HomePage::HomePage(QWidget *parent)
     topLayout->addSpacing(10);
     topLayout->addLayout(infoLayout);
 
-    layout->addLayout(topLayout);
-    layout->addStretch();
     layout->addWidget(monitor);
+    layout->addStretch();
+    layout->addLayout(topLayout);
     layout->addStretch();
 
     hostName->setText("HostName: " + Utils::getUserName());
