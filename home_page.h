@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QLabel>
+#include "monitor.h"
 
 class HomePage : public QWidget
 {
@@ -14,6 +15,7 @@ public:
 
 private:
     QVBoxLayout *layout;
+    Monitor *monitor;
     QLabel *systemInfo;
     QLabel *hostName;
     QLabel *platform;

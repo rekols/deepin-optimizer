@@ -5,6 +5,7 @@ HomePage::HomePage(QWidget *parent)
     : QWidget(parent)
 {
     layout = new QVBoxLayout(this);
+    monitor = new Monitor();
     systemInfo = new QLabel("System Info");
     hostName = new QLabel("Hostname: ");
     platform = new QLabel("Platform: ");
@@ -17,6 +18,7 @@ HomePage::HomePage(QWidget *parent)
     font.setPointSize(18);
     systemInfo->setFont(font);
 
+    layout->addWidget(monitor);
     layout->addStretch();
     layout->addWidget(systemInfo);
     layout->addSpacing(10);
