@@ -6,11 +6,12 @@ CPUMonitor::CPUMonitor(QWidget *parent)
     layout = new QVBoxLayout(this);
     progress = new Progress();
     QLabel *tips = new QLabel("CPU");
-    tips2 = new QLabel("0%");
+    tips2 = new QLabel("Loading");
 
     QFont font;
     font.setPointSize(20);
     tips->setFont(font);
+    font.setPointSize(15);
     tips2->setFont(font);
 
     layout->addWidget(tips, 0, Qt::AlignHCenter);
@@ -24,5 +25,9 @@ CPUMonitor::CPUMonitor(QWidget *parent)
 void CPUMonitor::setPercentValue(const int &value)
 {
     progress->setValue(value);
-    tips2->setText(QString::number(value) + "%");
+
+    if (value > 0 && value < 50)
+        tips2->setText("Normal");
+    else if (value > 50 && value < 100)
+        tips2->setText("Busy");
 }
