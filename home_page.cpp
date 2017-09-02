@@ -10,6 +10,7 @@ HomePage::HomePage(QWidget *parent)
     platform = new QLabel("Platform: ");
     distribution = new QLabel("Distribution: ");
     kernel = new QLabel("Kernel Release: ");
+    cpuModel = new QLabel("Cpu Model: ");
 
     QFont font;
     font.setPointSize(18);
@@ -22,10 +23,12 @@ HomePage::HomePage(QWidget *parent)
     layout->addWidget(platform);
     layout->addWidget(distribution);
     layout->addWidget(kernel);
+    layout->addWidget(cpuModel);
     layout->addStretch();
 
     hostName->setText("HostName: " + Utils::getUserName());
     platform->setText("Platform: " + Utils::getPlatform());
     distribution->setText("Distribution: " + Utils::getDistribution());
     kernel->setText("Kernel Release: " + Utils::getKernel());
+    cpuModel->setText("Cpu Model: " + Utils::getCpuModel());
 }

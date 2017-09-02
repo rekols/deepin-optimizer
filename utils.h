@@ -11,6 +11,7 @@ public:
     static QString getPlatform();
     static QString getDistribution();
     static QString getKernel();
+    static QString getCpuModel();
 };
 
 #endif // UTILS_H

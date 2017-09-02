@@ -19,6 +19,7 @@ private:
     QLabel *platform;
     QLabel *distribution;
     QLabel *kernel;
+    QLabel *cpuModel;
 };
 
 #endif // HOME_PAGE_H
