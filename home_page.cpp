@@ -23,9 +23,11 @@ HomePage::HomePage(QWidget *parent)
     font.setPointSize(18);
     systemInfo->setFont(font);
 
+    topLayout->addSpacing(15);
     topLayout->addWidget(cpuMonitor);
     topLayout->addWidget(memoryMonitor);
     topLayout->addWidget(diskMonitor);
+    topLayout->addSpacing(15);
 
     infoLayout->addWidget(systemInfo);
     infoLayout->addSpacing(5);
