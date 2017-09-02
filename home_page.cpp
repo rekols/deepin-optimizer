@@ -76,6 +76,7 @@ HomePage::HomePage(QWidget *parent)
     layout->addStretch();
     layout->addLayout(topLayout);
     layout->addStretch();
+    layout->addSpacing(20);
     layout->addLayout(bottomLayout);
     layout->addStretch();
 

@@ -42,9 +42,6 @@ private:
     QVBoxLayout *layout;
     Progress *progress;
     QLabel *infoLabel;
-
-protected:
-    void paintEvent(QPaintEvent *);
 };
 
 #endif // MEMORY_MONITOR_H

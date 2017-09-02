@@ -41,9 +41,6 @@ private:
     QVBoxLayout *layout;
     Progress *progress;
     QLabel *tips2;
-
-protected:
-    void paintEvent(QPaintEvent *);
 };
 
 #endif // CPU_MONITOR_H

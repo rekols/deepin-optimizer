@@ -1,5 +1,4 @@
 #include "memory_monitor.h"
-#include <QPainter>
 
 MemoryMonitor::MemoryMonitor(QWidget *parent)
     : QWidget(parent)
@@ -20,6 +19,8 @@ MemoryMonitor::MemoryMonitor(QWidget *parent)
     layout->addWidget(infoLabel, 0, Qt::AlignHCenter);
 
     progress->setPercentStyle(Progress::PercentStyle_Polo);
+    progress->setCircleColor(QColor("#F3F3F3"));
+    progress->setTextColor(QColor("#303030"));
     progress->setUsedColor("#18BD9B");
 }
 
@@ -31,14 +32,4 @@ void MemoryMonitor::setPercentValue(const int &value)
 void MemoryMonitor::setMemoryInfo(const QString &info)
 {
     infoLabel->setText(info);
-}
-
-void MemoryMonitor::paintEvent(QPaintEvent *)
-{
-    QPainter painter(this);
-    painter.setRenderHint(QPainter::Antialiasing, true);
-
-    painter.setPen(Qt::NoPen);
-    painter.setBrush(QColor("#F1F1F1"));
-    painter.drawRect(rect());
 }

@@ -1,5 +1,4 @@
 #include "cpu_monitor.h"
-#include <QPainter>
 
 CPUMonitor::CPUMonitor(QWidget *parent)
     : QWidget(parent)
@@ -19,6 +18,8 @@ CPUMonitor::CPUMonitor(QWidget *parent)
     layout->addWidget(progress, 0, Qt::AlignHCenter);
     layout->addWidget(tips2, 0, Qt::AlignHCenter);
 
+    progress->setCircleColor(QColor("#F3F3F3"));
+    progress->setTextColor(QColor("#303030"));
     progress->setPercentStyle(Progress::PercentStyle_Polo);
 
 }
@@ -31,14 +32,4 @@ void CPUMonitor::setPercentValue(const int &value)
         tips2->setText("CPU Idle");
     else if (value > 50 && value < 100)
         tips2->setText("CPU Busy");
-}
-
-void CPUMonitor::paintEvent(QPaintEvent *)
-{
-    QPainter painter(this);
-    painter.setRenderHint(QPainter::Antialiasing, true);
-
-    painter.setPen(Qt::NoPen);
-    painter.setBrush(QColor("#F1F1F1"));
-    painter.drawRect(rect());
 }
