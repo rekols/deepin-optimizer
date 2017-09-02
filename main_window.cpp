@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
     clearPage = new ClearPage();
 
     titlebar()->setCustomWidget(tabbar, Qt::AlignVCenter, false);
-    titlebar()->setSeparatorVisible(false);
+    titlebar()->setSeparatorVisible(true);
 
     layout->addWidget(homePage);
     layout->addWidget(clearPage);
