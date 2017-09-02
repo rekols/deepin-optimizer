@@ -18,3 +18,8 @@ MemoryMonitor::MemoryMonitor(QWidget *parent)
     progress->setValue(25);
     progress->setPercentStyle(Progress::PercentStyle_Polo);
 }
+
+void MemoryMonitor::setPercentValue(const int &value)
+{
+    progress->setValue(value);
+}

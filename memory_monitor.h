@@ -12,6 +12,8 @@ class MemoryMonitor : public QWidget
 public:
     explicit MemoryMonitor(QWidget *parent = nullptr);
 
+    void setPercentValue(const int &value);
+
 private:
     QVBoxLayout *layout;
     Progress *progress;

@@ -14,10 +14,15 @@ HomePage::HomePage(QWidget *parent)
     kernel = new QLabel("Kernel Release: ");
     cpuModel = new QLabel("Cpu Model: ");
     cpuCoreCount = new QLabel("Cpu Core: ");
+    cpuMonitor = new CPUMonitor();
+    memoryMonitor = new MemoryMonitor();
 
     QFont font;
     font.setPointSize(18);
     systemInfo->setFont(font);
+
+    topLayout->addWidget(cpuMonitor);
+    topLayout->addWidget(memoryMonitor);
 
     infoLayout->addWidget(systemInfo);
     infoLayout->addSpacing(5);
@@ -29,11 +34,9 @@ HomePage::HomePage(QWidget *parent)
     infoLayout->addWidget(cpuCoreCount);
     infoLayout->addStretch();
 
-    topLayout->addSpacing(10);
-    topLayout->addLayout(infoLayout);
-
     layout->addStretch();
     layout->addLayout(topLayout);
+    layout->addLayout(infoLayout);
     layout->addStretch();
 
     hostName->setText("HostName: " + Utils::getUserName());

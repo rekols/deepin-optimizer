@@ -4,6 +4,8 @@
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QLabel>
+#include "cpu_monitor.h"
+#include "memory_monitor.h"
 
 class HomePage : public QWidget
 {
@@ -23,6 +25,9 @@ private:
     QLabel *kernel;
     QLabel *cpuModel;
     QLabel *cpuCoreCount;
+
+    CPUMonitor *cpuMonitor;
+    MemoryMonitor *memoryMonitor;
 };
 
 #endif // HOME_PAGE_H
