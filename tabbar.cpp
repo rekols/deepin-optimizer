@@ -1,5 +1,4 @@
 #include "tabbar.h"
-#include <QDebug>
 
 TabBar::TabBar(QWidget *parent) : QWidget(parent)
 {
@@ -16,6 +15,6 @@ TabBar::TabBar(QWidget *parent) : QWidget(parent)
     tb->addTab("Startup");
 
     connect(tb, &QTabBar::currentChanged, this, [=]{
-        qDebug() << tb->currentIndex();
+        emit currentChanged(tb->currentIndex());
     });
 }

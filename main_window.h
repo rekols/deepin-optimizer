@@ -16,6 +16,9 @@ public:
 
 private:
     TabBar *tabbar;
+
+private slots:
+    void tabbarCurrentChanged(int current);
 };
 
 #endif // MAIN_WINDOW_H

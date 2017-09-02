@@ -14,6 +14,9 @@ public:
 private:
     QHBoxLayout *layout;
     QTabBar *tb;
+
+signals:
+    void currentChanged(int current);
 };
 
 #endif // TABBAR_H
