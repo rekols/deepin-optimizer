@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include <QHBoxLayout>
+#include <QLabel>
+#include "thread.h"
 
 class Monitor : public QWidget
 {
@@ -13,6 +15,11 @@ public:
 
 private:
     QHBoxLayout *layout;
+    Thread *thread;
+    QLabel *cpuLabel;
+
+private slots:
+    void update(QString cpuPercent);
 };
 
 #endif // MONITOR_H

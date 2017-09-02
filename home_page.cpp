@@ -18,8 +18,8 @@ HomePage::HomePage(QWidget *parent)
     font.setPointSize(18);
     systemInfo->setFont(font);
 
-    layout->addWidget(monitor);
     layout->addStretch();
+    layout->addWidget(monitor);
     layout->addWidget(systemInfo);
     layout->addSpacing(10);
     layout->addWidget(hostName);

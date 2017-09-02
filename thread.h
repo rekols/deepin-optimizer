@@ -11,6 +11,9 @@ public:
     explicit Thread(QObject *parent = nullptr);
 
     void run();
+
+signals:
+    void update(QString cpuPercent);
 };
 
 #endif // THREAD_H

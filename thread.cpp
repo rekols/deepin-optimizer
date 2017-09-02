@@ -18,6 +18,6 @@ void Thread::run()
         sleep(2);
         currentTotalTime = Utils::getTotalCpuTime(currentWorkTime);
 
-        qDebug() << (currentWorkTime - prevWorkTime) * 100.0 / (currentTotalTime - prevTotalTime);
+        emit update(QString::number((currentWorkTime - prevWorkTime) * 100.0 / (currentTotalTime - prevTotalTime), 'r', 1));
     }
 }
