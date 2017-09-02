@@ -21,7 +21,7 @@ HomePage::HomePage(QWidget *parent)
     systemInfo->setFont(font);
 
     infoLayout->addWidget(systemInfo);
-    infoLayout->addSpacing(10);
+    infoLayout->addSpacing(5);
     infoLayout->addWidget(hostName);
     infoLayout->addWidget(platform);
     infoLayout->addWidget(distribution);

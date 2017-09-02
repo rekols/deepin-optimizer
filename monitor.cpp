@@ -1,5 +1,6 @@
 #include "monitor.h"
 #include "cpu_monitor.h"
+#include "memory_monitor.h"
 
 Monitor::Monitor(QWidget *parent)
     : QWidget(parent)
@@ -9,6 +10,7 @@ Monitor::Monitor(QWidget *parent)
     cpuLabel = new QLabel("CPU 0.0%");
     memoryLabel = new QLabel("Memory 0.0%");
     CPUMonitor *cpu = new CPUMonitor();
+    MemoryMonitor *memory = new MemoryMonitor();
 
     QFont font;
     font.setPointSize(20);
@@ -16,6 +18,7 @@ Monitor::Monitor(QWidget *parent)
     memoryLabel->setFont(font);
 
     layout->addWidget(cpu);
+    layout->addWidget(memory);
 
     thread->start();
 
