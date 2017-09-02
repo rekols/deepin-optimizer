@@ -8,6 +8,7 @@ HomePage::HomePage(QWidget *parent)
     topLayout = new QHBoxLayout();
     bottomLayout = new QHBoxLayout();
     infoLayout = new QVBoxLayout();
+    networkLayout = new QVBoxLayout();
     systemInfo = new QLabel("System Info");
     hostName = new QLabel("Hostname: ");
     platform = new QLabel("Platform: ");
@@ -15,6 +16,11 @@ HomePage::HomePage(QWidget *parent)
     kernel = new QLabel("Kernel Release: ");
     cpuModel = new QLabel("Cpu Model: ");
     cpuCoreCount = new QLabel("Cpu Core: ");
+
+    networkInfo = new QLabel("Network");
+    uploadLabel = new QLabel("Upload: 0.0KB/s");
+    downloadLabel = new QLabel("DownLoad: 0.0KB/s");
+
     thread = new Thread();
     cpuMonitor = new CPUMonitor();
     memoryMonitor = new MemoryMonitor();
@@ -23,6 +29,7 @@ HomePage::HomePage(QWidget *parent)
     QFont font;
     font.setPointSize(18);
     systemInfo->setFont(font);
+    networkInfo->setFont(font);
 
     topLayout->addSpacing(15);
     topLayout->addWidget(cpuMonitor);
@@ -32,6 +39,7 @@ HomePage::HomePage(QWidget *parent)
 
     bottomLayout->addSpacing(25);
     bottomLayout->addLayout(infoLayout);
+    bottomLayout->addLayout(networkLayout);
     bottomLayout->addSpacing(25);
 
     infoLayout->addStretch();
@@ -45,9 +53,16 @@ HomePage::HomePage(QWidget *parent)
     infoLayout->addWidget(cpuCoreCount);
     infoLayout->addStretch();
 
+    networkLayout->addWidget(networkInfo);
+    networkLayout->addSpacing(5);
+    networkLayout->addWidget(uploadLabel);
+    networkLayout->addWidget(downloadLabel);
+    networkLayout->addStretch();
+
     layout->addStretch();
     layout->addLayout(topLayout);
     layout->addStretch();
+    layout->addSpacing(10);
     layout->addLayout(bottomLayout);
     layout->addStretch();
 

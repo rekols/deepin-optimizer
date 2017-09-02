@@ -21,6 +21,7 @@ private:
     QHBoxLayout *topLayout;
     QHBoxLayout *bottomLayout;
     QVBoxLayout *infoLayout;
+    QVBoxLayout *networkLayout;
     QLabel *systemInfo;
     QLabel *hostName;
     QLabel *platform;
@@ -28,6 +29,10 @@ private:
     QLabel *kernel;
     QLabel *cpuModel;
     QLabel *cpuCoreCount;
+
+    QLabel *networkInfo;
+    QLabel *uploadLabel;
+    QLabel *downloadLabel;
 
     Thread *thread;
     CPUMonitor *cpuMonitor;
