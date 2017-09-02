@@ -27,9 +27,17 @@ HomePage::HomePage(QWidget *parent)
     memoryMonitor = new MemoryMonitor();
     diskMonitor = new DiskMonitor();
 
-    systemInfo->setStyleSheet("color: #4088C6");
-    uploadInfo->setStyleSheet("color: #31A38C");
-    downloadInfo->setStyleSheet("color: #C45045");
+    systemInfo->setStyleSheet("QLabel { color: #4088C6 }");
+    uploadInfo->setStyleSheet("QLabel { color: #31A38C }");
+    downloadInfo->setStyleSheet("QLabel { color: #C45045 }");
+    hostName->setStyleSheet("QLabel { color: #505050 }");
+    platform->setStyleSheet("QLabel { color: #505050 }");
+    distribution->setStyleSheet("QLabel { color: #505050 }");
+    kernel->setStyleSheet("QLabel { color: #505050 }");
+    cpuModel->setStyleSheet("QLabel { color: #505050 }");
+    cpuCoreCount->setStyleSheet("QLabel { color: #505050 }");
+    uploadLabel->setStyleSheet("QLabel { color: #505050 }");
+    downloadLabel->setStyleSheet("QLabel { color: #505050 }");
 
     QFont font;
     font.setPointSize(18);
@@ -50,7 +58,6 @@ HomePage::HomePage(QWidget *parent)
 
     infoLayout->addStretch();
     infoLayout->addWidget(systemInfo);
-    infoLayout->addSpacing(5);
     infoLayout->addWidget(hostName);
     infoLayout->addWidget(platform);
     infoLayout->addWidget(distribution);
@@ -60,11 +67,9 @@ HomePage::HomePage(QWidget *parent)
     infoLayout->addStretch();
 
     networkLayout->addWidget(uploadInfo);
-    networkLayout->addSpacing(5);
     networkLayout->addWidget(uploadLabel);
     networkLayout->addSpacing(20);
     networkLayout->addWidget(downloadInfo);
-    networkLayout->addSpacing(5);
     networkLayout->addWidget(downloadLabel);
     networkLayout->addStretch();
 
