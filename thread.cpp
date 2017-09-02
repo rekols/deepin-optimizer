@@ -29,7 +29,7 @@ void Thread::run()
         currentTotalTime = Utils::getTotalCpuTime(currentWorkTime);
         Utils::getNetworkBandWidth(recv, send);
 
-        emit updateNetworkSpeed("Upload: " + Utils::networkConversion(send - prevSend), "Download: " + Utils::networkConversion(recv - prevRecv));
+        emit updateNetworkSpeed("↑ " + Utils::networkConversion(send - prevSend), "↓ " + Utils::networkConversion(recv - prevRecv));
         emit updateCpuPercent((currentWorkTime - prevWorkTime) * 100.0 / (currentTotalTime - prevTotalTime));
     }
 }

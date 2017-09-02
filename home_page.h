@@ -52,7 +52,8 @@ private:
     QLabel *cpuModel;
     QLabel *cpuCoreCount;
 
-    QLabel *networkInfo;
+    QLabel *uploadInfo;
+    QLabel *downloadInfo;
     QLabel *uploadLabel;
     QLabel *downloadLabel;
 

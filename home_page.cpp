@@ -17,19 +17,25 @@ HomePage::HomePage(QWidget *parent)
     cpuModel = new QLabel("Cpu Model: ");
     cpuCoreCount = new QLabel("Cpu Core: ");
 
-    networkInfo = new QLabel("Network");
-    uploadLabel = new QLabel("Upload: 0.0KB/s");
-    downloadLabel = new QLabel("DownLoad: 0.0KB/s");
+    uploadInfo = new QLabel("UpLoad");
+    downloadInfo = new QLabel("DownLoad");
+    uploadLabel = new QLabel("↑ 0.0 B/s");
+    downloadLabel = new QLabel("↓ 0.0 B/s");
 
     thread = new Thread();
     cpuMonitor = new CPUMonitor();
     memoryMonitor = new MemoryMonitor();
     diskMonitor = new DiskMonitor();
 
+    systemInfo->setStyleSheet("color: #4088C6");
+    uploadInfo->setStyleSheet("color: #31A38C");
+    downloadInfo->setStyleSheet("color: #C45045");
+
     QFont font;
     font.setPointSize(18);
     systemInfo->setFont(font);
-    networkInfo->setFont(font);
+    uploadInfo->setFont(font);
+    downloadInfo->setFont(font);
 
     topLayout->addSpacing(15);
     topLayout->addWidget(cpuMonitor);
@@ -53,9 +59,12 @@ HomePage::HomePage(QWidget *parent)
     infoLayout->addWidget(cpuCoreCount);
     infoLayout->addStretch();
 
-    networkLayout->addWidget(networkInfo);
+    networkLayout->addWidget(uploadInfo);
     networkLayout->addSpacing(5);
     networkLayout->addWidget(uploadLabel);
+    networkLayout->addSpacing(20);
+    networkLayout->addWidget(downloadInfo);
+    networkLayout->addSpacing(5);
     networkLayout->addWidget(downloadLabel);
     networkLayout->addStretch();
 
