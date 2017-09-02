@@ -2,7 +2,7 @@
 
 ### Build dependencies
 
-`sudo apt install g++ qt5-default`
+`sudo apt install g++ qt5-default libdtkcore-dev libdtkwidget-dev`
 
 ### Runtime dependencies
 
@@ -11,6 +11,8 @@
 * qt5gui
 
 * qt5core
+
+* dtk
 
 
 ## License

@@ -1,10 +1,14 @@
 #include "main_window.h"
-#include <QApplication>
+#include <DApplication>
 #include <QDesktopWidget>
+
+DWIDGET_USE_NAMESPACE
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
+    DApplication::loadDXcbPlugin();
+    DApplication a(argc, argv);
+    a.setTheme("light");
 
     MainWindow w;
     w.setMinimumSize(800, 500);
