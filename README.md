@@ -1,4 +1,4 @@
-## Linux-Optimizer
+## Deepin Optimizer
 
 ### Build dependencies
 
