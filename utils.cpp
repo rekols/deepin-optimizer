@@ -50,6 +50,22 @@ QString Utils::getCpuModel()
     QStringList lines = list.filter(QRegExp("^model name"));
     QStringList model = lines.first().split(":").at(1).split("@");
 
+    file.close();
+
     return model.first();
+}
+
+QString Utils::getCpuCoreCount()
+{
+    QFile file("/proc/cpuinfo");
+    file.open(QIODevice::ReadOnly);
+
+    QString info = file.readAll();
+    QStringList list = info.trimmed().split("\n");
+    int cout = list.filter(QRegExp("^processor")).count();
+
+    file.close();
+
+    return QString::number(cout);
 }
 

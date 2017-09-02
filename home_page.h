@@ -20,6 +20,7 @@ private:
     QLabel *distribution;
     QLabel *kernel;
     QLabel *cpuModel;
+    QLabel *cpuCoreCount;
 };
 
 #endif // HOME_PAGE_H

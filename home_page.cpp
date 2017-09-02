@@ -11,6 +11,7 @@ HomePage::HomePage(QWidget *parent)
     distribution = new QLabel("Distribution: ");
     kernel = new QLabel("Kernel Release: ");
     cpuModel = new QLabel("Cpu Model: ");
+    cpuCoreCount = new QLabel("Cpu Core: ");
 
     QFont font;
     font.setPointSize(18);
@@ -24,6 +25,7 @@ HomePage::HomePage(QWidget *parent)
     layout->addWidget(distribution);
     layout->addWidget(kernel);
     layout->addWidget(cpuModel);
+    layout->addWidget(cpuCoreCount);
     layout->addStretch();
 
     hostName->setText("HostName: " + Utils::getUserName());
@@ -31,4 +33,5 @@ HomePage::HomePage(QWidget *parent)
     distribution->setText("Distribution: " + Utils::getDistribution());
     kernel->setText("Kernel Release: " + Utils::getKernel());
     cpuModel->setText("Cpu Model: " + Utils::getCpuModel());
+    cpuCoreCount->setText("Cpu Core: " + Utils::getCpuCoreCount());
 }

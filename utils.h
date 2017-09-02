@@ -12,6 +12,7 @@ public:
     static QString getDistribution();
     static QString getKernel();
     static QString getCpuModel();
+    static QString getCpuCoreCount();
 };
 
 #endif // UTILS_H
