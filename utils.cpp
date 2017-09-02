@@ -30,3 +30,8 @@ QString Utils::getDistribution()
 {
     return QSysInfo::prettyProductName();
 }
+
+QString Utils::getKernel()
+{
+    return QSysInfo::kernelVersion();
+}

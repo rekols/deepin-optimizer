@@ -9,7 +9,7 @@ HomePage::HomePage(QWidget *parent)
     hostName = new QLabel("Hostname: ");
     platform = new QLabel("Platform: ");
     distribution = new QLabel("Distribution: ");
-    kernel = new QLabel("Kernel Release: 4.9.0-deepin10-amd64");
+    kernel = new QLabel("Kernel Release: ");
 
     QFont font;
     font.setPointSize(18);
@@ -27,4 +27,5 @@ HomePage::HomePage(QWidget *parent)
     hostName->setText("HostName: " + Utils::getUserName());
     platform->setText("Platform: " + Utils::getPlatform());
     distribution->setText("Distribution: " + Utils::getDistribution());
+    kernel->setText("Kernel Release: " + Utils::getKernel());
 }

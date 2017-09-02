@@ -10,6 +10,7 @@ public:
     static QString getUserName();
     static QString getPlatform();
     static QString getDistribution();
+    static QString getKernel();
 };
 
 #endif // UTILS_H
