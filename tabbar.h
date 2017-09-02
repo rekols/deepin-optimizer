@@ -8,6 +8,7 @@
 class TabBar : public QWidget
 {
     Q_OBJECT
+
 public:
     explicit TabBar(QWidget *parent = nullptr);
 

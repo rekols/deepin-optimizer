@@ -8,9 +8,12 @@ MainWindow::MainWindow(QWidget *parent)
     mainWidget = new QWidget();
     layout = new QStackedLayout();
     tabbar = new TabBar();
+    homePage = new HomePage();
 
     titlebar()->setCustomWidget(tabbar, Qt::AlignVCenter, false);
     titlebar()->setSeparatorVisible(true);
+
+    layout->addWidget(homePage);
 
     mainWidget->setLayout(layout);
     setCentralWidget(mainWidget);
@@ -25,5 +28,5 @@ MainWindow::~MainWindow()
 
 void MainWindow::tabbarCurrentChanged(int current)
 {
-    qDebug() << current;
+    layout->setCurrentIndex(current);
 }
