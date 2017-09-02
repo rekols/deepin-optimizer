@@ -19,6 +19,7 @@ public:
 private:
     QVBoxLayout *layout;
     QHBoxLayout *topLayout;
+    QHBoxLayout *bottomLayout;
     QVBoxLayout *infoLayout;
     QLabel *systemInfo;
     QLabel *hostName;

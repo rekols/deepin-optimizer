@@ -6,6 +6,7 @@ HomePage::HomePage(QWidget *parent)
 {
     layout = new QVBoxLayout(this);
     topLayout = new QHBoxLayout();
+    bottomLayout = new QHBoxLayout();
     infoLayout = new QVBoxLayout();
     systemInfo = new QLabel("System Info");
     hostName = new QLabel("Hostname: ");
@@ -29,6 +30,11 @@ HomePage::HomePage(QWidget *parent)
     topLayout->addWidget(diskMonitor);
     topLayout->addSpacing(15);
 
+    bottomLayout->addSpacing(25);
+    bottomLayout->addLayout(infoLayout);
+    bottomLayout->addSpacing(25);
+
+    infoLayout->addStretch();
     infoLayout->addWidget(systemInfo);
     infoLayout->addSpacing(5);
     infoLayout->addWidget(hostName);
@@ -42,7 +48,7 @@ HomePage::HomePage(QWidget *parent)
     layout->addStretch();
     layout->addLayout(topLayout);
     layout->addStretch();
-    layout->addLayout(infoLayout);
+    layout->addLayout(bottomLayout);
     layout->addStretch();
 
     hostName->setText("HostName: " + Utils::getUserName());
