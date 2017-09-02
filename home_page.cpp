@@ -98,7 +98,7 @@ HomePage::HomePage(QWidget *parent)
     layout->addStretch();
     layout->addWidget(monitorWidget);
     layout->addStretch();
-    layout->addSpacing(20);
+    layout->addSpacing(10);
     layout->addLayout(bottomLayout);
     layout->addStretch();
 
