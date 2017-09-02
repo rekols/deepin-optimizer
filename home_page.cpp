@@ -5,6 +5,8 @@ HomePage::HomePage(QWidget *parent)
     : QWidget(parent)
 {
     layout = new QVBoxLayout(this);
+    topLayout = new QHBoxLayout();
+    infoLayout = new QVBoxLayout();
     monitor = new Monitor();
     systemInfo = new QLabel("System Info");
     hostName = new QLabel("Hostname: ");
@@ -18,16 +20,22 @@ HomePage::HomePage(QWidget *parent)
     font.setPointSize(18);
     systemInfo->setFont(font);
 
+    infoLayout->addWidget(systemInfo);
+    infoLayout->addSpacing(10);
+    infoLayout->addWidget(hostName);
+    infoLayout->addWidget(platform);
+    infoLayout->addWidget(distribution);
+    infoLayout->addWidget(kernel);
+    infoLayout->addWidget(cpuModel);
+    infoLayout->addWidget(cpuCoreCount);
+    infoLayout->addStretch();
+
+    topLayout->addSpacing(10);
+    topLayout->addLayout(infoLayout);
+
+    layout->addLayout(topLayout);
     layout->addStretch();
     layout->addWidget(monitor);
-    layout->addWidget(systemInfo);
-    layout->addSpacing(10);
-    layout->addWidget(hostName);
-    layout->addWidget(platform);
-    layout->addWidget(distribution);
-    layout->addWidget(kernel);
-    layout->addWidget(cpuModel);
-    layout->addWidget(cpuCoreCount);
     layout->addStretch();
 
     hostName->setText("HostName: " + Utils::getUserName());

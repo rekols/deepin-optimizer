@@ -17,9 +17,11 @@ private:
     QHBoxLayout *layout;
     Thread *thread;
     QLabel *cpuLabel;
+    QLabel *memoryLabel;
 
 private slots:
-    void update(QString cpuPercent);
+    void updateCpuPercent(QString cpuPercent);
+    void updateMemoryPercent(QString memoryPercent);
 };
 
 #endif // MONITOR_H
