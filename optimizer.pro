@@ -17,7 +17,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        main_window.cpp
+        main_window.cpp \
+    tabbar.cpp \
+    utils.cpp
 
 HEADERS += \
-        main_window.h
+        main_window.h \
+    tabbar.h \
+    utils.h
+
+RESOURCES = optimizer.qrc
