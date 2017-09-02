@@ -7,7 +7,7 @@ HomePage::HomePage(QWidget *parent)
     layout = new QVBoxLayout(this);
     systemInfo = new QLabel("System Info");
     hostName = new QLabel("Hostname: ");
-    platform = new QLabel("Platform: linux x86_64");
+    platform = new QLabel("Platform: ");
     distribution = new QLabel("Distribution: Deepin 15.4");
     kernel = new QLabel("Kernel Release: 4.9.0-deepin10-amd64");
 
@@ -25,4 +25,5 @@ HomePage::HomePage(QWidget *parent)
     layout->addStretch();
 
     hostName->setText("HostName: " + Utils::getUserName());
+    platform->setText("Platform: " + Utils::getPlatform());
 }

@@ -18,3 +18,10 @@ QString Utils::getUserName()
 
     return name;
 }
+
+QString Utils::getPlatform()
+{
+    return QString("%1 %2")
+           .arg(QSysInfo::kernelType())
+           .arg(QSysInfo::currentCpuArchitecture());
+}
