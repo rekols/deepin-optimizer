@@ -78,6 +78,8 @@ HomePage::HomePage(QWidget *parent)
     connect(thread, &Thread::updateCpuPercent, this, &HomePage::updateCpuPercent);
     connect(thread, &Thread::updateMemoryPercent, this, &HomePage::updateMemoryPercent);
     connect(thread, &Thread::updateMemory, this, &HomePage::updateMemory);
+    connect(thread, &Thread::updateDiskPercent, this, &HomePage::updateDiskPercent);
+    connect(thread, &Thread::updateDisk, this, &HomePage::updateDisk);
 }
 
 void HomePage::updateCpuPercent(int cpuPercent)
@@ -93,4 +95,14 @@ void HomePage::updateMemoryPercent(int memoryPercent)
 void HomePage::updateMemory(QString memory)
 {
     memoryMonitor->setMemoryInfo(memory);
+}
+
+void HomePage::updateDiskPercent(int diskPercent)
+{
+    diskMonitor->setPercentValue(diskPercent);
+}
+
+void HomePage::updateDisk(QString disk)
+{
+    diskMonitor->setDiskInfo(disk);
 }

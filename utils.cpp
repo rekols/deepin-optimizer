@@ -1,7 +1,7 @@
 #include "utils.h"
 #include <QFile>
 #include <QDebug>
-#include <QStringList>
+#include <QProcess>
 
 QString Utils::getQssContent(const QString &path)
 {
@@ -113,4 +113,35 @@ int Utils::getMemoryPercent(QString &memory)
     memory = QString("%1GB / %2GB").arg(QString::number((memTotal - memAvailable) / 1024.0 / 1024.0, 'r', 1)).arg(QString::number(memTotal / 1024.0 / 1024.0, 'r', 1));
 
     return int((memTotal - memAvailable) * 100.0 / memTotal);
+}
+
+int Utils::getDiskInfo(QString &disk)
+{
+    QProcess *process = new QProcess;
+    process->start("df -Pl");
+    process->waitForFinished();
+
+    QTextStream out(process->readAllStandardOutput());
+    QStringList result = out.readAll().trimmed().split(QChar('\n'));
+    QRegExp sep("\\s+");
+    long long size = 0, used = 0, free = 0;
+
+    process->kill();
+    process->close();
+
+    for (const QString &line : result.filter(QRegExp("^/")))
+    {
+        QStringList slist = line.split(sep);
+        size = slist.at(1).toLong() << 10;
+        used = slist.at(2).toLong() << 10;
+        free = slist.at(3).toLong() << 10;
+
+        qDebug() << "size: " << size / 1024.0 / 1024.0 / 1024.0 << "GB";
+        qDebug() << "used: " << used / 1024.0 / 1024.0 / 1024.0 << "GB";
+        qDebug() << "free: " << free / 1024.0 / 1024.0 / 1024.0 << "GB";
+    }
+
+    disk = QString("%1GB / %2GB").arg(QString::number(used / 1024.0 / 1024.0 / 1024.0, 'r', 1)).arg(QString::number(size / 1024.0 / 1024.0 / 1024.0, 'r', 1));
+
+    return used * 100.0 / size;
 }

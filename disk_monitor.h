@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QVBoxLayout>
+#include <QLabel>
 #include "widget/progress.h"
 
 class DiskMonitor : public QWidget
@@ -13,10 +14,12 @@ public:
     explicit DiskMonitor(QWidget *parent = nullptr);
 
     void setPercentValue(const int &value);
+    void setDiskInfo(const QString &info);
 
 private:
     QVBoxLayout *layout;
     Progress *progress;
+    QLabel *infoLabel;
 };
 
 #endif // DISK_MONITOR_H

@@ -13,10 +13,13 @@ void Thread::run()
     unsigned long long currentWorkTime = 0, prevWorkTime = 0;
     unsigned long long currentTotalTime = 0, prevTotalTime = 0;
     QString memory = "";
+    QString disk = "";
 
     while (1) {
         emit updateMemoryPercent(Utils::getMemoryPercent(memory));
         emit updateMemory(memory);
+        emit updateDiskPercent(Utils::getDiskInfo(disk));
+        emit updateDisk(disk);
 
         prevTotalTime = Utils::getTotalCpuTime(prevWorkTime);
         sleep(2);
