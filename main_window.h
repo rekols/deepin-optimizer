@@ -2,6 +2,7 @@
 #define MAIN_WINDOW_H
 
 #include <DMainWindow>
+#include <QStackedLayout>
 #include "tabbar.h"
 
 DWIDGET_USE_NAMESPACE
@@ -15,6 +16,8 @@ public:
     ~MainWindow();
 
 private:
+    QWidget *mainWidget;
+    QStackedLayout *layout;
     TabBar *tabbar;
 
 private slots:
