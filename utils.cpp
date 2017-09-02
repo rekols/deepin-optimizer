@@ -8,3 +8,13 @@ QString Utils::getQssContent(const QString &path)
 
     return file.readAll();
 }
+
+QString Utils::getUserName()
+{
+    QString name = qgetenv("USER");
+
+    if (name.isEmpty())
+        name = qgetenv("USERNAME");
+
+    return name;
+}
