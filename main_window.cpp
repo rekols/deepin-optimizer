@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent)
     tabbar = new TabBar();
 
     titlebar()->setCustomWidget(tabbar, Qt::AlignVCenter, false);
+    titlebar()->setSeparatorVisible(true);
 }
 
 MainWindow::~MainWindow()
