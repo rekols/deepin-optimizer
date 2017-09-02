@@ -27,7 +27,7 @@ void CPUMonitor::setPercentValue(const int &value)
     progress->setValue(value);
 
     if (value > 0 && value < 50)
-        tips2->setText("Normal");
+        tips2->setText("CPU Idle");
     else if (value > 50 && value < 100)
-        tips2->setText("Busy");
+        tips2->setText("CPU Busy");
 }
