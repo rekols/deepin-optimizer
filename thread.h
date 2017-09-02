@@ -13,8 +13,8 @@ public:
     void run();
 
 signals:
-    void updateCpuPercent(QString cpuPercent);
-    void updateMemoryPercent(QString memoryPercent);
+    void updateCpuPercent(int cpuPercent);
+    void updateMemoryPercent(int memoryPercent);
 };
 
 #endif // THREAD_H

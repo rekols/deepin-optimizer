@@ -15,7 +15,6 @@ MemoryMonitor::MemoryMonitor(QWidget *parent)
     layout->addWidget(tips, 0, Qt::AlignHCenter);
     layout->addWidget(progress, 0, Qt::AlignHCenter);
 
-    progress->setValue(25);
     progress->setPercentStyle(Progress::PercentStyle_Polo);
 }
 

@@ -95,7 +95,7 @@ unsigned long long Utils::getTotalCpuTime(unsigned long long &workTime)
     return user + nice + system + idle + iowait + irq + softirq + steal;
 }
 
-QString Utils::getMemoryPercent()
+int Utils::getMemoryPercent()
 {
     QFile file("/proc/meminfo");
     file.open(QIODevice::ReadOnly);
@@ -110,5 +110,5 @@ QString Utils::getMemoryPercent()
     quint64 swapTotal = lines.at(2).split(sep).at(1).toLong();
     quint64 swapFree = lines.at(3).split(sep).at(1).toLong();
 
-    return QString::number((memTotal - memAvailable) * 100.0 / memTotal, 'r', 1);
+    return int((memTotal - memAvailable) * 100.0 / memTotal);
 }

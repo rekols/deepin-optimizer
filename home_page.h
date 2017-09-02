@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QLabel>
+#include "thread.h"
 #include "cpu_monitor.h"
 #include "memory_monitor.h"
 
@@ -26,8 +27,13 @@ private:
     QLabel *cpuModel;
     QLabel *cpuCoreCount;
 
+    Thread *thread;
     CPUMonitor *cpuMonitor;
     MemoryMonitor *memoryMonitor;
+
+private slots:
+    void updateCpuPercent(int cpuPercent);
+    void updateMemoryPercent(int memoryPercent);
 };
 
 #endif // HOME_PAGE_H

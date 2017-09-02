@@ -14,6 +14,7 @@ HomePage::HomePage(QWidget *parent)
     kernel = new QLabel("Kernel Release: ");
     cpuModel = new QLabel("Cpu Model: ");
     cpuCoreCount = new QLabel("Cpu Core: ");
+    thread = new Thread();
     cpuMonitor = new CPUMonitor();
     memoryMonitor = new MemoryMonitor();
 
@@ -45,4 +46,19 @@ HomePage::HomePage(QWidget *parent)
     kernel->setText("Kernel Release: " + Utils::getKernel());
     cpuModel->setText("Cpu Model: " + Utils::getCpuModel());
     cpuCoreCount->setText("Cpu Core: " + Utils::getCpuCoreCount());
+
+    thread->start();
+
+    connect(thread, &Thread::updateCpuPercent, this, &HomePage::updateCpuPercent);
+    connect(thread, &Thread::updateMemoryPercent, this, &HomePage::updateMemoryPercent);
+}
+
+void HomePage::updateCpuPercent(int cpuPercent)
+{
+    cpuMonitor->setPercentValue(cpuPercent);
+}
+
+void HomePage::updateMemoryPercent(int memoryPercent)
+{
+    memoryMonitor->setPercentValue(memoryPercent);
 }

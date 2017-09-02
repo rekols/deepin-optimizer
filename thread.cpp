@@ -20,6 +20,6 @@ void Thread::run()
         sleep(2);
         currentTotalTime = Utils::getTotalCpuTime(currentWorkTime);
 
-        emit updateCpuPercent(QString::number((currentWorkTime - prevWorkTime) * 100.0 / (currentTotalTime - prevTotalTime), 'r', 1));
+        emit updateCpuPercent((currentWorkTime - prevWorkTime) * 100.0 / (currentTotalTime - prevTotalTime));
     }
 }
