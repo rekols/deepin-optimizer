@@ -20,28 +20,36 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef MEMORY_MONITOR_H
-#define MEMORY_MONITOR_H
+#ifndef PROGRESS_BAR_H
+#define PROGRESS_BAR_H
 
 #include <QWidget>
-#include <QVBoxLayout>
-#include <QLabel>
-#include "widget/progress_bar.h"
 
-class MemoryMonitor : public QWidget
+class ProgressBar : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit MemoryMonitor(QWidget *parent = nullptr);
+    explicit ProgressBar(QWidget *parent = nullptr);
 
-    void setPercentValue(const int &value);
-    void setMemoryInfo(const QString &info);
+protected:
+    void paintEvent(QPaintEvent *);
 
 private:
-    QVBoxLayout *layout;
-    ProgressBar *progress;
-    QLabel *infoLabel;
+    QString title;
+    QColor color;
+
+    int maxValue;
+    int minValue;
+    int value;
+
+    int nullPosition;
+    int borderWidth;
+
+public Q_SLOTS:
+    void setValue(int percent);
+    void setTitle(QString text);
+    void setColor(QColor colour);
 };
 
-#endif // MEMORY_MONITOR_H
+#endif // PROGRESS_BAR_H

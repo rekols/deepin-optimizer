@@ -26,24 +26,18 @@ CPUMonitor::CPUMonitor(QWidget *parent)
     : QWidget(parent)
 {
     layout = new QVBoxLayout(this);
-    progress = new Progress();
-    QLabel *tips = new QLabel("CPU");
+    progress = new ProgressBar();
     tips2 = new QLabel("Loading");
 
     QFont font;
     font.setPointSize(20);
-    tips->setFont(font);
     font.setPointSize(15);
     tips2->setFont(font);
 
-    layout->addWidget(tips, 0, Qt::AlignHCenter);
     layout->addWidget(progress, 0, Qt::AlignHCenter);
     layout->addWidget(tips2, 0, Qt::AlignHCenter);
 
-    progress->setCircleColor(QColor("#F3F3F3"));
-    progress->setTextColor(QColor("#303030"));
-    progress->setUsedColor(QColor("#2CA7F8"));
-    progress->setPercentStyle(Progress::PercentStyle_Polo);
+    progress->setTitle("CPU");
 }
 
 void CPUMonitor::setPercentValue(const int &value)

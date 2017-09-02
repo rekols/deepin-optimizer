@@ -26,7 +26,7 @@
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QLabel>
-#include "widget/progress.h"
+#include "widget/progress_bar.h"
 
 class DiskMonitor : public QWidget
 {
@@ -40,7 +40,7 @@ public:
 
 private:
     QVBoxLayout *layout;
-    Progress *progress;
+    ProgressBar *progress;
     QLabel *infoLabel;
 };
 
