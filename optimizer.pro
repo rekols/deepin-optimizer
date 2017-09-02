@@ -22,7 +22,6 @@ SOURCES += \
     utils.cpp \
     home_page.cpp \
     clear_page.cpp \
-    monitor.cpp \
     thread.cpp \
     widget/progress.cpp \
     cpu_monitor.cpp \
@@ -34,7 +33,6 @@ HEADERS += \
     utils.h \
     home_page.h \
     clear_page.h \
-    monitor.h \
     thread.h \
     widget/progress.h \
     cpu_monitor.h \

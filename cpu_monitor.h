@@ -12,6 +12,8 @@ class CPUMonitor : public QWidget
 public:
     explicit CPUMonitor(QWidget *parent = nullptr);
 
+    void setPercentValue(const int &value);
+
 private:
     QVBoxLayout *layout;
     Progress *progress;

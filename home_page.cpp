@@ -7,7 +7,6 @@ HomePage::HomePage(QWidget *parent)
     layout = new QVBoxLayout(this);
     topLayout = new QHBoxLayout();
     infoLayout = new QVBoxLayout();
-    monitor = new Monitor();
     systemInfo = new QLabel("System Info");
     hostName = new QLabel("Hostname: ");
     platform = new QLabel("Platform: ");
@@ -33,7 +32,6 @@ HomePage::HomePage(QWidget *parent)
     topLayout->addSpacing(10);
     topLayout->addLayout(infoLayout);
 
-    layout->addWidget(monitor);
     layout->addStretch();
     layout->addLayout(topLayout);
     layout->addStretch();
