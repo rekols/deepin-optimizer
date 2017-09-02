@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 
     MainWindow w;
     w.setMinimumSize(800, 600);
-    w.setWindowIcon(QIcon(":/images/360logo.svg"));
+    //w.setWindowIcon(QIcon(":/images/360logo.svg"));
     w.show();
     w.move((QApplication::desktop()->width() - w.width()) / 2,
            (QApplication::desktop()->height() - w.height()) / 2);

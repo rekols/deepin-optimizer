@@ -17,7 +17,7 @@ CPUMonitor::CPUMonitor(QWidget *parent)
     layout->addWidget(progress, 0, Qt::AlignHCenter);
     layout->addWidget(tips2, 0, Qt::AlignHCenter);
 
-    progress->setPercentStyle(Progress::PercentStyle_Wave);
+    progress->setPercentStyle(Progress::PercentStyle_Polo);
 
 }
 

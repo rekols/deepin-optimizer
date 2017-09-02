@@ -18,7 +18,7 @@ DiskMonitor::DiskMonitor(QWidget *parent)
     layout->addWidget(progress, 0, Qt::AlignHCenter);
     layout->addWidget(infoLabel, 0, Qt::AlignHCenter);
 
-    progress->setPercentStyle(Progress::PercentStyle_Wave);
+    progress->setPercentStyle(Progress::PercentStyle_Polo);
     progress->setUsedColor(QColor("#F24433"));
     progress->setValue(50);
 }
