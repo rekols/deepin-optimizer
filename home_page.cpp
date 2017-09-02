@@ -36,6 +36,4 @@ HomePage::HomePage(QWidget *parent)
     kernel->setText("Kernel Release: " + Utils::getKernel());
     cpuModel->setText("Cpu Model: " + Utils::getCpuModel());
     cpuCoreCount->setText("Cpu Core: " + Utils::getCpuCoreCount());
-
-    Utils::getTotalCpuTime();
 }

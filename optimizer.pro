@@ -22,7 +22,8 @@ SOURCES += \
     utils.cpp \
     home_page.cpp \
     clear_page.cpp \
-    monitor.cpp
+    monitor.cpp \
+    thread.cpp
 
 HEADERS += \
         main_window.h \
@@ -30,6 +31,7 @@ HEADERS += \
     utils.h \
     home_page.h \
     clear_page.h \
-    monitor.h
+    monitor.h \
+    thread.h
 
 RESOURCES = optimizer.qrc
