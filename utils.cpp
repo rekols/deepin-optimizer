@@ -135,10 +135,6 @@ int Utils::getDiskInfo(QString &disk)
         size = slist.at(1).toLong() << 10;
         used = slist.at(2).toLong() << 10;
         free = slist.at(3).toLong() << 10;
-
-        qDebug() << "size: " << size / 1024.0 / 1024.0 / 1024.0 << "GB";
-        qDebug() << "used: " << used / 1024.0 / 1024.0 / 1024.0 << "GB";
-        qDebug() << "free: " << free / 1024.0 / 1024.0 / 1024.0 << "GB";
     }
 
     disk = QString("%1GB / %2GB").arg(QString::number(used / 1024.0 / 1024.0 / 1024.0, 'r', 1)).arg(QString::number(size / 1024.0 / 1024.0 / 1024.0, 'r', 1));
