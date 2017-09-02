@@ -57,7 +57,7 @@ void ProgressBar::paintEvent(QPaintEvent *)
     pen.setWidthF(5);
     pen.setColor(QColor("#F3F3F3"));
 
-    /* draw background*/
+    /* draw background */
     painter.setPen(pen);
     painter.drawArc(QRect(-radius, -radius, radius * 2, radius * 2), nullPosition * 16, -(-360) * 16);
 
