@@ -25,6 +25,7 @@
 
 #include <QWidget>
 #include <QVBoxLayout>
+#include <QLabel>
 #include "widget/progress.h"
 
 class CPUMonitor : public QWidget
@@ -39,6 +40,7 @@ public:
 private:
     QVBoxLayout *layout;
     Progress *progress;
+    QLabel *tips2;
 };
 
 #endif // CPU_MONITOR_H

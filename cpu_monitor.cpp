@@ -1,5 +1,4 @@
 #include "cpu_monitor.h"
-#include <QLabel>
 
 CPUMonitor::CPUMonitor(QWidget *parent)
     : QWidget(parent)
@@ -7,7 +6,7 @@ CPUMonitor::CPUMonitor(QWidget *parent)
     layout = new QVBoxLayout(this);
     progress = new Progress();
     QLabel *tips = new QLabel("CPU");
-    QLabel *tips2 = new QLabel("");
+    tips2 = new QLabel("0%");
 
     QFont font;
     font.setPointSize(20);
@@ -25,4 +24,5 @@ CPUMonitor::CPUMonitor(QWidget *parent)
 void CPUMonitor::setPercentValue(const int &value)
 {
     progress->setValue(value);
+    tips2->setText(QString::number(value) + "%");
 }
