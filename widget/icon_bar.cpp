@@ -5,10 +5,10 @@ IconBar::IconBar(QWidget *parent)
 {
     layout = new QVBoxLayout(this);
     icon = new QLabel();
-    title = new QLabel();
+    title = new QLabel("");
 
-    layout->addWidget(icon);
-    layout->addWidget(title);
+    layout->addWidget(icon, 0, Qt::AlignCenter);
+    layout->addWidget(title, 0, Qt::AlignCenter);
 }
 
 void IconBar::setTitle(const QString &text)
@@ -18,5 +18,5 @@ void IconBar::setTitle(const QString &text)
 
 void IconBar::setIcon(const QPixmap &pixmap)
 {
-    title->setPixmap(pixmap);
+    icon->setPixmap(pixmap);
 }

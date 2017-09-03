@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QLabel>
+#include "widget/icon_bar.h"
 
 class ScanWidget : public QWidget
 {
@@ -15,22 +16,12 @@ public:
 private:
     QVBoxLayout *layout;
     QHBoxLayout *iconLayout;
-    QHBoxLayout *labelLayout;
 
-    QLabel *packageIcon;
-    QLabel *packageLabel;
-
-    QLabel *crashIcon;
-    QLabel *crashLabel;
-
-    QLabel *logIcon;
-    QLabel *logLabel;
-
-    QLabel *cacheIcon;
-    QLabel *cacheLabel;
-
-    QLabel *trashIcon;
-    QLabel *trashLabel;
+    IconBar *packageBar;
+    IconBar *crashBar;
+    IconBar *logBar;
+    IconBar *cacheBar;
+    IconBar *trashBar;
 };
 
 #endif // SCAN_WIDGET_H

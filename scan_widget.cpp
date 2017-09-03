@@ -5,46 +5,37 @@ ScanWidget::ScanWidget(QWidget *parent)
 {
     layout = new QVBoxLayout(this);
     iconLayout = new QHBoxLayout();
-    labelLayout = new QHBoxLayout();
 
-    packageIcon = new QLabel();
-    packageLabel = new QLabel("Package Caches");
+    packageBar = new IconBar();
+    crashBar = new IconBar();
+    logBar = new IconBar();
+    cacheBar = new IconBar();
+    trashBar = new IconBar();
 
-    crashIcon = new QLabel();
-    crashLabel = new QLabel("Crash Reports");
+    packageBar->setTitle("Package Caches");
+    packageBar->setIcon(QPixmap(":/images/package.png"));
 
-    logIcon = new QLabel();
-    logLabel = new QLabel("Application Logs");
+    crashBar->setTitle("Crash Reports");
+    crashBar->setIcon(QPixmap(":/images/crash.png"));
 
-    cacheIcon = new QLabel();
-    cacheLabel = new QLabel("Application Caches");
+    logBar->setTitle("Application Logs");
+    logBar->setIcon(QPixmap(":/images/logs.png"));
 
-    trashIcon = new QLabel();
-    trashLabel = new QLabel("Trash");
+    cacheBar->setTitle("Application Caches");
+    cacheBar->setIcon(QPixmap(":/images/cache.png"));
 
-    packageIcon->setPixmap(QPixmap(":/images/package.png"));
-    crashIcon->setPixmap(QPixmap(":/images/package.png"));
-    logIcon->setPixmap(QPixmap(":/images/package.png"));
-    cacheIcon->setPixmap(QPixmap(":/images/package.png"));
-    trashIcon->setPixmap(QPixmap(":/images/package.png"));
+    trashBar->setTitle("Trash");
+    trashBar->setIcon(QPixmap(":/images/trash.png"));
 
     iconLayout->addSpacing(30);
-    iconLayout->addWidget(packageIcon);
-    iconLayout->addWidget(crashIcon);
-    iconLayout->addWidget(logIcon);
-    iconLayout->addWidget(cacheIcon);
-    iconLayout->addWidget(trashIcon);
+    iconLayout->addWidget(packageBar);
+    iconLayout->addWidget(crashBar);
+    iconLayout->addWidget(logBar);
+    iconLayout->addWidget(cacheBar);
+    iconLayout->addWidget(trashBar);
     iconLayout->addSpacing(30);
 
-    labelLayout->addSpacing(30);
-    labelLayout->addWidget(packageLabel);
-    labelLayout->addWidget(crashLabel);
-    labelLayout->addWidget(logLabel);
-    labelLayout->addWidget(cacheLabel);
-    labelLayout->addWidget(trashLabel);
-    labelLayout->addSpacing(30);
-
+    layout->addStretch();
     layout->addLayout(iconLayout);
-    layout->addLayout(labelLayout);
     layout->addStretch();
 }
