@@ -56,6 +56,7 @@ void ClearWidget::backButtonClicked()
 
 void ClearWidget::clearFinished(QString tips)
 {
-    layout->setCurrentIndex(2);
     cfinishPage->setTips(tips);
+
+    layout->setCurrentIndex(2);
 }

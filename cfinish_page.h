@@ -4,9 +4,7 @@
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QLabel>
-#include <dlinkbutton.h>
-
-DWIDGET_USE_NAMESPACE
+#include <QPushButton>
 
 class CFinishPage : public QWidget
 {
@@ -21,7 +19,7 @@ private:
     QVBoxLayout *layout;
     QLabel *tipsIcon;
     QLabel *tips;
-    DLinkButton *backButton;
+    QPushButton *backButton;
 
 signals:
     void backButtonClicked();

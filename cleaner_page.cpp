@@ -8,21 +8,26 @@ CleanerPage::CleanerPage(QWidget *parent)
     : QWidget(parent)
 {
     layout = new QVBoxLayout(this);
-    backButton = new DLinkButton("Back");
+    buttonLayout = new QHBoxLayout();
+    backButton = new QPushButton("Back");
     resultTree = new QTreeWidget();
     defaultIcon = QIcon::fromTheme("application-x-executable");
     clearButton = new QPushButton("Clear");
 
+    backButton->setFixedSize(300, 50);
+    backButton->setObjectName("BlueButton");
     clearButton->setFixedSize(300, 50);
     clearButton->setObjectName("BlueButton");
 
-    layout->addWidget(backButton, 0, Qt::AlignLeft);
     layout->addWidget(resultTree);
     layout->addSpacing(20);
-    layout->addWidget(clearButton, 0, Qt::AlignCenter);
+    layout->addLayout(buttonLayout);
     layout->addSpacing(20);
 
-    connect(backButton, &DLinkButton::clicked, this, &CleanerPage::backButtonClicked);
+    buttonLayout->addWidget(backButton);
+    buttonLayout->addWidget(clearButton);
+
+    connect(backButton, &QPushButton::clicked, this, &CleanerPage::backButtonClicked);
     connect(clearButton, &QPushButton::clicked, this, &CleanerPage::clearButtonClicked);
     connect(resultTree, &QTreeWidget::itemClicked, this, &CleanerPage::treeItemClicked);
 

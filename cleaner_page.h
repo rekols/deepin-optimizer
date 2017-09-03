@@ -3,13 +3,10 @@
 
 #include <QWidget>
 #include <QVBoxLayout>
-#include <dlinkbutton.h>
 #include <QTreeWidget>
 #include <QTreeWidgetItem>
 #include <QFileInfo>
 #include <QPushButton>
-
-DWIDGET_USE_NAMESPACE
 
 class CleanerPage : public QWidget
 {
@@ -30,7 +27,8 @@ public:
 
 private:
     QVBoxLayout *layout;
-    DLinkButton *backButton;
+    QHBoxLayout *buttonLayout;
+    QPushButton *backButton;
     QTreeWidget *resultTree;
 
     QIcon defaultIcon;
