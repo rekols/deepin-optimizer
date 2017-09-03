@@ -1,6 +1,6 @@
-# Deepin Optimizer
+# Rekols-Optimizer
 
-Deepin optimizer is Deepin Desktop Environment Optimizer.
+rekols-optimizer is Deepin Desktop Environment Optimizer.
 
 ### Build dependencies
 
