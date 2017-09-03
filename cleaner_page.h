@@ -23,12 +23,9 @@ public:
         TRASH
     };
 
-public:
     explicit CleanerPage(QWidget *parent = nullptr);
 
-    void addTreeRoot(const CleanCategories &cat, const QString &title, const QFileInfoList &infos, bool noChild = false);
-    void addTreeChild(const CleanCategories &cat, const QString &text, const quint64 &size);
-    void addTreeChild(const QString &data, const QString &text, const quint64 &size, QTreeWidgetItem *parent);
+    void start();
 
 private:
     QVBoxLayout *layout;
@@ -38,6 +35,9 @@ private:
     QIcon defaultIcon;
 
     void init();
+    void addTreeRoot(const CleanCategories &cat, const QString &title, const QFileInfoList &infos, bool noChild = false);
+    void addTreeChild(const CleanCategories &cat, const QString &text, const quint64 &size);
+    void addTreeChild(const QString &data, const QString &text, const quint64 &size, QTreeWidgetItem *parent);
 
 signals:
     void backButtonClicked();

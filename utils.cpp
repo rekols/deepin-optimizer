@@ -256,3 +256,10 @@ QString Utils::formatBytes(const quint64 &bytes)
 
 #undef formatUnit
 }
+
+QFileInfoList Utils::getAppLogs()
+{
+    QDir logs("/var/log");
+
+    return logs.entryInfoList(QDir::Files | QDir::Dirs | QDir::NoDotAndDotDot);
+}

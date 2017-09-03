@@ -21,6 +21,8 @@ CleanerPage::CleanerPage(QWidget *parent)
 
 void CleanerPage::init()
 {
+    resultTree->setColumnCount(2);
+    resultTree->setColumnWidth(0, 600);
     resultTree->setHeaderLabels({"File Name", "Size"});
 }
 
@@ -29,28 +31,29 @@ void CleanerPage::addTreeRoot(const CleanCategories &cat, const QString &title, 
     QTreeWidgetItem *root = new QTreeWidgetItem(resultTree);
     root->setData(2, 0, cat);
     root->setData(2, 1, title);
-
-    if (!infos.isEmpty())
+    if (! infos.isEmpty())
         root->setData(3, 0, infos.at(0).absoluteDir().path());
-
     root->setCheckState(0, Qt::Unchecked);
 
-    //add children
+    // add children
     quint64 totalSize = 0;
 
-    if (!noChild) {
+    if(!noChild) {
         for (const QFileInfo &i : infos) {
             QString path = i.absoluteFilePath();
             quint64 size = Utils::getFileSize(path);
 
             addTreeChild(path, i.fileName(), size, root);
+
             totalSize += size;
         }
+        root->setText(0, QString("%1 (%2)").arg(title).arg(infos.count()));
     } else {
-        if (!infos.isEmpty());
+        if (! infos.isEmpty())
             totalSize += Utils::getFileSize(infos.first().absoluteFilePath());
 
-        root->setText(0, QString("%1").arg(title));
+        root->setText(0, QString("%1")
+                      .arg(title));
     }
 
     root->setText(1, QString("%1").arg(Utils::formatBytes(totalSize)));
@@ -73,4 +76,12 @@ void CleanerPage::addTreeChild(const CleanCategories &cat, const QString &text, 
     item->setText(1, Utils::formatBytes(size));
     item->setData(2, 0, cat);
     item->setCheckState(0, Qt::Unchecked);
+}
+
+void CleanerPage::start()
+{
+    resultTree->clear();
+
+    // Application logs
+    addTreeRoot(APPLICATION_LOGS, "Application logs", Utils::getAppLogs());
 }

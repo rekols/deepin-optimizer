@@ -24,6 +24,7 @@
 #define UTILS_H
 
 #include <QObject>
+#include <QFileInfo>
 
 class Utils
 {
@@ -43,6 +44,8 @@ public:
 
     static quint64 getFileSize(const QString &path);
     static QString formatBytes(const quint64 &bytes);
+
+    static QFileInfoList getAppLogs();
 
 private:
     static const quint64 KIBI = 1L << 10;

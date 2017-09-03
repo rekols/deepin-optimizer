@@ -34,6 +34,8 @@ ClearWidget::ClearWidget(QWidget *parent)
 
     connect(scanPage, &ScanPage::scanButtonClicked, this, [=]{
         layout->setCurrentIndex(1);
+
+        cleanerPage->start();
     });
 
     connect(cleanerPage, &CleanerPage::backButtonClicked, this, [=]{
