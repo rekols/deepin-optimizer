@@ -54,7 +54,7 @@ void ProgressBar::paintEvent(QPaintEvent *)
     painter.scale(side / 200.0, side / 200.0);
 
     QPen pen;
-    pen.setWidthF(5);
+    pen.setWidthF(borderWidth);
     pen.setColor(QColor("#F3F3F3"));
 
     /* draw background */
