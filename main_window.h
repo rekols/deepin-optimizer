@@ -25,7 +25,7 @@
 
 #include <DMainWindow>
 #include <QStackedLayout>
-#include "tabbar.h"
+#include "widget/tabbar.h"
 #include "home_widget.h"
 #include "clear_widget.h"
 

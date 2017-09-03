@@ -18,36 +18,36 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         main_window.cpp \
-    tabbar.cpp \
-    utils.cpp \
-    thread.cpp \
-    cpu_monitor.cpp \
-    memory_monitor.cpp \
-    disk_monitor.cpp \
-    monitor_widget.cpp \
-    widget/progress_bar.cpp \
-    widget/icon_bar.cpp \
-    home_widget.cpp \
-    scan_page.cpp \
-    clear_widget.cpp \
-    cleaner_page.cpp \
-    cfinish_page.cpp
+        widget/tabbar.cpp \
+        utils.cpp \
+        thread.cpp \
+        home_page/cpu_monitor.cpp \
+        home_page/memory_monitor.cpp \
+        home_page/disk_monitor.cpp \
+        home_page/monitor_widget.cpp \
+        widget/progress_bar.cpp \
+        widget/icon_bar.cpp \
+        home_widget.cpp \
+        clear_page/scan_page.cpp \
+        clear_widget.cpp \
+        clear_page/cleaner_page.cpp \
+        clear_page/cfinish_page.cpp
 
 HEADERS += \
         main_window.h \
-    tabbar.h \
-    utils.h \
-    thread.h \
-    cpu_monitor.h \
-    memory_monitor.h \
-    disk_monitor.h \
-    monitor_widget.h \
-    widget/progress_bar.h \
-    widget/icon_bar.h \
-    home_widget.h \
-    scan_page.h \
-    clear_widget.h \
-    cleaner_page.h \
-    cfinish_page.h
+        widget/tabbar.h \
+        utils.h \
+        thread.h \
+        home_page/cpu_monitor.h \
+        home_page/memory_monitor.h \
+        home_page/disk_monitor.h \
+        home_page/monitor_widget.h \
+        widget/progress_bar.h \
+        widget/icon_bar.h \
+        home_widget.h \
+        clear_page/scan_page.h \
+        clear_widget.h \
+        clear_page/cleaner_page.h \
+        clear_page/cfinish_page.h
 
 RESOURCES = optimizer.qrc

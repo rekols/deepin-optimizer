@@ -25,9 +25,9 @@
 
 #include <QWidget>
 #include <QStackedLayout>
-#include "scan_page.h"
-#include "cleaner_page.h"
-#include "cfinish_page.h"
+#include "clear_page/scan_page.h"
+#include "clear_page/cleaner_page.h"
+#include "clear_page/cfinish_page.h"
 
 class ClearWidget : public QWidget
 {
