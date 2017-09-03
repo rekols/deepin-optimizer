@@ -211,7 +211,7 @@ QString Utils::networkConversion(long bytes)
         return QString::number(bytes / 1024 / 1024, 'r', 1) + "M/s";
 }
 
-uint64 Utils::getFileSize(const QString &path)
+quint64 Utils::getFileSize(const QString &path)
 {
     quint64 totalSize = 0;
 
@@ -230,4 +230,29 @@ uint64 Utils::getFileSize(const QString &path)
     }
 
     return totalSize;
+}
+
+QString Utils::formatBytes(const quint64 &bytes)
+{
+#define formatUnit(v, u, t) QString().sprintf("%.1f %s", \
+    ((double) v / (double) u), t)
+
+    if (bytes == 1L) // bytes
+        return QString("%1 byte").arg(bytes);
+    else if (bytes < KIBI) // bytes
+      return QString("%1 bytes").arg(bytes);
+    else if (bytes < MEBI) // KiB
+      return formatUnit(bytes, KIBI, "KiB");
+    else if (bytes < GIBI) // MiB
+      return formatUnit(bytes, MEBI, "MiB");
+    else if (bytes < TEBI) // GiB
+      return formatUnit(bytes, GIBI, "GiB");
+    else if (bytes < PEBI) // TiB
+      return formatUnit(bytes, TEBI, "TiB");
+    else if (bytes < EXBI) // PiB
+      return formatUnit(bytes, PEBI, "PiB");
+    else                   // EiB
+      return formatUnit(bytes, EXBI, "EiB");
+
+#undef formatUnit
 }

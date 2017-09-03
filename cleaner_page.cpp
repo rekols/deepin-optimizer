@@ -53,7 +53,7 @@ void CleanerPage::addTreeRoot(const CleanCategories &cat, const QString &title, 
         root->setText(0, QString("%1").arg(title));
     }
 
-    //root->setText(1, QString("%1").arg(FormatUtil::formatBytes(totalSize)));
+    root->setText(1, QString("%1").arg(Utils::formatBytes(totalSize)));
 }
 
 void CleanerPage::addTreeChild(const QString &data, const QString &text, const quint64 &size, QTreeWidgetItem *parent)
@@ -61,7 +61,7 @@ void CleanerPage::addTreeChild(const QString &data, const QString &text, const q
     QTreeWidgetItem *item = new QTreeWidgetItem(parent);
     item->setIcon(0, QIcon::fromTheme(text, defaultIcon));
     item->setText(0, text);
-    //item->setText(1, FormatUtil::formatBytes(size));
+    item->setText(1, Utils::formatBytes(size));
     item->setData(2, 0, data);
     item->setCheckState(0, Qt::Unchecked);
 }
@@ -70,7 +70,7 @@ void CleanerPage::addTreeChild(const CleanCategories &cat, const QString &text, 
 {
     QTreeWidgetItem *item = new QTreeWidgetItem(resultTree);
     item->setText(0, text);
-    //item->setText(1, FormatUtil::formatBytes(size));
+    item->setText(1, Utils::formatBytes(size));
     item->setData(2, 0, cat);
     item->setCheckState(0, Qt::Unchecked);
 }

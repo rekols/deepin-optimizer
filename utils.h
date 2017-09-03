@@ -42,6 +42,15 @@ public:
     static QString networkConversion(long bytes);
 
     static quint64 getFileSize(const QString &path);
+    static QString formatBytes(const quint64 &bytes);
+
+private:
+    static const quint64 KIBI = 1L << 10;
+    static const quint64 MEBI = 1L << 20;
+    static const quint64 GIBI = 1L << 30;
+    static const quint64 TEBI = 1L << 40;
+    static const quint64 PEBI = 1L << 50;
+    static const quint64 EXBI = 1L << 60;
 };
 
 #endif // UTILS_H
