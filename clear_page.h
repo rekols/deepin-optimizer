@@ -24,7 +24,8 @@
 #define CLEAR_PAGE_H
 
 #include <QWidget>
-#include <QVBoxLayout>
+#include <QStackedLayout>
+#include "scan_widget.h"
 
 class ClearPage : public QWidget
 {
@@ -34,7 +35,8 @@ public:
     explicit ClearPage(QWidget *parent = nullptr);
 
 private:
-    QVBoxLayout *layout;
+    QStackedLayout *layout;
+    ScanWidget *scanWidget;
 };
 
 #endif // CLEAR_PAGE_H

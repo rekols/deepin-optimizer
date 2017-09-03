@@ -39,7 +39,6 @@ TabBar::TabBar(QWidget *parent) : QWidget(parent)
 
     tb->addTab("Home");
     tb->addTab("Clear");
-    tb->addTab("Startup");
 
     connect(tb, &QTabBar::currentChanged, this, [=]{
         emit currentChanged(tb->currentIndex());
