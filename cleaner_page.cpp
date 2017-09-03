@@ -84,4 +84,6 @@ void CleanerPage::start()
 
     // Application logs
     addTreeRoot(APPLICATION_LOGS, "Application Logs", Utils::getAppLogs());
+    // Application cache
+    addTreeRoot(APPLICATION_CACHES, "Application Caches", Utils::getAppCaches());
 }
