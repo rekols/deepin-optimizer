@@ -5,6 +5,8 @@
 #include <QVBoxLayout>
 #include <dlinkbutton.h>
 #include <QTreeWidget>
+#include <QTreeWidgetItem>
+#include <QFileInfo>
 
 DWIDGET_USE_NAMESPACE
 
@@ -13,12 +15,27 @@ class CleanerPage : public QWidget
     Q_OBJECT
 
 public:
+    enum CleanCategories {
+        PACKAGE_CACHE,
+        CRASH_REPORTS,
+        APPLICATION_LOGS,
+        APPLICATION_CACHES,
+        TRASH
+    };
+
+public:
     explicit CleanerPage(QWidget *parent = nullptr);
+
+    void addTreeRoot(const CleanCategories &cat, const QString &title, const QFileInfoList &infos, bool noChild = false);
+    void addTreeChild(const CleanCategories &cat, const QString &text, const quint64 &size);
+    void addTreeChild(const QString &data, const QString &text, const quint64 &size, QTreeWidgetItem *parent);
 
 private:
     QVBoxLayout *layout;
     DLinkButton *backButton;
     QTreeWidget *resultTree;
+
+    QIcon defaultIcon;
 
     void init();
 
