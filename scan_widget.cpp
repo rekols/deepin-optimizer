@@ -22,6 +22,12 @@ ScanWidget::ScanWidget(QWidget *parent)
     trashIcon = new QLabel();
     trashLabel = new QLabel("Trash");
 
+    packageIcon->setPixmap(QPixmap(":/images/package.png"));
+    crashIcon->setPixmap(QPixmap(":/images/package.png"));
+    logIcon->setPixmap(QPixmap(":/images/package.png"));
+    cacheIcon->setPixmap(QPixmap(":/images/package.png"));
+    trashIcon->setPixmap(QPixmap(":/images/package.png"));
+
     iconLayout->addStretch();
     iconLayout->addWidget(packageIcon);
     iconLayout->addWidget(crashIcon);
