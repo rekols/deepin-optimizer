@@ -13,6 +13,7 @@ ScanWidget::ScanWidget(QWidget *parent)
     scanButton = new QPushButton("Scan Now");
 
     scanButton->setFixedSize(300, 50);
+    scanButton->setObjectName("BlueButton");
 
     packageBar->setTitle("Package Caches");
     packageBar->setIcon(QPixmap(":/images/package.png"));
