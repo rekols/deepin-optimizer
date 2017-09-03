@@ -258,6 +258,13 @@ QString Utils::formatBytes(const quint64 &bytes)
 #undef formatUnit
 }
 
+QFileInfoList Utils::getCrashReports()
+{
+    QDir reports("/var/crash");
+
+    return reports.entryInfoList(QDir::Files);
+}
+
 QFileInfoList Utils::getAppLogs()
 {
     QDir logs("/var/log");

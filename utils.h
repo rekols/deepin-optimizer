@@ -45,6 +45,7 @@ public:
     static quint64 getFileSize(const QString &path);
     static QString formatBytes(const quint64 &bytes);
 
+    static QFileInfoList getCrashReports();
     static QFileInfoList getAppLogs();
     static QFileInfoList getAppCaches();
     static QString getHomePath();
