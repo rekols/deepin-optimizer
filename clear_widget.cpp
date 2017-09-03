@@ -29,22 +29,26 @@ ClearWidget::ClearWidget(QWidget *parent)
     scanPage = new ScanPage();
     cleanerPage = new CleanerPage();
     cfinishPage = new CFinishPage();
+    loadPage = new LoadPage();
 
     layout->addWidget(scanPage);
     layout->addWidget(cleanerPage);
     layout->addWidget(cfinishPage);
+    layout->addWidget(loadPage);
 
     connect(scanPage, &ScanPage::scanButtonClicked, this, &ClearWidget::scanButtonClicked);
     connect(cleanerPage, &CleanerPage::backButtonClicked, this, &ClearWidget::backButtonClicked);
     connect(cfinishPage, &CFinishPage::backButtonClicked, this, &ClearWidget::backButtonClicked);
     connect(cleanerPage, &CleanerPage::clearFinished, this, &ClearWidget::clearFinished);
+    connect(cleanerPage, &CleanerPage::scanFinished, this, &ClearWidget::scanFinished);
 
     layout->setCurrentIndex(0);
 }
 
 void ClearWidget::scanButtonClicked()
 {
-    layout->setCurrentIndex(1);
+    layout->setCurrentIndex(3);
+    loadPage->play();
 
     cleanerPage->start();
 }
@@ -59,4 +63,9 @@ void ClearWidget::clearFinished(QString tips)
     cfinishPage->setTips(tips);
 
     layout->setCurrentIndex(2);
+}
+
+void ClearWidget::scanFinished()
+{
+    layout->setCurrentIndex(1);
 }

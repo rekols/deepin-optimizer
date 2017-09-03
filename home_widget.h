@@ -27,10 +27,10 @@
 #include <QVBoxLayout>
 #include <QLabel>
 #include "thread.h"
-#include "home_page/cpu_monitor.h"
-#include "home_page/memory_monitor.h"
-#include "home_page/disk_monitor.h"
-#include "home_page/monitor_widget.h"
+#include "HomePage/cpu_monitor.h"
+#include "HomePage/memory_monitor.h"
+#include "HomePage/disk_monitor.h"
+#include "HomePage/monitor_widget.h"
 
 class HomeWidget : public QWidget
 {

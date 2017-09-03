@@ -4,7 +4,7 @@
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QLabel>
-#include "widget/icon_bar.h"
+#include "Widget/icon_bar.h"
 #include <QPushButton>
 
 class ScanPage : public QWidget

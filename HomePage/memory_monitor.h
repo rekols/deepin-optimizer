@@ -20,23 +20,23 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef DISK_MONITOR_H
-#define DISK_MONITOR_H
+#ifndef MEMORY_MONITOR_H
+#define MEMORY_MONITOR_H
 
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QLabel>
-#include "widget/progress_bar.h"
+#include "Widget/progress_bar.h"
 
-class DiskMonitor : public QWidget
+class MemoryMonitor : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit DiskMonitor(QWidget *parent = nullptr);
+    explicit MemoryMonitor(QWidget *parent = nullptr);
 
     void setPercentValue(const int &value);
-    void setDiskInfo(const QString &info);
+    void setMemoryInfo(const QString &info);
 
 private:
     QVBoxLayout *layout;
@@ -44,4 +44,4 @@ private:
     QLabel *infoLabel;
 };
 
-#endif // DISK_MONITOR_H
+#endif // MEMORY_MONITOR_H

@@ -25,9 +25,10 @@
 
 #include <QWidget>
 #include <QStackedLayout>
-#include "clear_page/scan_page.h"
-#include "clear_page/cleaner_page.h"
-#include "clear_page/cfinish_page.h"
+#include "ClearPage//scan_page.h"
+#include "ClearPage/cleaner_page.h"
+#include "ClearPage/cfinish_page.h"
+#include "Widget/load_page.h"
 
 class ClearWidget : public QWidget
 {
@@ -41,11 +42,13 @@ private:
     ScanPage *scanPage;
     CleanerPage *cleanerPage;
     CFinishPage *cfinishPage;
+    LoadPage *loadPage;
 
 private slots:
     void scanButtonClicked();
     void backButtonClicked();
     void clearFinished(QString tips);
+    void scanFinished();
 };
 
 #endif // CLEAR_PAGE_H

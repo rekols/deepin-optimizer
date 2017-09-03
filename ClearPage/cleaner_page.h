@@ -69,6 +69,7 @@ private slots:
 signals:
     void backButtonClicked();
     void clearFinished(QString info);
+    void scanFinished();
 };
 
 #endif // CLEANER_PAGE_H

@@ -243,9 +243,13 @@ void CleanerPage::systemScan()
     addTreeRoot(TRASH, "Trash", { QFileInfo(QString("%1/.local/share/Trash/").arg(Utils::getHomePath())) }, true);
 
     resultTree->update();
+
+    emit scanFinished();
 }
 
 void CleanerPage::start()
 {
+    resultTree->clear();
+
     QtConcurrent::run(this, &CleanerPage::systemScan);
 }
