@@ -227,6 +227,7 @@ void CleanerPage::start()
     resultTree->clear();
 
     // Package Caches
+    addTreeRoot(PACKAGE_CACHE, "Package Caches", Utils::getDpkgPackages());
 
     // Crash Reports
     addTreeRoot(CRASH_REPORTS, "Crash Reports", Utils::getCrashReports());

@@ -258,6 +258,13 @@ QString Utils::formatBytes(const quint64 &bytes)
 #undef formatUnit
 }
 
+QFileInfoList Utils::getDpkgPackages()
+{
+    QDir reports("/var/cache/apt/archives");
+
+    return reports.entryInfoList(QDir::Files);
+}
+
 QFileInfoList Utils::getCrashReports()
 {
     QDir reports("/var/crash");
