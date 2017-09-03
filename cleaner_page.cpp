@@ -1,6 +1,7 @@
 #include "cleaner_page.h"
 #include <QDebug>
 #include <QDir>
+#include "utils.h"
 
 CleanerPage::CleanerPage(QWidget *parent)
     : QWidget(parent)
@@ -40,20 +41,18 @@ void CleanerPage::addTreeRoot(const CleanCategories &cat, const QString &title, 
     if (!noChild) {
         for (const QFileInfo &i : infos) {
             QString path = i.absoluteFilePath();
-            quint64 size = 4444;
-            //size = FileUtil::getFileSize(path);
+            quint64 size = Utils::getFileSize(path);
 
-            //addTreeChild(path, i.fileName(), size, root);
+            addTreeChild(path, i.fileName(), size, root);
             totalSize += size;
         }
     } else {
         if (!infos.isEmpty());
-            //totalSize += FileUtil::getFileSize(infos.first().absoluteFilePath());
+            totalSize += Utils::getFileSize(infos.first().absoluteFilePath());
 
         root->setText(0, QString("%1").arg(title));
     }
 
-    //root->setText(1, QString(%1).arg());
     //root->setText(1, QString("%1").arg(FormatUtil::formatBytes(totalSize)));
 }
 

@@ -40,6 +40,8 @@ public:
     static int getDiskInfo(QString &disk);
     static void getNetworkBandWidth(unsigned long long int &receiveBytes, unsigned long long int &sendBytes);
     static QString networkConversion(long bytes);
+
+    static quint64 getFileSize(const QString &path);
 };
 
 #endif // UTILS_H

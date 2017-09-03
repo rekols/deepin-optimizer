@@ -24,6 +24,8 @@
 #include <QFile>
 #include <QDebug>
 #include <QProcess>
+#include <QFileInfo>
+#include <QDir>
 
 QString Utils::getQssContent(const QString &path)
 {
@@ -207,4 +209,25 @@ QString Utils::networkConversion(long bytes)
 
     if (bytes / 1024 / 1024 < 1024)
         return QString::number(bytes / 1024 / 1024, 'r', 1) + "M/s";
+}
+
+uint64 Utils::getFileSize(const QString &path)
+{
+    quint64 totalSize = 0;
+
+    QFileInfo info(path);
+
+    if (info.exists()) {
+        if (info.isFile()) {
+            totalSize += info.size();
+        }else if (info.isDir()) {
+            QDir dir(path);
+
+            for (const QFileInfo &i : dir.entryInfoList(QDir::NoDotAndDotDot | QDir::Files | QDir::Dirs)) {
+                totalSize += getFileSize(i.absoluteFilePath());
+            }
+        }
+    }
+
+    return totalSize;
 }
