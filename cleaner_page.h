@@ -46,6 +46,7 @@ private:
 
 signals:
     void backButtonClicked();
+    void clearFinished(QString info);
 };
 
 #endif // CLEANER_PAGE_H

@@ -1,3 +1,22 @@
+QTreeWidget{
+    padding:0px;
+}
+QHeaderView::section {
+    background-color: #EFEFEF;
+    border: 1px solid #EDEDED;
+    height: 35px;
+}
+QTreeWidget::item {
+    height: 30px;
+    margin: 0px;
+    padding: 0px;
+}
+QTreeWidget::item:selected {
+    show-decoration-selected:1;
+    selection-background-color: #2ca7f8;
+    color: #FFFFFF;
+}
+
 #BlueButton {
     color: #2ca7f8;
     border: 1px solid #2ca7f8;

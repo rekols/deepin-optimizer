@@ -27,6 +27,7 @@
 #include <QStackedLayout>
 #include "scan_page.h"
 #include "cleaner_page.h"
+#include "cfinish_page.h"
 
 class ClearWidget : public QWidget
 {
@@ -39,6 +40,12 @@ private:
     QStackedLayout *layout;
     ScanPage *scanPage;
     CleanerPage *cleanerPage;
+    CFinishPage *cfinishPage;
+
+private slots:
+    void scanButtonClicked();
+    void backButtonClicked();
+    void clearFinished(QString tips);
 };
 
 #endif // CLEAR_PAGE_H

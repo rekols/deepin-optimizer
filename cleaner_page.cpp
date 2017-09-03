@@ -62,8 +62,7 @@ void CleanerPage::addTreeRoot(const CleanCategories &cat, const QString &title, 
         if (! infos.isEmpty())
             totalSize += Utils::getFileSize(infos.first().absoluteFilePath());
 
-        root->setText(0, QString("%1")
-                      .arg(title));
+        root->setText(0, QString("%1").arg(title));
     }
 
     root->setText(1, QString("%1").arg(Utils::formatBytes(totalSize)));
@@ -179,14 +178,7 @@ void CleanerPage::clearButtonClicked()
                         .arg(Utils::formatBytes(Utils::getFileSize(it->data(3, 0).toString()))));
         }
 
-        /*
-        ui->removedTotalSizeLbl->setText(tr("%1 size files cleaned.")
-                                         .arg(FormatUtil::formatBytes(totalCleanedSize)));
-
-        ui->cleanBtn->show();
-        ui->loading_2->hide();
-        ui->scanResultTreeW->setEnabled(true);
-        */
+        emit clearFinished(QString("%1 size files cleaned.").arg(Utils::formatBytes(totalCleanedSize)));
         resultTree->setEnabled(true);
     }
 }

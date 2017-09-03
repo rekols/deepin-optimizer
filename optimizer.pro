@@ -30,7 +30,8 @@ SOURCES += \
     home_widget.cpp \
     scan_page.cpp \
     clear_widget.cpp \
-    cleaner_page.cpp
+    cleaner_page.cpp \
+    cfinish_page.cpp
 
 HEADERS += \
         main_window.h \
@@ -46,6 +47,7 @@ HEADERS += \
     home_widget.h \
     scan_page.h \
     clear_widget.h \
-    cleaner_page.h
+    cleaner_page.h \
+    cfinish_page.h
 
 RESOURCES = optimizer.qrc
