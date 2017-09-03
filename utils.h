@@ -47,6 +47,7 @@ public:
 
     static QFileInfoList getAppLogs();
     static QFileInfoList getAppCaches();
+    static QString getHomePath();
 
 private:
     static const quint64 KIBI = 1L << 10;

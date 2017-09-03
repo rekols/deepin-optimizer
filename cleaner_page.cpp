@@ -86,4 +86,6 @@ void CleanerPage::start()
     addTreeRoot(APPLICATION_LOGS, "Application Logs", Utils::getAppLogs());
     // Application cache
     addTreeRoot(APPLICATION_CACHES, "Application Caches", Utils::getAppCaches());
+    // Trash
+    addTreeRoot(TRASH, "Trash", { QFileInfo(QString("%1/.local/share/Trash/").arg(Utils::getHomePath())) }, true);
 }
