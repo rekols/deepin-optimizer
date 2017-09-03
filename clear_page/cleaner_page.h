@@ -56,6 +56,7 @@ private:
     QIcon defaultIcon;
     QPushButton *clearButton;
 
+private slots:
     void init();
     void addTreeRoot(const CleanCategories &cat, const QString &title, const QFileInfoList &infos, bool noChild = false);
     void addTreeChild(const CleanCategories &cat, const QString &text, const quint64 &size);
@@ -63,6 +64,7 @@ private:
     bool cleanValid();
     void clearButtonClicked();
     void treeItemClicked(QTreeWidgetItem *item, const int &column);
+    void systemScan();
 
 signals:
     void backButtonClicked();

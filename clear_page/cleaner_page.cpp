@@ -24,6 +24,7 @@
 #include <QDebug>
 #include <QDir>
 #include <QThread>
+#include <QtConcurrent>
 #include "utils.h"
 
 CleanerPage::CleanerPage(QWidget *parent)
@@ -222,7 +223,7 @@ void CleanerPage::treeItemClicked(QTreeWidgetItem *item, const int &column)
     }
 }
 
-void CleanerPage::start()
+void CleanerPage::systemScan()
 {
     resultTree->clear();
 
@@ -240,4 +241,11 @@ void CleanerPage::start()
 
     // Trash
     addTreeRoot(TRASH, "Trash", { QFileInfo(QString("%1/.local/share/Trash/").arg(Utils::getHomePath())) }, true);
+
+    resultTree->update();
+}
+
+void CleanerPage::start()
+{
+    QtConcurrent::run(this, &CleanerPage::systemScan);
 }

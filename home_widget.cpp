@@ -30,9 +30,9 @@ HomeWidget::HomeWidget(QWidget *parent)
     bottomLayout = new QHBoxLayout();
     infoLayout = new QVBoxLayout();
     networkLayout = new QVBoxLayout();
-    systemInfo = new QLabel("SYSTEM INFO");
-    hostName = new QLabel("Hostname: ");
-    platform = new QLabel("Platform: ");
+    systemInfo = new QLabel(tr("SYSTEM INFO"));
+    hostName = new QLabel(tr("Hostname: "));
+    platform = new QLabel(tr("Platform: "));
     distribution = new QLabel("Distribution: ");
     kernel = new QLabel("Kernel Release: ");
     cpuModel = new QLabel("Cpu Model: ");

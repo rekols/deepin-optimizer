@@ -30,8 +30,14 @@ DWIDGET_USE_NAMESPACE
 int main(int argc, char *argv[])
 {
     DApplication::loadDXcbPlugin();
+
     DApplication a(argc, argv);
     a.setTheme("light");
+    a.setOrganizationName("deepin");
+    a.setApplicationName("optimizer");
+    a.setApplicationVersion("0.1");
+
+    a.loadTranslator();
 
     MainWindow w;
     w.setMinimumSize(800, 550);
