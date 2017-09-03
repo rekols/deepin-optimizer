@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QVBoxLayout>
 #include <dlinkbutton.h>
+#include <QTreeWidget>
 
 DWIDGET_USE_NAMESPACE
 
@@ -17,6 +18,9 @@ public:
 private:
     QVBoxLayout *layout;
     DLinkButton *backButton;
+    QTreeWidget *resultTree;
+
+    void init();
 
 signals:
     void backButtonClicked();
