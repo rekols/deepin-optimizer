@@ -26,7 +26,17 @@ ClearWidget::ClearWidget(QWidget *parent)
     : QWidget(parent)
 {
     layout = new QStackedLayout(this);
-    scanWidget = new ScanPage();
+    scanPage = new ScanPage();
+    cleanerPage = new CleanerPage();
 
-    layout->addWidget(scanWidget);
+    layout->addWidget(scanPage);
+    layout->addWidget(cleanerPage);
+
+    connect(scanPage, &ScanPage::scanButtonClicked, this, [=]{
+        layout->setCurrentIndex(1);
+    });
+
+    connect(cleanerPage, &CleanerPage::backButtonClicked, this, [=]{
+        layout->setCurrentIndex(0);
+    });
 }

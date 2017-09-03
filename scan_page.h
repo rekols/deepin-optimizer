@@ -25,6 +25,9 @@ private:
     IconBar *trashBar;
 
     QPushButton *scanButton;
+
+signals:
+    void scanButtonClicked();
 };
 
 #endif // SCAN_WIDGET_H

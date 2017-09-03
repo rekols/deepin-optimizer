@@ -29,7 +29,8 @@ SOURCES += \
     widget/icon_bar.cpp \
     home_widget.cpp \
     scan_page.cpp \
-    clear_widget.cpp
+    clear_widget.cpp \
+    cleaner_page.cpp
 
 HEADERS += \
         main_window.h \
@@ -44,6 +45,7 @@ HEADERS += \
     widget/icon_bar.h \
     home_widget.h \
     scan_page.h \
-    clear_widget.h
+    clear_widget.h \
+    cleaner_page.h
 
 RESOURCES = optimizer.qrc

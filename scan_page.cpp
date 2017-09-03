@@ -39,4 +39,6 @@ ScanPage::ScanPage(QWidget *parent)
     layout->addStretch();
     layout->addWidget(scanButton, 0, Qt::AlignCenter);
     layout->addStretch();
+
+    connect(scanButton, &QPushButton::clicked, this, &ScanPage::scanButtonClicked);
 }

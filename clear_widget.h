@@ -26,6 +26,7 @@
 #include <QWidget>
 #include <QStackedLayout>
 #include "scan_page.h"
+#include "cleaner_page.h"
 
 class ClearWidget : public QWidget
 {
@@ -36,7 +37,8 @@ public:
 
 private:
     QStackedLayout *layout;
-    ScanPage *scanWidget;
+    ScanPage *scanPage;
+    CleanerPage *cleanerPage;
 };
 
 #endif // CLEAR_PAGE_H
