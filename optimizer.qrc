@@ -1,11 +1,13 @@
 <!DOCTYPE RCC><RCC version="1.0">
   <qresource>
     <file>qss/main.qss</file>
-    <file>images/360logo.svg</file>
+    <file>images/logo.svg</file>
     <file>images/cache.png</file>
     <file>images/crash.png</file>
     <file>images/logs.png</file>
     <file>images/package.png</file>
     <file>images/trash.png</file>
+    <file>images/check.svg</file>
+    <file>images/uncheck.svg</file>
   </qresource>
 </RCC>

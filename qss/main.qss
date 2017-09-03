@@ -1,8 +1,8 @@
 QTreeWidget{
-    padding:0px;
+    border: 1px solid #EFEFEF;
 }
 QHeaderView::section {
-    background-color: #EFEFEF;
+    background-color: #F3F3F3;
     border: 1px solid #EDEDED;
     height: 35px;
 }
@@ -16,6 +16,7 @@ QTreeWidget::item:selected {
     selection-background-color: #2ca7f8;
     color: #FFFFFF;
 }
+
 
 #BlueButton {
     color: #2ca7f8;
