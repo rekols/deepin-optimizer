@@ -156,7 +156,7 @@ void CleanerPage::clearButtonClicked()
             Utils::sudoExec("rm", QStringList() << "-rf" << filesToDelete);
         }
 
-        QThread::sleep(1);
+        //QThread::sleep(1);
 
         for (int i = 0; i < tree->topLevelItemCount(); ++i) {
             // clear removed childs

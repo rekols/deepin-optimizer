@@ -19,6 +19,7 @@ public:
 
 private:
     QVBoxLayout *layout;
+    QLabel *tipsIcon;
     QLabel *tips;
     DLinkButton *backButton;
 
