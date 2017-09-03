@@ -243,17 +243,17 @@ QString Utils::formatBytes(const quint64 &bytes)
     else if (bytes < KIBI) // bytes
       return QString("%1 bytes").arg(bytes);
     else if (bytes < MEBI) // KiB
-      return formatUnit(bytes, KIBI, "KiB");
+      return formatUnit(bytes, KIBI, "KB");
     else if (bytes < GIBI) // MiB
-      return formatUnit(bytes, MEBI, "MiB");
+      return formatUnit(bytes, MEBI, "MB");
     else if (bytes < TEBI) // GiB
-      return formatUnit(bytes, GIBI, "GiB");
+      return formatUnit(bytes, GIBI, "GB");
     else if (bytes < PEBI) // TiB
-      return formatUnit(bytes, TEBI, "TiB");
+      return formatUnit(bytes, TEBI, "TB");
     else if (bytes < EXBI) // PiB
-      return formatUnit(bytes, PEBI, "PiB");
+      return formatUnit(bytes, PEBI, "PB");
     else                   // EiB
-      return formatUnit(bytes, EXBI, "EiB");
+      return formatUnit(bytes, EXBI, "EB");
 
 #undef formatUnit
 }
