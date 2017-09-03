@@ -46,6 +46,7 @@ public:
     static QString formatBytes(const quint64 &bytes);
 
     static QFileInfoList getAppLogs();
+    static QFileInfoList getAppCaches();
 
 private:
     static const quint64 KIBI = 1L << 10;

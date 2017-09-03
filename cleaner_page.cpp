@@ -83,5 +83,5 @@ void CleanerPage::start()
     resultTree->clear();
 
     // Application logs
-    addTreeRoot(APPLICATION_LOGS, "Application logs", Utils::getAppLogs());
+    addTreeRoot(APPLICATION_LOGS, "Application Logs", Utils::getAppLogs());
 }

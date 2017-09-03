@@ -26,6 +26,7 @@
 #include <QProcess>
 #include <QFileInfo>
 #include <QDir>
+#include <QStandardPaths>
 
 QString Utils::getQssContent(const QString &path)
 {
@@ -262,4 +263,12 @@ QFileInfoList Utils::getAppLogs()
     QDir logs("/var/log");
 
     return logs.entryInfoList(QDir::Files | QDir::Dirs | QDir::NoDotAndDotDot);
+}
+
+QFileInfoList Utils::getAppCaches()
+{
+    QString homePath = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
+    QDir caches(homePath + "/.cache");
+
+    return caches.entryInfoList(QDir::Files | QDir::Dirs | QDir::NoDotAndDotDot);
 }
