@@ -28,7 +28,8 @@ SOURCES += \
     disk_monitor.cpp \
     monitor_widget.cpp \
     widget/progress_bar.cpp \
-    scan_widget.cpp
+    scan_widget.cpp \
+    widget/icon_bar.cpp
 
 HEADERS += \
         main_window.h \
@@ -42,6 +43,7 @@ HEADERS += \
     disk_monitor.h \
     monitor_widget.h \
     widget/progress_bar.h \
-    scan_widget.h
+    scan_widget.h \
+    widget/icon_bar.h
 
 RESOURCES = optimizer.qrc

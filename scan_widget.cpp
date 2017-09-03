@@ -28,21 +28,21 @@ ScanWidget::ScanWidget(QWidget *parent)
     cacheIcon->setPixmap(QPixmap(":/images/package.png"));
     trashIcon->setPixmap(QPixmap(":/images/package.png"));
 
-    iconLayout->addStretch();
+    iconLayout->addSpacing(30);
     iconLayout->addWidget(packageIcon);
     iconLayout->addWidget(crashIcon);
     iconLayout->addWidget(logIcon);
     iconLayout->addWidget(cacheIcon);
     iconLayout->addWidget(trashIcon);
-    iconLayout->addStretch();
+    iconLayout->addSpacing(30);
 
-    labelLayout->addStretch();
+    labelLayout->addSpacing(30);
     labelLayout->addWidget(packageLabel);
     labelLayout->addWidget(crashLabel);
     labelLayout->addWidget(logLabel);
     labelLayout->addWidget(cacheLabel);
     labelLayout->addWidget(trashLabel);
-    labelLayout->addStretch();
+    labelLayout->addSpacing(30);
 
     layout->addLayout(iconLayout);
     layout->addLayout(labelLayout);
