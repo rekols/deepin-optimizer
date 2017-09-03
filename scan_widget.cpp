@@ -5,25 +5,23 @@ ScanWidget::ScanWidget(QWidget *parent)
 {
     layout = new QVBoxLayout(this);
     iconLayout = new QHBoxLayout();
-
     packageBar = new IconBar();
     crashBar = new IconBar();
     logBar = new IconBar();
     cacheBar = new IconBar();
     trashBar = new IconBar();
+    scanButton = new QPushButton("Scan Now");
+
+    scanButton->setFixedSize(300, 50);
 
     packageBar->setTitle("Package Caches");
     packageBar->setIcon(QPixmap(":/images/package.png"));
-
     crashBar->setTitle("Crash Reports");
     crashBar->setIcon(QPixmap(":/images/crash.png"));
-
     logBar->setTitle("Application Logs");
     logBar->setIcon(QPixmap(":/images/logs.png"));
-
     cacheBar->setTitle("Application Caches");
     cacheBar->setIcon(QPixmap(":/images/cache.png"));
-
     trashBar->setTitle("Trash");
     trashBar->setIcon(QPixmap(":/images/trash.png"));
 
@@ -37,5 +35,7 @@ ScanWidget::ScanWidget(QWidget *parent)
 
     layout->addStretch();
     layout->addLayout(iconLayout);
+    layout->addStretch();
+    layout->addWidget(scanButton, 0, Qt::AlignCenter);
     layout->addStretch();
 }

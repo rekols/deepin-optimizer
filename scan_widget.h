@@ -5,6 +5,7 @@
 #include <QVBoxLayout>
 #include <QLabel>
 #include "widget/icon_bar.h"
+#include <QPushButton>
 
 class ScanWidget : public QWidget
 {
@@ -22,6 +23,8 @@ private:
     IconBar *logBar;
     IconBar *cacheBar;
     IconBar *trashBar;
+
+    QPushButton *scanButton;
 };
 
 #endif // SCAN_WIDGET_H
