@@ -33,7 +33,7 @@ TabBar::TabBar(QWidget *parent) : QWidget(parent)
     layout->setMargin(0);
     layout->addSpacing(5);
     layout->addWidget(icon);
-    layout->addStretch();
+    layout->addSpacing(5);
     layout->addWidget(tb);
     layout->addStretch();
 
