@@ -7,6 +7,7 @@
 #include <QTreeWidget>
 #include <QTreeWidgetItem>
 #include <QFileInfo>
+#include <QPushButton>
 
 DWIDGET_USE_NAMESPACE
 
@@ -33,6 +34,7 @@ private:
     QTreeWidget *resultTree;
 
     QIcon defaultIcon;
+    QPushButton *clearButton;
 
     void init();
     void addTreeRoot(const CleanCategories &cat, const QString &title, const QFileInfoList &infos, bool noChild = false);
