@@ -48,6 +48,7 @@ public:
     static QFileInfoList getAppLogs();
     static QFileInfoList getAppCaches();
     static QString getHomePath();
+    static QString sudoExec(const QString &cmd, QStringList args);
 
 private:
     static const quint64 KIBI = 1L << 10;

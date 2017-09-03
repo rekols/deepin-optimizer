@@ -277,3 +277,40 @@ QString Utils::getHomePath()
 {
     return QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
 }
+
+QString exec(const QString &cmd, QStringList args)
+{
+    QProcess *process = new QProcess;
+
+    if (args.isEmpty())
+        process->start(cmd);
+    else
+        process->start(cmd, args);
+
+    process->waitForFinished();
+    QString out = process->readAllStandardOutput();
+    QString error = process->errorString();
+
+    process->kill();
+    process->close();
+
+    if (process->error() != QProcess::UnknownError)
+        throw error;
+
+    return out.trimmed();
+}
+
+QString Utils::sudoExec(const QString &cmd, QStringList args)
+{
+    args.push_front(cmd);
+
+    QString result("");
+
+    try {
+        result = exec("pkexec", args);
+    } catch (QString &ex) {
+        qCritical() << ex;
+    }
+
+    return result;
+}

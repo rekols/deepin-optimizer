@@ -40,6 +40,9 @@ private:
     void addTreeRoot(const CleanCategories &cat, const QString &title, const QFileInfoList &infos, bool noChild = false);
     void addTreeChild(const CleanCategories &cat, const QString &text, const quint64 &size);
     void addTreeChild(const QString &data, const QString &text, const quint64 &size, QTreeWidgetItem *parent);
+    bool cleanValid();
+    void clearButtonClicked();
+    void treeItemClicked(QTreeWidgetItem *item, const int &column);
 
 signals:
     void backButtonClicked();
