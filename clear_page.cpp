@@ -20,9 +20,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "clear_widget.h"
+#include "clear_page.h"
 
-ClearWidget::ClearWidget(QWidget *parent)
+ClearPage::ClearPage(QWidget *parent)
     : QWidget(parent)
 {
     layout = new QStackedLayout(this);
@@ -36,16 +36,16 @@ ClearWidget::ClearWidget(QWidget *parent)
     layout->addWidget(cfinishPage);
     layout->addWidget(loadPage);
 
-    connect(scanPage, &ScanPage::scanButtonClicked, this, &ClearWidget::scanButtonClicked);
-    connect(cleanerPage, &CleanerPage::backButtonClicked, this, &ClearWidget::backButtonClicked);
-    connect(cfinishPage, &CFinishPage::backButtonClicked, this, &ClearWidget::backButtonClicked);
-    connect(cleanerPage, &CleanerPage::clearFinished, this, &ClearWidget::clearFinished);
-    connect(cleanerPage, &CleanerPage::scanFinished, this, &ClearWidget::scanFinished);
+    connect(scanPage, &ScanPage::scanButtonClicked, this, &ClearPage::scanButtonClicked);
+    connect(cleanerPage, &CleanerPage::backButtonClicked, this, &ClearPage::backButtonClicked);
+    connect(cfinishPage, &CFinishPage::backButtonClicked, this, &ClearPage::backButtonClicked);
+    connect(cleanerPage, &CleanerPage::clearFinished, this, &ClearPage::clearFinished);
+    connect(cleanerPage, &CleanerPage::scanFinished, this, &ClearPage::scanFinished);
 
     layout->setCurrentIndex(0);
 }
 
-void ClearWidget::scanButtonClicked()
+void ClearPage::scanButtonClicked()
 {
     layout->setCurrentIndex(3);
     loadPage->play();
@@ -53,19 +53,19 @@ void ClearWidget::scanButtonClicked()
     cleanerPage->start();
 }
 
-void ClearWidget::backButtonClicked()
+void ClearPage::backButtonClicked()
 {
     layout->setCurrentIndex(0);
 }
 
-void ClearWidget::clearFinished(QString tips)
+void ClearPage::clearFinished(QString tips)
 {
     cfinishPage->setTips(tips);
 
     layout->setCurrentIndex(2);
 }
 
-void ClearWidget::scanFinished()
+void ClearPage::scanFinished()
 {
     layout->setCurrentIndex(1);
 }

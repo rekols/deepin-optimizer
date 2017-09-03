@@ -23,6 +23,7 @@
 #include "progress_bar.h"
 #include <QPainter>
 #include <qmath.h>
+#include <QDebug>
 
 ProgressBar::ProgressBar(QWidget *parent)
     : QWidget(parent)

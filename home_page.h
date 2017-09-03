@@ -32,12 +32,12 @@
 #include "HomePage/disk_monitor.h"
 #include "HomePage/monitor_widget.h"
 
-class HomeWidget : public QWidget
+class HomePage : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit HomeWidget(QWidget *parent = nullptr);
+    explicit HomePage(QWidget *parent = nullptr);
 
 private:
     QVBoxLayout *layout;

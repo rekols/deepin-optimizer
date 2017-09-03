@@ -25,9 +25,9 @@
 
 #include <DMainWindow>
 #include <QStackedLayout>
-#include "Widget/tabbar.h"
-#include "home_widget.h"
-#include "clear_widget.h"
+#include "widgets/tabbar.h"
+#include "home_page.h"
+#include "clear_page.h"
 
 DWIDGET_USE_NAMESPACE
 
@@ -43,8 +43,8 @@ private:
     QWidget *mainWidget;
     QStackedLayout *layout;
     TabBar *tabbar;
-    HomeWidget *homePage;
-    ClearWidget *clearPage;
+    HomePage *homePage;
+    ClearPage *clearPage;
 
 private slots:
     void tabbarCurrentChanged(int current);

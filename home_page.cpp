@@ -20,10 +20,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "home_widget.h"
+#include "home_page.h"
 #include "utils.h"
 
-HomeWidget::HomeWidget(QWidget *parent)
+HomePage::HomePage(QWidget *parent)
     : QWidget(parent)
 {
     layout = new QVBoxLayout(this);
@@ -109,40 +109,40 @@ HomeWidget::HomeWidget(QWidget *parent)
 
     thread->start();
 
-    connect(thread, &Thread::updateCpuPercent, this, &HomeWidget::updateCpuPercent);
-    connect(thread, &Thread::updateMemoryPercent, this, &HomeWidget::updateMemoryPercent);
-    connect(thread, &Thread::updateMemory, this, &HomeWidget::updateMemory);
-    connect(thread, &Thread::updateDiskPercent, this, &HomeWidget::updateDiskPercent);
-    connect(thread, &Thread::updateDisk, this, &HomeWidget::updateDisk);
-    connect(thread, &Thread::updateNetworkSpeed, this, &HomeWidget::updateNetworkSpeed);
+    connect(thread, &Thread::updateCpuPercent, this, &HomePage::updateCpuPercent);
+    connect(thread, &Thread::updateMemoryPercent, this, &HomePage::updateMemoryPercent);
+    connect(thread, &Thread::updateMemory, this, &HomePage::updateMemory);
+    connect(thread, &Thread::updateDiskPercent, this, &HomePage::updateDiskPercent);
+    connect(thread, &Thread::updateDisk, this, &HomePage::updateDisk);
+    connect(thread, &Thread::updateNetworkSpeed, this, &HomePage::updateNetworkSpeed);
 }
 
-void HomeWidget::updateCpuPercent(int cpuPercent)
+void HomePage::updateCpuPercent(int cpuPercent)
 {
     cpuMonitor->setPercentValue(cpuPercent);
 }
 
-void HomeWidget::updateMemoryPercent(int memoryPercent)
+void HomePage::updateMemoryPercent(int memoryPercent)
 {
     memoryMonitor->setPercentValue(memoryPercent);
 }
 
-void HomeWidget::updateMemory(QString memory)
+void HomePage::updateMemory(QString memory)
 {
     memoryMonitor->setMemoryInfo(memory);
 }
 
-void HomeWidget::updateDiskPercent(int diskPercent)
+void HomePage::updateDiskPercent(int diskPercent)
 {
     diskMonitor->setPercentValue(diskPercent);
 }
 
-void HomeWidget::updateDisk(QString disk)
+void HomePage::updateDisk(QString disk)
 {
     diskMonitor->setDiskInfo(disk);
 }
 
-void HomeWidget::updateNetworkSpeed(QString upload, QString download)
+void HomePage::updateNetworkSpeed(QString upload, QString download)
 {
     uploadLabel->setText(upload);
     downloadLabel->setText(download);

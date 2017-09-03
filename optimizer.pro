@@ -18,38 +18,38 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         main_window.cpp \
-        Widget/tabbar.cpp \
+        widgets/tabbar.cpp \
         utils.cpp \
         thread.cpp \
         HomePage/cpu_monitor.cpp \
         HomePage/memory_monitor.cpp \
         HomePage/disk_monitor.cpp \
         HomePage/monitor_widget.cpp \
-        Widget/progress_bar.cpp \
-        Widget/icon_bar.cpp \
-        home_widget.cpp \
+        widgets/progress_bar.cpp \
+        widgets/icon_bar.cpp \
         ClearPage/scan_page.cpp \
-        clear_widget.cpp \
         ClearPage/cleaner_page.cpp \
         ClearPage/cfinish_page.cpp \
-        Widget/load_page.cpp
+        widgets/load_page.cpp \
+    home_page.cpp \
+    clear_page.cpp
 
 HEADERS += \
         main_window.h \
-        Widget/tabbar.h \
+        widgets/tabbar.h \
         utils.h \
         thread.h \
         HomePage/cpu_monitor.h \
         HomePage/memory_monitor.h \
         HomePage/disk_monitor.h \
         HomePage/monitor_widget.h \
-        Widget/progress_bar.h \
-        Widget/icon_bar.h \
-        home_widget.h \
+        widgets/progress_bar.h \
+        widgets/icon_bar.h \
         ClearPage/scan_page.h \
-        clear_widget.h \
         ClearPage/cleaner_page.h \
         ClearPage/cfinish_page.h \
-        Widget/load_page.h
+        widgets/load_page.h \
+    home_page.h \
+    clear_page.h
 
 RESOURCES = optimizer.qrc

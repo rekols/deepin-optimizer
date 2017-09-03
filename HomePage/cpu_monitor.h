@@ -26,7 +26,7 @@
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QLabel>
-#include "Widget/progress_bar.h"
+#include "widgets/progress_bar.h"
 
 class CPUMonitor : public QWidget
 {

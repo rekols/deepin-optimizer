@@ -28,14 +28,14 @@
 #include "ClearPage//scan_page.h"
 #include "ClearPage/cleaner_page.h"
 #include "ClearPage/cfinish_page.h"
-#include "Widget/load_page.h"
+#include "widgets/load_page.h"
 
-class ClearWidget : public QWidget
+class ClearPage : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit ClearWidget(QWidget *parent = nullptr);
+    explicit ClearPage(QWidget *parent = nullptr);
 
 private:
     QStackedLayout *layout;
