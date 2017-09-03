@@ -29,8 +29,8 @@ MainWindow::MainWindow(QWidget *parent)
     mainWidget = new QWidget();
     layout = new QStackedLayout();
     tabbar = new TabBar();
-    homePage = new HomePage();
-    clearPage = new ClearPage();
+    homePage = new HomeWidget();
+    clearPage = new ClearWidget();
 
     titlebar()->setCustomWidget(tabbar, Qt::AlignVCenter, false);
     titlebar()->setSeparatorVisible(true);

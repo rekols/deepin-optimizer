@@ -1,6 +1,6 @@
-#include "scan_widget.h"
+#include "scan_page.h"
 
-ScanWidget::ScanWidget(QWidget *parent)
+ScanPage::ScanPage(QWidget *parent)
     : QWidget(parent)
 {
     layout = new QVBoxLayout(this);

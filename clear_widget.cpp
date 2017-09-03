@@ -20,23 +20,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef CLEAR_PAGE_H
-#define CLEAR_PAGE_H
+#include "clear_widget.h"
 
-#include <QWidget>
-#include <QStackedLayout>
-#include "scan_widget.h"
-
-class ClearPage : public QWidget
+ClearWidget::ClearWidget(QWidget *parent)
+    : QWidget(parent)
 {
-    Q_OBJECT
+    layout = new QStackedLayout(this);
+    scanWidget = new ScanPage();
 
-public:
-    explicit ClearPage(QWidget *parent = nullptr);
-
-private:
-    QStackedLayout *layout;
-    ScanWidget *scanWidget;
-};
-
-#endif // CLEAR_PAGE_H
+    layout->addWidget(scanWidget);
+}

@@ -7,12 +7,12 @@
 #include "widget/icon_bar.h"
 #include <QPushButton>
 
-class ScanWidget : public QWidget
+class ScanPage : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit ScanWidget(QWidget *parent = nullptr);
+    explicit ScanPage(QWidget *parent = nullptr);
 
 private:
     QVBoxLayout *layout;

@@ -20,30 +20,30 @@ SOURCES += \
         main_window.cpp \
     tabbar.cpp \
     utils.cpp \
-    home_page.cpp \
-    clear_page.cpp \
     thread.cpp \
     cpu_monitor.cpp \
     memory_monitor.cpp \
     disk_monitor.cpp \
     monitor_widget.cpp \
     widget/progress_bar.cpp \
-    scan_widget.cpp \
-    widget/icon_bar.cpp
+    widget/icon_bar.cpp \
+    home_widget.cpp \
+    scan_page.cpp \
+    clear_widget.cpp
 
 HEADERS += \
         main_window.h \
     tabbar.h \
     utils.h \
-    home_page.h \
-    clear_page.h \
     thread.h \
     cpu_monitor.h \
     memory_monitor.h \
     disk_monitor.h \
     monitor_widget.h \
     widget/progress_bar.h \
-    scan_widget.h \
-    widget/icon_bar.h
+    widget/icon_bar.h \
+    home_widget.h \
+    scan_page.h \
+    clear_widget.h
 
 RESOURCES = optimizer.qrc
