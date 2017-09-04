@@ -38,10 +38,12 @@ void Thread::run()
     unsigned long long int recv = 0, send = 0;
     QString memory = "";
     QString disk = "";
+    int memoryPercent = 0;
 
     while (1) {
-        emit updateMemoryPercent(Utils::getMemoryPercent(memory));
-        emit updateMemory(memory);
+        Utils::getMemoryInfo(memory, memoryPercent);
+
+        emit updateMemory(memory, memoryPercent);
         emit updateDiskPercent(Utils::getDiskInfo(disk));
         emit updateDisk(disk);
 

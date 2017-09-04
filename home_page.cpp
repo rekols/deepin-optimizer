@@ -88,7 +88,6 @@ HomePage::HomePage(QWidget *parent)
     mainLayout->addStretch();
 
     connect(thread, &Thread::updateCpuPercent, this, &HomePage::updateCpuPercent);
-    connect(thread, &Thread::updateMemoryPercent, this, &HomePage::updateMemoryPercent);
     connect(thread, &Thread::updateMemory, this, &HomePage::updateMemory);
     connect(thread, &Thread::updateDiskPercent, this, &HomePage::updateDiskPercent);
     connect(thread, &Thread::updateDisk, this, &HomePage::updateDisk);
@@ -136,14 +135,10 @@ void HomePage::updateCpuPercent(int cpuPercent)
     cpuMonitor->setPercentValue(cpuPercent);
 }
 
-void HomePage::updateMemoryPercent(int memoryPercent)
-{
-    memoryMonitor->setPercentValue(memoryPercent);
-}
-
-void HomePage::updateMemory(QString memory)
+void HomePage::updateMemory(QString memory, int percent)
 {
     memoryMonitor->setMemoryInfo(memory);
+    memoryMonitor->setPercentValue(percent);
 }
 
 void HomePage::updateDiskPercent(int diskPercent)
