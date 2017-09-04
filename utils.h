@@ -37,7 +37,7 @@ public:
     static void getCpuInfo(QString &cpuModel, QString &cpuCore);
     static void getCpuTime(unsigned long long &workTime, unsigned long long &totalTime);
     static void getMemoryInfo(QString &memory, int &percent);
-    static int getDiskInfo(QString &disk);
+    static void getDiskInfo(QString &disk, int &percent);
     static void getNetworkBandWidth(unsigned long long int &receiveBytes, unsigned long long int &sendBytes);
     static QString networkConversion(long bytes);
 

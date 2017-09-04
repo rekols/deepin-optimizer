@@ -67,8 +67,7 @@ private slots:
     void init();
     void updateCpuPercent(int cpuPercent);
     void updateMemory(QString memory, int percent);
-    void updateDiskPercent(int diskPercent);
-    void updateDisk(QString disk);
+    void updateDisk(QString disk, int percent);
     void updateNetworkSpeed(QString upload, QString download);
 };
 

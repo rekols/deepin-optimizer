@@ -125,7 +125,7 @@ void Utils::getMemoryInfo(QString &memory, int &percent)
     percent = int((memTotal - memAvailable) * 100.0 / memTotal);
 }
 
-int Utils::getDiskInfo(QString &disk)
+void Utils::getDiskInfo(QString &disk, int &percent)
 {
     QProcess *process = new QProcess;
     process->start("df -Pl");
@@ -148,8 +148,7 @@ int Utils::getDiskInfo(QString &disk)
     }
 
     disk = QString("%1GB / %2GB").arg(QString::number(used / 1024.0 / 1024.0 / 1024.0, 'r', 1)).arg(QString::number(size / 1024.0 / 1024.0 / 1024.0, 'r', 1));
-
-    return used * 100.0 / size;
+    percent = used * 100.0 / size;
 }
 
 void Utils::getNetworkBandWidth(unsigned long long int &receiveBytes, unsigned long long int &sendBytes)

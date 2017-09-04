@@ -39,13 +39,14 @@ void Thread::run()
     QString memory = "";
     QString disk = "";
     int memoryPercent = 0;
+    int diskPercent = 0;
 
     while (1) {
         Utils::getMemoryInfo(memory, memoryPercent);
+        Utils::getDiskInfo(disk, diskPercent);
 
         emit updateMemory(memory, memoryPercent);
-        emit updateDiskPercent(Utils::getDiskInfo(disk));
-        emit updateDisk(disk);
+        emit updateDisk(disk, diskPercent);
 
         Utils::getCpuTime(prevWorkTime, prevTotalTime);
         Utils::getNetworkBandWidth(prevRecv, prevSend);
