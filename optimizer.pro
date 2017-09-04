@@ -24,7 +24,6 @@ SOURCES += \
         HomePage/cpu_monitor.cpp \
         HomePage/memory_monitor.cpp \
         HomePage/disk_monitor.cpp \
-        HomePage/monitor_widget.cpp \
         widgets/progress_bar.cpp \
         widgets/icon_bar.cpp \
         ClearPage/scan_page.cpp \
@@ -42,7 +41,6 @@ HEADERS += \
         HomePage/cpu_monitor.h \
         HomePage/memory_monitor.h \
         HomePage/disk_monitor.h \
-        HomePage/monitor_widget.h \
         widgets/progress_bar.h \
         widgets/icon_bar.h \
         ClearPage/scan_page.h \

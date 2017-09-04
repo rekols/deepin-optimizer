@@ -27,9 +27,11 @@ HomePage::HomePage(QWidget *parent)
     : QWidget(parent)
 {
     mainLayout = new QVBoxLayout(this);
+    topLayout = new QHBoxLayout();
     bottomLayout = new QHBoxLayout();
     infoLayout = new QVBoxLayout();
     networkLayout = new QVBoxLayout();
+
     systemInfo = new QLabel(tr("SYSTEM INFO"));
     hostName = new QLabel(tr("Hostname: "));
     platform = new QLabel(tr("Platform: "));
@@ -37,23 +39,22 @@ HomePage::HomePage(QWidget *parent)
     kernel = new QLabel("Kernel Release: ");
     cpuModel = new QLabel("Cpu Model: ");
     cpuCoreCount = new QLabel("Cpu Core: ");
-
     uploadInfo = new QLabel("UPLOAD");
     downloadInfo = new QLabel("DOWNLOAD");
     uploadLabel = new QLabel("↑ 0.0 B/s");
     downloadLabel = new QLabel("↓ 0.0 B/s");
 
-    thread = new Thread();
-    monitorWidget = new MonitorWidget();
     cpuMonitor = new CPUMonitor();
     memoryMonitor = new MemoryMonitor();
     diskMonitor = new DiskMonitor();
 
-    monitorWidget->layout->addSpacing(15);
-    monitorWidget->layout->addWidget(cpuMonitor);
-    monitorWidget->layout->addWidget(memoryMonitor);
-    monitorWidget->layout->addWidget(diskMonitor);
-    monitorWidget->layout->addSpacing(15);
+    thread = new Thread();
+
+    topLayout->addSpacing(15);
+    topLayout->addWidget(cpuMonitor);
+    topLayout->addWidget(memoryMonitor);
+    topLayout->addWidget(diskMonitor);
+    topLayout->addSpacing(15);
 
     bottomLayout->addSpacing(25);
     bottomLayout->addLayout(infoLayout);
@@ -77,7 +78,8 @@ HomePage::HomePage(QWidget *parent)
     networkLayout->addWidget(downloadLabel);
     networkLayout->addStretch();
 
-    mainLayout->addWidget(monitorWidget);
+    mainLayout->addStretch();
+    mainLayout->addLayout(topLayout);
     mainLayout->addStretch();
     mainLayout->addLayout(bottomLayout);
     mainLayout->addStretch();

@@ -27,7 +27,7 @@ CPUMonitor::CPUMonitor(QWidget *parent)
 {
     layout = new QVBoxLayout(this);
     progress = new ProgressBar();
-    tips2 = new QLabel("Loading");
+    tips2 = new QLabel("CPU Idle");
 
     QFont font;
     font.setPointSize(20);

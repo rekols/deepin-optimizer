@@ -30,7 +30,6 @@
 #include "HomePage/cpu_monitor.h"
 #include "HomePage/memory_monitor.h"
 #include "HomePage/disk_monitor.h"
-#include "HomePage/monitor_widget.h"
 
 class HomePage : public QWidget
 {
@@ -41,9 +40,11 @@ public:
 
 private:
     QVBoxLayout *mainLayout;
+    QHBoxLayout *topLayout;
     QHBoxLayout *bottomLayout;
     QVBoxLayout *infoLayout;
     QVBoxLayout *networkLayout;
+
     QLabel *systemInfo;
     QLabel *hostName;
     QLabel *platform;
@@ -51,17 +52,16 @@ private:
     QLabel *kernel;
     QLabel *cpuModel;
     QLabel *cpuCoreCount;
-
     QLabel *uploadInfo;
     QLabel *downloadInfo;
     QLabel *uploadLabel;
     QLabel *downloadLabel;
 
-    Thread *thread;
-    MonitorWidget *monitorWidget;
     CPUMonitor *cpuMonitor;
     MemoryMonitor *memoryMonitor;
     DiskMonitor *diskMonitor;
+
+    Thread *thread;
 
 private slots:
     void init();
