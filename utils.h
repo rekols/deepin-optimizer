@@ -34,8 +34,7 @@ public:
     static QString getPlatform();
     static QString getDistribution();
     static QString getKernel();
-    static QString getCpuModel();
-    static QString getCpuCoreCount();
+    static void getCpuInfo(QString &cpuModel, QString &cpuCore);
     static unsigned long long getTotalCpuTime(unsigned long long &workTime);
     static int getMemoryPercent(QString &memory);
     static int getDiskInfo(QString &disk);

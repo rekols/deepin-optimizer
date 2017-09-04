@@ -65,32 +65,19 @@ QString Utils::getKernel()
     return QSysInfo::kernelVersion();
 }
 
-QString Utils::getCpuModel()
+void Utils::getCpuInfo(QString &cpuModel, QString &cpuCore)
 {
     QFile file("/proc/cpuinfo");
     file.open(QIODevice::ReadOnly);
 
-    QString info = file.readAll();
-    QStringList lines = info.trimmed().split("\n").filter(QRegExp("^model name"));
-    QStringList model = lines.first().split(":").at(1).split("@");
+    QString buffer = file.readAll();
+    QStringList model_lines = buffer.split("\n").filter(QRegExp("^model name"));
+    QStringList core_lines = buffer.split("\n");
 
     file.close();
 
-    return model.first();
-}
-
-QString Utils::getCpuCoreCount()
-{
-    QFile file("/proc/cpuinfo");
-    file.open(QIODevice::ReadOnly);
-
-    QString info = file.readAll();
-    QStringList list = info.trimmed().split("\n");
-    int cout = list.filter(QRegExp("^processor")).count();
-
-    file.close();
-
-    return QString::number(cout);
+    cpuModel = model_lines.first().split(":").at(1);
+    cpuCore = QString::number(core_lines.filter(QRegExp("^processor")).count());
 }
 
 unsigned long long Utils::getTotalCpuTime(unsigned long long &workTime)

@@ -100,12 +100,16 @@ HomePage::HomePage(QWidget *parent)
     layout->addLayout(bottomLayout);
     layout->addStretch();
 
+    QString strCpuModel("");
+    QString strCpuCore("");
+    Utils::getCpuInfo(strCpuModel, strCpuCore);
+
     hostName->setText("HostName: " + Utils::getUserName());
     platform->setText("Platform: " + Utils::getPlatform());
     distribution->setText("Distribution: " + Utils::getDistribution());
     kernel->setText("Kernel Release: " + Utils::getKernel());
-    cpuModel->setText("Cpu Model: " + Utils::getCpuModel());
-    cpuCoreCount->setText("Cpu Core: " + Utils::getCpuCoreCount());
+    cpuModel->setText("Cpu Model: " + strCpuModel);
+    cpuCoreCount->setText("Cpu Core: " + strCpuCore);
 
     thread->start();
 
