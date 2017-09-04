@@ -48,15 +48,15 @@ void ProgressBar::paintEvent(QPaintEvent *)
     int side = qMin(width, height);
     int radius = 99 - borderWidth / 2;
 
+    QPen pen;
+    pen.setWidthF(borderWidth);
+    pen.setColor(QColor("#F3F3F3"));
+
     /* init painter */
     QPainter painter(this);
     painter.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);
     painter.translate(width / 2, height / 2);
     painter.scale(side / 200.0, side / 200.0);
-
-    QPen pen;
-    pen.setWidthF(borderWidth);
-    pen.setColor(QColor("#F3F3F3"));
 
     /* draw background */
     painter.setPen(pen);
@@ -74,18 +74,17 @@ void ProgressBar::paintEvent(QPaintEvent *)
     font.setPointSize(20);
     painter.setFont(font);
 
-    pen.setColor(QColor("#000000"));
-    painter.setPen(pen);
-    QRectF titleRect(-radius, (-radius) - 10, radius * 2, radius * 2);
+    /* qreal left, qreal top, qreal width, qreal height */
+    QRectF titleRect(-radius, (-radius), radius * 2, radius * 2);
+    painter.setPen(QColor("#000000"));
     painter.drawText(titleRect, Qt::AlignCenter, title);
 
     /* draw percent text*/
     font.setPointSize(15);
     painter.setFont(font);
-
-    //pen.setColor(color);
     painter.setPen(pen);
-    QRectF percentRect(-radius, (-radius) + 20, radius * 2, radius * 2);
+
+    QRectF percentRect(-radius, (-radius) + 35, radius * 2, radius * 2);
     QString strPercent = QString("%1%").arg(value);
     painter.drawText(percentRect, Qt::AlignCenter, strPercent);
 }
