@@ -131,23 +131,26 @@ void Utils::getDiskInfo(QString &disk, int &percent)
     process->start("df -Pl");
     process->waitForFinished();
 
-    QTextStream out(process->readAllStandardOutput());
-    QStringList result = out.readAll().trimmed().split(QChar('\n'));
-    QRegExp sep("\\s+");
+    QString buffer = process->readAllStandardOutput();
+    QStringList result = buffer.trimmed().split(QChar('\n'));
     long long size = 0, used = 0, free = 0;
+    long long totalSize = 0, totalFree = 0;
 
     process->kill();
     process->close();
 
     for (const QString &line : result.filter(QRegExp("^/")))
     {
-        QStringList slist = line.split(sep);
+        QStringList slist = line.split(QRegExp("\\s+"));
         size = slist.at(1).toLong() << 10;
         used = slist.at(2).toLong() << 10;
         free = slist.at(3).toLong() << 10;
+
+        totalSize += size;
+        totalFree += free;
     }
 
-    disk = QString("%1GB / %2GB").arg(QString::number(used / 1024.0 / 1024.0 / 1024.0, 'r', 1)).arg(QString::number(size / 1024.0 / 1024.0 / 1024.0, 'r', 1));
+    disk = QString("%1GB / %2GB").arg(QString::number(totalFree / 1024.0 / 1024.0 / 1024.0, 'r', 1)).arg(QString::number(totalSize / 1024.0 / 1024.0 / 1024.0, 'r', 1));
     percent = used * 100.0 / size;
 }
 
