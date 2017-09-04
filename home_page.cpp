@@ -26,7 +26,7 @@
 HomePage::HomePage(QWidget *parent)
     : QWidget(parent)
 {
-    layout = new QVBoxLayout(this);
+    mainLayout = new QVBoxLayout(this);
     bottomLayout = new QHBoxLayout();
     infoLayout = new QVBoxLayout();
     networkLayout = new QVBoxLayout();
@@ -48,24 +48,6 @@ HomePage::HomePage(QWidget *parent)
     cpuMonitor = new CPUMonitor();
     memoryMonitor = new MemoryMonitor();
     diskMonitor = new DiskMonitor();
-
-    systemInfo->setStyleSheet("QLabel { color: #4088C6 }");
-    uploadInfo->setStyleSheet("QLabel { color: #31A38C }");
-    downloadInfo->setStyleSheet("QLabel { color: #C45045 }");
-    hostName->setStyleSheet("QLabel { color: #505050 }");
-    platform->setStyleSheet("QLabel { color: #505050 }");
-    distribution->setStyleSheet("QLabel { color: #505050 }");
-    kernel->setStyleSheet("QLabel { color: #505050 }");
-    cpuModel->setStyleSheet("QLabel { color: #505050 }");
-    cpuCoreCount->setStyleSheet("QLabel { color: #505050 }");
-    uploadLabel->setStyleSheet("QLabel { color: #505050 }");
-    downloadLabel->setStyleSheet("QLabel { color: #505050 }");
-
-    QFont font;
-    font.setPointSize(18);
-    systemInfo->setFont(font);
-    uploadInfo->setFont(font);
-    downloadInfo->setFont(font);
 
     monitorWidget->layout->addSpacing(15);
     monitorWidget->layout->addWidget(cpuMonitor);
@@ -95,14 +77,44 @@ HomePage::HomePage(QWidget *parent)
     networkLayout->addWidget(downloadLabel);
     networkLayout->addStretch();
 
-    layout->addWidget(monitorWidget);
-    layout->addStretch();
-    layout->addLayout(bottomLayout);
-    layout->addStretch();
+    mainLayout->addWidget(monitorWidget);
+    mainLayout->addStretch();
+    mainLayout->addLayout(bottomLayout);
+    mainLayout->addStretch();
 
+    connect(thread, &Thread::updateCpuPercent, this, &HomePage::updateCpuPercent);
+    connect(thread, &Thread::updateMemoryPercent, this, &HomePage::updateMemoryPercent);
+    connect(thread, &Thread::updateMemory, this, &HomePage::updateMemory);
+    connect(thread, &Thread::updateDiskPercent, this, &HomePage::updateDiskPercent);
+    connect(thread, &Thread::updateDisk, this, &HomePage::updateDisk);
+    connect(thread, &Thread::updateNetworkSpeed, this, &HomePage::updateNetworkSpeed);
+
+    init();
+}
+
+void HomePage::init()
+{
     QString strCpuModel("");
     QString strCpuCore("");
     Utils::getCpuInfo(strCpuModel, strCpuCore);
+
+    QFont font;
+    font.setPointSize(18);
+    systemInfo->setFont(font);
+    uploadInfo->setFont(font);
+    downloadInfo->setFont(font);
+
+    systemInfo->setStyleSheet("QLabel { color: #4088C6 }");
+    uploadInfo->setStyleSheet("QLabel { color: #31A38C }");
+    downloadInfo->setStyleSheet("QLabel { color: #C45045 }");
+    hostName->setStyleSheet("QLabel { color: #505050 }");
+    platform->setStyleSheet("QLabel { color: #505050 }");
+    distribution->setStyleSheet("QLabel { color: #505050 }");
+    kernel->setStyleSheet("QLabel { color: #505050 }");
+    cpuModel->setStyleSheet("QLabel { color: #505050 }");
+    cpuCoreCount->setStyleSheet("QLabel { color: #505050 }");
+    uploadLabel->setStyleSheet("QLabel { color: #505050 }");
+    downloadLabel->setStyleSheet("QLabel { color: #505050 }");
 
     hostName->setText("HostName: " + Utils::getUserName());
     platform->setText("Platform: " + Utils::getPlatform());
@@ -112,13 +124,6 @@ HomePage::HomePage(QWidget *parent)
     cpuCoreCount->setText("Cpu Core: " + strCpuCore);
 
     thread->start();
-
-    connect(thread, &Thread::updateCpuPercent, this, &HomePage::updateCpuPercent);
-    connect(thread, &Thread::updateMemoryPercent, this, &HomePage::updateMemoryPercent);
-    connect(thread, &Thread::updateMemory, this, &HomePage::updateMemory);
-    connect(thread, &Thread::updateDiskPercent, this, &HomePage::updateDiskPercent);
-    connect(thread, &Thread::updateDisk, this, &HomePage::updateDisk);
-    connect(thread, &Thread::updateNetworkSpeed, this, &HomePage::updateNetworkSpeed);
 }
 
 void HomePage::updateCpuPercent(int cpuPercent)

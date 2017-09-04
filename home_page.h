@@ -40,7 +40,7 @@ public:
     explicit HomePage(QWidget *parent = nullptr);
 
 private:
-    QVBoxLayout *layout;
+    QVBoxLayout *mainLayout;
     QHBoxLayout *bottomLayout;
     QVBoxLayout *infoLayout;
     QVBoxLayout *networkLayout;
@@ -64,6 +64,7 @@ private:
     DiskMonitor *diskMonitor;
 
 private slots:
+    void init();
     void updateCpuPercent(int cpuPercent);
     void updateMemoryPercent(int memoryPercent);
     void updateMemory(QString memory);
