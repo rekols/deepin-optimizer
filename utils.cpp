@@ -80,7 +80,7 @@ void Utils::getCpuInfo(QString &cpuModel, QString &cpuCore)
     cpuCore = QString::number(core_lines.filter(QRegExp("^processor")).count());
 }
 
-unsigned long long Utils::getTotalCpuTime(unsigned long long &workTime)
+void Utils::getCpuTime(unsigned long long &workTime, unsigned long long &totalTime)
 {
     QFile file("/proc/stat");
     file.open(QIODevice::ReadOnly);
@@ -103,8 +103,7 @@ unsigned long long Utils::getTotalCpuTime(unsigned long long &workTime)
     //unsigned long long guestnice = lines.at(10).toLong();
 
     workTime = user + nice + system;
-
-    return user + nice + system + idle + iowait + irq + softirq + steal;
+    totalTime = user + nice + system + idle + iowait + irq + softirq + steal;
 }
 
 int Utils::getMemoryPercent(QString &memory)

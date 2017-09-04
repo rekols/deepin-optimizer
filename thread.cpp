@@ -45,10 +45,10 @@ void Thread::run()
         emit updateDiskPercent(Utils::getDiskInfo(disk));
         emit updateDisk(disk);
 
-        prevTotalTime = Utils::getTotalCpuTime(prevWorkTime);
+        Utils::getCpuTime(prevWorkTime, prevTotalTime);
         Utils::getNetworkBandWidth(prevRecv, prevSend);
         sleep(2);
-        currentTotalTime = Utils::getTotalCpuTime(currentWorkTime);
+        Utils::getCpuTime(currentWorkTime, currentTotalTime);
         Utils::getNetworkBandWidth(recv, send);
 
         emit updateNetworkSpeed("↑ " + Utils::networkConversion(send - prevSend), "↓ " + Utils::networkConversion(recv - prevRecv));
