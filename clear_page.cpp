@@ -27,20 +27,20 @@ ClearPage::ClearPage(QWidget *parent)
 {
     layout = new QStackedLayout(this);
     scanPage = new ScanPage();
-    cleanerPage = new CleanerPage();
+    scannedPage = new ScannedPage();
     finishPage = new FinishPage();
     loadPage = new LoadPage();
 
     layout->addWidget(scanPage);
-    layout->addWidget(cleanerPage);
+    layout->addWidget(scannedPage);
     layout->addWidget(finishPage);
     layout->addWidget(loadPage);
 
     connect(scanPage, &ScanPage::scanButtonClicked, this, &ClearPage::scanButtonClicked);
-    connect(cleanerPage, &CleanerPage::backButtonClicked, this, &ClearPage::backButtonClicked);
+    connect(scannedPage, &ScannedPage::backButtonClicked, this, &ClearPage::backButtonClicked);
     connect(finishPage, &FinishPage::backButtonClicked, this, &ClearPage::backButtonClicked);
-    connect(cleanerPage, &CleanerPage::clearFinished, this, &ClearPage::clearFinished);
-    connect(cleanerPage, &CleanerPage::scanFinished, this, &ClearPage::scanFinished);
+    connect(scannedPage, &ScannedPage::clearFinished, this, &ClearPage::clearFinished);
+    connect(scannedPage, &ScannedPage::scanFinished, this, &ClearPage::scanFinished);
 
     layout->setCurrentIndex(0);
 }
@@ -50,7 +50,7 @@ void ClearPage::scanButtonClicked()
     layout->setCurrentIndex(3);
     loadPage->play();
 
-    cleanerPage->start();
+    scannedPage->start();
 }
 
 void ClearPage::backButtonClicked()
