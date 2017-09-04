@@ -30,9 +30,9 @@ SOURCES += \
         ClearPage/scan_page.cpp \
         widgets/load_page.cpp \
     home_page.cpp \
-    clear_page.cpp \
     ClearPage/finish_page.cpp \
-    ClearPage/scanned_page.cpp
+    ClearPage/scanned_page.cpp \
+    cleaner_page.cpp
 
 HEADERS += \
         main_window.h \
@@ -48,8 +48,8 @@ HEADERS += \
         ClearPage/scan_page.h \
         widgets/load_page.h \
     home_page.h \
-    clear_page.h \
     ClearPage/finish_page.h \
-    ClearPage/scanned_page.h
+    ClearPage/scanned_page.h \
+    cleaner_page.h
 
 RESOURCES = optimizer.qrc

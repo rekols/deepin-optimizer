@@ -84,23 +84,23 @@ unsigned long long Utils::getTotalCpuTime(unsigned long long &workTime)
 {
     QFile file("/proc/stat");
     file.open(QIODevice::ReadOnly);
-    QString info = file.readAll();
+    QString buffer = file.readAll();
     file.close();
 
-    QStringList list = info.split("\n").filter(QRegExp("^cpu "));
+    QStringList list = buffer.split("\n").filter(QRegExp("^cpu "));
     QString line = list.first();
-    QStringList line_list = line.trimmed().split(QRegExp("\\s+"));
+    QStringList lines = line.trimmed().split(QRegExp("\\s+"));
 
-    unsigned long long user = line_list.at(1).toLong();
-    unsigned long long nice = line_list.at(2).toLong();
-    unsigned long long system = line_list.at(3).toLong();
-    unsigned long long idle = line_list.at(4).toLong();
-    unsigned long long iowait = line_list.at(5).toLong();
-    unsigned long long irq = line_list.at(6).toLong();
-    unsigned long long softirq = line_list.at(7).toLong();
-    unsigned long long steal = line_list.at(8).toLong();
-    unsigned long long guest = line_list.at(9).toLong();
-    unsigned long long guestnice = line_list.at(10).toLong();
+    unsigned long long user = lines.at(1).toLong();
+    unsigned long long nice = lines.at(2).toLong();
+    unsigned long long system = lines.at(3).toLong();
+    unsigned long long idle = lines.at(4).toLong();
+    unsigned long long iowait = lines.at(5).toLong();
+    unsigned long long irq = lines.at(6).toLong();
+    unsigned long long softirq = lines.at(7).toLong();
+    unsigned long long steal = lines.at(8).toLong();
+    //unsigned long long guest = lines.at(9).toLong();
+    //unsigned long long guestnice = lines.at(10).toLong();
 
     workTime = user + nice + system;
 
