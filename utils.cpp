@@ -156,35 +156,20 @@ void Utils::getDiskInfo(QString &disk, float &percent)
 
 void Utils::getNetworkBandWidth(unsigned long long &receiveBytes, unsigned long long &sendBytes)
 {
-    char buffer[255];
-    FILE *fp = fopen("/proc/net/dev", "r");
+    QFile file("/proc/net/dev");
+    file.open(QIODevice::ReadOnly);
 
-    // Ignore the first two lines of the file.
-    fgets(buffer, 255, fp);
-    fgets(buffer, 255, fp);
+    file.readLine();
+    file.readLine();
 
-    receiveBytes = 0;
-    sendBytes = 0;
+    QStringList lines = QString(file.readAll()).split("\n");
+    QStringList data = lines.first().split(QRegExp("\\s+"));
 
-    while (fgets(buffer, 255, fp)) {
-        unsigned long long int rBytes, sBytes;
-        char *line = strdup(buffer);
+    file.close();
 
-        char *dev;
-        dev = strtok(line, ":");
-
-        // Filter lo (virtual network device).
-        if (QString::fromStdString(dev).trimmed() != "lo") {
-            sscanf(buffer + strlen(dev) + 2, "%llu %*d %*d %*d %*d %*d %*d %*d %llu", &rBytes, &sBytes);
-
-            receiveBytes += rBytes;
-            sendBytes += sBytes;
-        }
-
-        free(line);
-    }
-
-    fclose(fp);
+    unsigned long long int rBytes, sBytes;
+    receiveBytes = data.at(1).toLong();
+    sendBytes = data.at(9).toLong();
 }
 
 QString Utils::networkConversion(long bytes)
