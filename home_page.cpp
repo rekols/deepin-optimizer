@@ -159,10 +159,6 @@ void HomePage::updateNetworkSpeed(QString upload, QString download)
 
 void HomePage::updateNetworkTotal(QString upload, QString download)
 {
-    /*
-    uploadTotal->setText("Total  " + upload);
-    downloadTotal->setText("Total  " + download);
-    */
     uploadInfo->setText(QString("UPLOAD (%1)").arg(upload));
     downloadInfo->setText(QString("DOWNLOAD (%1)").arg(download));
 }
