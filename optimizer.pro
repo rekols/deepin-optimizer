@@ -31,7 +31,8 @@ SOURCES += \
     home_page.cpp \
     ClearPage/finish_page.cpp \
     ClearPage/scanned_page.cpp \
-    cleaner_page.cpp
+    cleaner_page.cpp \
+    widgets/hseparator.cpp
 
 HEADERS += \
         main_window.h \
@@ -48,6 +49,7 @@ HEADERS += \
     home_page.h \
     ClearPage/finish_page.h \
     ClearPage/scanned_page.h \
-    cleaner_page.h
+    cleaner_page.h \
+    widgets/hseparator.h
 
 RESOURCES = optimizer.qrc

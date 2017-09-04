@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
     a.loadTranslator();
 
     MainWindow w;
-    w.setMinimumSize(800, 550);
+    w.setMinimumSize(800, 560);
     w.setWindowIcon(QIcon(":/images/logo.svg"));
     w.show();
     w.move((QApplication::desktop()->width() - w.width()) / 2,

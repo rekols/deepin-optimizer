@@ -22,6 +22,7 @@
 
 #include "home_page.h"
 #include "utils.h"
+#include "widgets/hseparator.h"
 
 HomePage::HomePage(QWidget *parent)
     : QWidget(parent)
@@ -80,6 +81,8 @@ HomePage::HomePage(QWidget *parent)
 
     mainLayout->addStretch();
     mainLayout->addLayout(topLayout);
+    mainLayout->addStretch();
+    mainLayout->addWidget(new HSeparator);
     mainLayout->addStretch();
     mainLayout->addLayout(bottomLayout);
     mainLayout->addStretch();
