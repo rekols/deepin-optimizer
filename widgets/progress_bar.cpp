@@ -85,11 +85,11 @@ void ProgressBar::paintEvent(QPaintEvent *)
     painter.setPen(pen);
 
     QRectF percentRect(-radius, (-radius) + 35, radius * 2, radius * 2);
-    QString strPercent = QString("%1%").arg(value);
+    QString strPercent = QString::number(value, 'r', 1) + "%";
     painter.drawText(percentRect, Qt::AlignCenter, strPercent);
 }
 
-void ProgressBar::setValue(int percent)
+void ProgressBar::setValue(float percent)
 {
     value = percent;
 

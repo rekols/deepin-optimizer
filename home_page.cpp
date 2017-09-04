@@ -129,18 +129,18 @@ void HomePage::init()
     thread->start();
 }
 
-void HomePage::updateCpuPercent(int cpuPercent)
+void HomePage::updateCpuPercent(float cpuPercent)
 {
     cpuMonitor->setPercentValue(cpuPercent);
 }
 
-void HomePage::updateMemory(QString memory, int percent)
+void HomePage::updateMemory(QString memory, float percent)
 {
     memoryMonitor->setMemoryInfo(memory);
     memoryMonitor->setPercentValue(percent);
 }
 
-void HomePage::updateDisk(QString disk, int percent)
+void HomePage::updateDisk(QString disk, float percent)
 {
     diskMonitor->setDiskInfo(disk);
     diskMonitor->setPercentValue(percent);

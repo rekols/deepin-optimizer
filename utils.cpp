@@ -106,7 +106,7 @@ void Utils::getCpuTime(unsigned long long &workTime, unsigned long long &totalTi
     totalTime = user + nice + system + idle + iowait + irq + softirq + steal;
 }
 
-void Utils::getMemoryInfo(QString &memory, int &percent)
+void Utils::getMemoryInfo(QString &memory, float &percent)
 {
     QFile file("/proc/meminfo");
     file.open(QIODevice::ReadOnly);
@@ -122,10 +122,10 @@ void Utils::getMemoryInfo(QString &memory, int &percent)
     quint64 swapFree = lines.at(3).split(sep).at(1).toLong();
 
     memory = QString("%1GB / %2GB").arg(QString::number((memTotal - memAvailable) / 1024.0 / 1024.0, 'r', 1)).arg(QString::number(memTotal / 1024.0 / 1024.0, 'r', 1));
-    percent = int((memTotal - memAvailable) * 100.0 / memTotal);
+    percent = (memTotal - memAvailable) * 100.0 / memTotal;
 }
 
-void Utils::getDiskInfo(QString &disk, int &percent)
+void Utils::getDiskInfo(QString &disk, float &percent)
 {
     QProcess *process = new QProcess;
     process->start("df -Pl");

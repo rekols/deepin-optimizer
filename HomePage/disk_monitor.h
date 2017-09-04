@@ -35,7 +35,7 @@ class DiskMonitor : public QWidget
 public:
     explicit DiskMonitor(QWidget *parent = nullptr);
 
-    void setPercentValue(const int &value);
+    void setPercentValue(const float &value);
     void setDiskInfo(const QString &info);
 
 private:

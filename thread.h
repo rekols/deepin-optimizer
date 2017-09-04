@@ -35,9 +35,9 @@ public:
     void run();
 
 signals:
-    void updateCpuPercent(int cpuPercent);
-    void updateMemory(QString memory, int percent);
-    void updateDisk(QString disk, int percent);
+    void updateCpuPercent(float cpuPercent);
+    void updateMemory(QString memory, float percent);
+    void updateDisk(QString disk, float percent);
     void updateNetworkSpeed(QString upload, QString download);
 };
 

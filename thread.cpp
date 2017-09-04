@@ -38,8 +38,8 @@ void Thread::run()
     unsigned long long int recv = 0, send = 0;
     QString memory = "";
     QString disk = "";
-    int memoryPercent = 0;
-    int diskPercent = 0;
+    float memoryPercent = 0;
+    float diskPercent = 0;
 
     while (1) {
         Utils::getMemoryInfo(memory, memoryPercent);

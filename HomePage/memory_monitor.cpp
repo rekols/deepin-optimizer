@@ -41,7 +41,7 @@ MemoryMonitor::MemoryMonitor(QWidget *parent)
     progress->setColor(QColor("#18BD9B"));
 }
 
-void MemoryMonitor::setPercentValue(const int &value)
+void MemoryMonitor::setPercentValue(const float &value)
 {
     progress->setValue(value);
 }

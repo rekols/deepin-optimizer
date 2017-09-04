@@ -40,7 +40,7 @@ CPUMonitor::CPUMonitor(QWidget *parent)
     progress->setTitle("CPU");
 }
 
-void CPUMonitor::setPercentValue(const int &value)
+void CPUMonitor::setPercentValue(const float &value)
 {
     progress->setValue(value);
 

@@ -41,13 +41,13 @@ private:
 
     int maxValue;
     int minValue;
-    int value;
+    float value;
 
     int nullPosition;
     int borderWidth;
 
 public Q_SLOTS:
-    void setValue(int percent);
+    void setValue(float percent);
     void setTitle(QString text);
     void setColor(QColor colour);
 };

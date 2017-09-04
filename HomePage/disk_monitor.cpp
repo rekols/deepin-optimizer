@@ -42,7 +42,7 @@ DiskMonitor::DiskMonitor(QWidget *parent)
     progress->setColor(QColor("#6F5BEC"));
 }
 
-void DiskMonitor::setPercentValue(const int &value)
+void DiskMonitor::setPercentValue(const float &value)
 {
     progress->setValue(value);
 }

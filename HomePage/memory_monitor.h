@@ -35,7 +35,7 @@ class MemoryMonitor : public QWidget
 public:
     explicit MemoryMonitor(QWidget *parent = nullptr);
 
-    void setPercentValue(const int &value);
+    void setPercentValue(const float &value);
     void setMemoryInfo(const QString &info);
 
 private:
