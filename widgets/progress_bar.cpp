@@ -36,7 +36,7 @@ ProgressBar::ProgressBar(QWidget *parent)
     value = 0;
 
     nullPosition = 0;
-    borderWidth = 10;
+    borderWidth = 8;
 
     setFixedSize(200, 200);
 }

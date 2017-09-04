@@ -38,7 +38,7 @@ TabBar::TabBar(QWidget *parent) : QWidget(parent)
     layout->addStretch();
 
     tb->addTab("Home");
-    tb->addTab("Clear");
+    tb->addTab("Cleaner");
 
     connect(tb, &QTabBar::currentChanged, this, [=]{
         emit currentChanged(tb->currentIndex());

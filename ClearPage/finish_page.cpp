@@ -20,9 +20,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "cfinish_page.h"
+#include "finish_page.h"
 
-CFinishPage::CFinishPage(QWidget *parent)
+FinishPage::FinishPage(QWidget *parent)
     : QWidget(parent)
 {
     layout = new QVBoxLayout(this);
@@ -43,10 +43,10 @@ CFinishPage::CFinishPage(QWidget *parent)
     layout->addWidget(backButton, 0, Qt::AlignCenter);
     layout->addStretch();
 
-    connect(backButton, &QPushButton::clicked, this, &CFinishPage::backButtonClicked);
+    connect(backButton, &QPushButton::clicked, this, &FinishPage::backButtonClicked);
 }
 
-void CFinishPage::setTips(const QString &text)
+void FinishPage::setTips(const QString &text)
 {
     tips->setText(text);
 }

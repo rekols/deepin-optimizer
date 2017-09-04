@@ -27,7 +27,7 @@
 #include <QStackedLayout>
 #include "ClearPage//scan_page.h"
 #include "ClearPage/cleaner_page.h"
-#include "ClearPage/cfinish_page.h"
+#include "ClearPage/finish_page.h"
 #include "widgets/load_page.h"
 
 class ClearPage : public QWidget
@@ -41,7 +41,7 @@ private:
     QStackedLayout *layout;
     ScanPage *scanPage;
     CleanerPage *cleanerPage;
-    CFinishPage *cfinishPage;
+    FinishPage *finishPage;
     LoadPage *loadPage;
 
 private slots:

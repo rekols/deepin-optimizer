@@ -28,12 +28,12 @@
 #include <QLabel>
 #include <QPushButton>
 
-class CFinishPage : public QWidget
+class FinishPage : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit CFinishPage(QWidget *parent = nullptr);
+    explicit FinishPage(QWidget *parent = nullptr);
 
     void setTips(const QString &text);
 

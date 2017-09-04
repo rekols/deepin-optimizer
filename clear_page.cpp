@@ -28,17 +28,17 @@ ClearPage::ClearPage(QWidget *parent)
     layout = new QStackedLayout(this);
     scanPage = new ScanPage();
     cleanerPage = new CleanerPage();
-    cfinishPage = new CFinishPage();
+    finishPage = new FinishPage();
     loadPage = new LoadPage();
 
     layout->addWidget(scanPage);
     layout->addWidget(cleanerPage);
-    layout->addWidget(cfinishPage);
+    layout->addWidget(finishPage);
     layout->addWidget(loadPage);
 
     connect(scanPage, &ScanPage::scanButtonClicked, this, &ClearPage::scanButtonClicked);
     connect(cleanerPage, &CleanerPage::backButtonClicked, this, &ClearPage::backButtonClicked);
-    connect(cfinishPage, &CFinishPage::backButtonClicked, this, &ClearPage::backButtonClicked);
+    connect(finishPage, &FinishPage::backButtonClicked, this, &ClearPage::backButtonClicked);
     connect(cleanerPage, &CleanerPage::clearFinished, this, &ClearPage::clearFinished);
     connect(cleanerPage, &CleanerPage::scanFinished, this, &ClearPage::scanFinished);
 
@@ -60,7 +60,7 @@ void ClearPage::backButtonClicked()
 
 void ClearPage::clearFinished(QString tips)
 {
-    cfinishPage->setTips(tips);
+    finishPage->setTips(tips);
 
     layout->setCurrentIndex(2);
 }
