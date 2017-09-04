@@ -44,8 +44,6 @@ private:
     QHBoxLayout *bottomLayout;
     QVBoxLayout *infoLayout;
     QVBoxLayout *networkLayout;
-    QHBoxLayout *uploadLayout;
-    QHBoxLayout *downloadLayout;
 
     QLabel *systemInfo;
     QLabel *hostName;

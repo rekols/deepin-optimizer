@@ -32,8 +32,6 @@ HomePage::HomePage(QWidget *parent)
     bottomLayout = new QHBoxLayout();
     infoLayout = new QVBoxLayout();
     networkLayout = new QVBoxLayout();
-    uploadLayout = new QHBoxLayout();
-    downloadLayout = new QHBoxLayout();
 
     systemInfo = new QLabel(tr("SYSTEM INFO"));
     hostName = new QLabel(tr("Hostname: "));
@@ -46,8 +44,8 @@ HomePage::HomePage(QWidget *parent)
     downloadInfo = new QLabel("DOWNLOAD");
     uploadLabel = new QLabel("↑ 0.0 B/s");
     downloadLabel = new QLabel("↓ 0.0 B/s");
-    uploadTotal = new QLabel("Total ");
-    downloadTotal = new QLabel("Total ");
+    uploadTotal = new QLabel("Total 0.0M");
+    downloadTotal = new QLabel("Total 0.0M");
 
     cpuMonitor = new CPUMonitor();
     memoryMonitor = new MemoryMonitor();
@@ -77,17 +75,11 @@ HomePage::HomePage(QWidget *parent)
     infoLayout->addStretch();
 
     networkLayout->addWidget(uploadInfo);
-    networkLayout->addLayout(uploadLayout);
+    networkLayout->addWidget(uploadLabel);
     networkLayout->addSpacing(20);
     networkLayout->addWidget(downloadInfo);
-    networkLayout->addLayout(downloadLayout);
+    networkLayout->addWidget(downloadLabel);
     networkLayout->addStretch();
-
-    uploadLayout->addWidget(uploadLabel);
-    uploadLayout->addWidget(uploadTotal);
-
-    downloadLayout->addWidget(downloadLabel);
-    downloadLayout->addWidget(downloadTotal);
 
     mainLayout->addStretch();
     mainLayout->addLayout(topLayout);
@@ -167,6 +159,10 @@ void HomePage::updateNetworkSpeed(QString upload, QString download)
 
 void HomePage::updateNetworkTotal(QString upload, QString download)
 {
+    /*
     uploadTotal->setText("Total  " + upload);
     downloadTotal->setText("Total  " + download);
+    */
+    uploadInfo->setText(QString("UPLOAD (%1)").arg(upload));
+    downloadInfo->setText(QString("DOWNLOAD (%1)").arg(download));
 }
