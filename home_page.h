@@ -44,6 +44,8 @@ private:
     QHBoxLayout *bottomLayout;
     QVBoxLayout *infoLayout;
     QVBoxLayout *networkLayout;
+    QHBoxLayout *uploadLayout;
+    QHBoxLayout *downloadLayout;
 
     QLabel *systemInfo;
     QLabel *hostName;
@@ -56,6 +58,8 @@ private:
     QLabel *downloadInfo;
     QLabel *uploadLabel;
     QLabel *downloadLabel;
+    QLabel *uploadTotal;
+    QLabel *downloadTotal;
 
     CPUMonitor *cpuMonitor;
     MemoryMonitor *memoryMonitor;
@@ -69,6 +73,7 @@ private slots:
     void updateMemory(QString memory, float percent);
     void updateDisk(QString disk, float percent);
     void updateNetworkSpeed(QString upload, QString download);
+    void updateNetworkTotal(QString upload, QString download);
 };
 
 #endif // HOME_PAGE_H

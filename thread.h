@@ -39,6 +39,7 @@ signals:
     void updateMemory(QString memory, float percent);
     void updateDisk(QString disk, float percent);
     void updateNetworkSpeed(QString upload, QString download);
+    void updateNetworkTotal(QString upload, QString download);
 };
 
 #endif // THREAD_H

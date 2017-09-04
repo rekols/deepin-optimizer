@@ -32,6 +32,8 @@ HomePage::HomePage(QWidget *parent)
     bottomLayout = new QHBoxLayout();
     infoLayout = new QVBoxLayout();
     networkLayout = new QVBoxLayout();
+    uploadLayout = new QHBoxLayout();
+    downloadLayout = new QHBoxLayout();
 
     systemInfo = new QLabel(tr("SYSTEM INFO"));
     hostName = new QLabel(tr("Hostname: "));
@@ -44,6 +46,8 @@ HomePage::HomePage(QWidget *parent)
     downloadInfo = new QLabel("DOWNLOAD");
     uploadLabel = new QLabel("↑ 0.0 B/s");
     downloadLabel = new QLabel("↓ 0.0 B/s");
+    uploadTotal = new QLabel("Total ");
+    downloadTotal = new QLabel("Total ");
 
     cpuMonitor = new CPUMonitor();
     memoryMonitor = new MemoryMonitor();
@@ -73,11 +77,17 @@ HomePage::HomePage(QWidget *parent)
     infoLayout->addStretch();
 
     networkLayout->addWidget(uploadInfo);
-    networkLayout->addWidget(uploadLabel);
+    networkLayout->addLayout(uploadLayout);
     networkLayout->addSpacing(20);
     networkLayout->addWidget(downloadInfo);
-    networkLayout->addWidget(downloadLabel);
+    networkLayout->addLayout(downloadLayout);
     networkLayout->addStretch();
+
+    uploadLayout->addWidget(uploadLabel);
+    uploadLayout->addWidget(uploadTotal);
+
+    downloadLayout->addWidget(downloadLabel);
+    downloadLayout->addWidget(downloadTotal);
 
     mainLayout->addStretch();
     mainLayout->addLayout(topLayout);
@@ -91,6 +101,7 @@ HomePage::HomePage(QWidget *parent)
     connect(thread, &Thread::updateMemory, this, &HomePage::updateMemory);
     connect(thread, &Thread::updateDisk, this, &HomePage::updateDisk);
     connect(thread, &Thread::updateNetworkSpeed, this, &HomePage::updateNetworkSpeed);
+    connect(thread, &Thread::updateNetworkTotal, this, &HomePage::updateNetworkTotal);
 
     init();
 }
@@ -118,6 +129,8 @@ void HomePage::init()
     cpuCoreCount->setStyleSheet("QLabel { color: #505050 }");
     uploadLabel->setStyleSheet("QLabel { color: #505050 }");
     downloadLabel->setStyleSheet("QLabel { color: #505050 }");
+    uploadTotal->setStyleSheet("QLabel { color: #505050 }");
+    downloadTotal->setStyleSheet("QLabel { color: #505050 }");
 
     hostName->setText("HostName: " + Utils::getUserName());
     platform->setText("Platform: " + Utils::getPlatform());
@@ -148,6 +161,12 @@ void HomePage::updateDisk(QString disk, float percent)
 
 void HomePage::updateNetworkSpeed(QString upload, QString download)
 {
-    uploadLabel->setText(upload);
-    downloadLabel->setText(download);
+    uploadLabel->setText(upload + "/s");
+    downloadLabel->setText(download + "/s");
+}
+
+void HomePage::updateNetworkTotal(QString upload, QString download)
+{
+    uploadTotal->setText("Total  " + upload);
+    downloadTotal->setText("Total  " + download);
 }

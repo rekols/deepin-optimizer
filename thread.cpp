@@ -34,8 +34,8 @@ void Thread::run()
 {
     unsigned long long currentWorkTime = 0, prevWorkTime = 0;
     unsigned long long currentTotalTime = 0, prevTotalTime = 0;
-    unsigned long long int prevRecv = 0, prevSend = 0;
-    unsigned long long int recv = 0, send = 0;
+    unsigned long long prevRecv = 0, prevSend = 0;
+    unsigned long long recv = 0, send = 0;
     QString memory = "";
     QString disk = "";
     float memoryPercent = 0;
@@ -54,6 +54,7 @@ void Thread::run()
         Utils::getCpuTime(currentWorkTime, currentTotalTime);
         Utils::getNetworkBandWidth(recv, send);
 
+        emit updateNetworkTotal(Utils::networkConversion(send), Utils::networkConversion(recv));
         emit updateNetworkSpeed("↑ " + Utils::networkConversion(send - prevSend), "↓ " + Utils::networkConversion(recv - prevRecv));
         emit updateCpuPercent((currentWorkTime - prevWorkTime) * 100.0 / (currentTotalTime - prevTotalTime));
     }

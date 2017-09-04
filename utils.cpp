@@ -154,7 +154,7 @@ void Utils::getDiskInfo(QString &disk, float &percent)
     percent = used * 100.0 / size;
 }
 
-void Utils::getNetworkBandWidth(unsigned long long int &receiveBytes, unsigned long long int &sendBytes)
+void Utils::getNetworkBandWidth(unsigned long long &receiveBytes, unsigned long long &sendBytes)
 {
     char buffer[255];
     FILE *fp = fopen("/proc/net/dev", "r");
@@ -189,14 +189,17 @@ void Utils::getNetworkBandWidth(unsigned long long int &receiveBytes, unsigned l
 
 QString Utils::networkConversion(long bytes)
 {
-    if (bytes < 1024)
-        return QString::number(bytes, 'r', 1) + " B/s";
+    if (bytes < 1024.0)
+        return QString::number(bytes, 'r', 1) + " B";
 
-    if (bytes / 1024 < 1024)
-        return QString::number(bytes / 1024, 'r', 1) + "K/s";
+    if (bytes / 1024.0 < 1024.0)
+        return QString::number(bytes / 1024.0, 'r', 1) + "K";
 
-    if (bytes / 1024 / 1024 < 1024)
-        return QString::number(bytes / 1024 / 1024, 'r', 1) + "M/s";
+    if (bytes / 1024.0 / 1024.0 < 1024.0)
+        return QString::number(bytes / 1024.0 / 1024.0, 'r', 1) + "M";
+
+    if (bytes / 1024.0 / 1024.0 / 1024.0 < 1024.0)
+        return QString::number(bytes / 1024.0 / 1024.0 / 1024.0, 'r', 1) + "G";
 }
 
 quint64 Utils::getFileSize(const QString &path)
