@@ -21,26 +21,29 @@
  */
 
 #include "tabbar.h"
-#include <QLabel>
 
 TabBar::TabBar(QWidget *parent) : QWidget(parent)
 {
     layout = new QHBoxLayout(this);
-    tb = new QTabBar();
-    QLabel *icon = new QLabel();
-    icon->setPixmap(QPixmap(":/images/logo.svg").scaled(22, 22));
+    tabBar = new QTabBar();
+    icon = new QLabel();
 
     layout->setMargin(0);
     layout->addSpacing(5);
     layout->addWidget(icon);
     layout->addSpacing(5);
-    layout->addWidget(tb);
+    layout->addWidget(tabBar);
     layout->addStretch();
 
-    tb->addTab("Home");
-    tb->addTab("Cleaner");
+    tabBar->addTab("Home");
+    tabBar->addTab("Cleaner");
 
-    connect(tb, &QTabBar::currentChanged, this, [=]{
-        emit currentChanged(tb->currentIndex());
-    });
+    icon->setPixmap(QPixmap(":/images/logo.svg").scaled(22, 22));
+
+    connect(tabBar, &QTabBar::currentChanged, this, &TabBar::tabBarCurrentChanged);
+}
+
+void TabBar::tabBarCurrentChanged()
+{
+    emit currentChanged(tabBar->currentIndex());
 }

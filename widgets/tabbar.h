@@ -26,6 +26,7 @@
 #include <QWidget>
 #include <QHBoxLayout>
 #include <QTabBar>
+#include <QLabel>
 
 class TabBar : public QWidget
 {
@@ -36,7 +37,10 @@ public:
 
 private:
     QHBoxLayout *layout;
-    QTabBar *tb;
+    QTabBar *tabBar;
+    QLabel *icon;
+
+    void tabBarCurrentChanged();
 
 signals:
     void currentChanged(int current);
