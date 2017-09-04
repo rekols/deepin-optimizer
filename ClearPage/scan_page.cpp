@@ -5,12 +5,17 @@ ScanPage::ScanPage(QWidget *parent)
 {
     layout = new QVBoxLayout(this);
     iconLayout = new QHBoxLayout();
+    tips = new QLabel("You can scan the following items");
     packageBar = new IconBar();
     crashBar = new IconBar();
     logBar = new IconBar();
     cacheBar = new IconBar();
     trashBar = new IconBar();
     scanButton = new QPushButton("Scan Now");
+
+    QFont font;
+    font.setPointSize(18);
+    tips->setFont(font);
 
     scanButton->setFixedSize(300, 50);
     scanButton->setObjectName("BlueButton");
@@ -34,7 +39,9 @@ ScanPage::ScanPage(QWidget *parent)
     iconLayout->addWidget(trashBar);
     iconLayout->addSpacing(30);
 
-    layout->addStretch();
+    layout->addSpacing(50);
+    layout->addWidget(tips, 0, Qt::AlignCenter);
+    layout->addSpacing(50);
     layout->addLayout(iconLayout);
     layout->addStretch();
     layout->addWidget(scanButton, 0, Qt::AlignCenter);

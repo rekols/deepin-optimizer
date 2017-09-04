@@ -4,8 +4,8 @@
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QLabel>
-#include "widgets/icon_bar.h"
 #include <QPushButton>
+#include "widgets/icon_bar.h"
 
 class ScanPage : public QWidget
 {
@@ -18,6 +18,7 @@ private:
     QVBoxLayout *layout;
     QHBoxLayout *iconLayout;
 
+    QLabel *tips;
     IconBar *packageBar;
     IconBar *crashBar;
     IconBar *logBar;
