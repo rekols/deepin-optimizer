@@ -172,7 +172,7 @@ void Utils::getNetworkBandWidth(unsigned long long &receiveBytes, unsigned long 
     sendBytes = data.at(9).toLong();
 }
 
-QString Utils::networkConversion(long bytes)
+QString Utils::formatBytes(long bytes)
 {
     if (bytes < 1024.0)
         return QString::number(bytes, 'r', 1) + " B";
@@ -206,31 +206,6 @@ quint64 Utils::getFileSize(const QString &path)
     }
 
     return totalSize;
-}
-
-QString Utils::formatBytes(const quint64 &bytes)
-{
-#define formatUnit(v, u, t) QString().sprintf("%.1f %s", \
-    ((double) v / (double) u), t)
-
-    if (bytes == 1L) // bytes
-        return QString("%1 byte").arg(bytes);
-    else if (bytes < KIBI) // bytes
-      return QString("%1 bytes").arg(bytes);
-    else if (bytes < MEBI) // KiB
-      return formatUnit(bytes, KIBI, "KB");
-    else if (bytes < GIBI) // MiB
-      return formatUnit(bytes, MEBI, "MB");
-    else if (bytes < TEBI) // GiB
-      return formatUnit(bytes, GIBI, "GB");
-    else if (bytes < PEBI) // TiB
-      return formatUnit(bytes, TEBI, "TB");
-    else if (bytes < EXBI) // PiB
-      return formatUnit(bytes, PEBI, "PB");
-    else                   // EiB
-      return formatUnit(bytes, EXBI, "EB");
-
-#undef formatUnit
 }
 
 QFileInfoList Utils::getDpkgPackages()

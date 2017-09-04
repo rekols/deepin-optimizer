@@ -39,10 +39,8 @@ public:
     static void getMemoryInfo(QString &memory, float &percent);
     static void getDiskInfo(QString &disk, float &percent);
     static void getNetworkBandWidth(unsigned long long &receiveBytes, unsigned long long &sendBytes);
-    static QString networkConversion(long bytes);
-
+    static QString formatBytes(long bytes);
     static quint64 getFileSize(const QString &path);
-    static QString formatBytes(const quint64 &bytes);
 
     static QFileInfoList getDpkgPackages();
     static QFileInfoList getCrashReports();
@@ -50,14 +48,6 @@ public:
     static QFileInfoList getAppCaches();
     static QString getHomePath();
     static QString sudoExec(const QString &cmd, QStringList args);
-
-private:
-    static const quint64 KIBI = 1L << 10;
-    static const quint64 MEBI = 1L << 20;
-    static const quint64 GIBI = 1L << 30;
-    static const quint64 TEBI = 1L << 40;
-    static const quint64 PEBI = 1L << 50;
-    static const quint64 EXBI = 1L << 60;
 };
 
 #endif // UTILS_H

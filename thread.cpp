@@ -54,8 +54,8 @@ void Thread::run()
         Utils::getCpuTime(currentWorkTime, currentTotalTime);
         Utils::getNetworkBandWidth(recv, send);
 
-        emit updateNetworkTotal(Utils::networkConversion(send), Utils::networkConversion(recv));
-        emit updateNetworkSpeed("↑ " + Utils::networkConversion(send - prevSend), "↓ " + Utils::networkConversion(recv - prevRecv));
+        emit updateNetworkTotal(Utils::formatBytes(send), Utils::formatBytes(recv));
+        emit updateNetworkSpeed("↑ " + Utils::formatBytes(send - prevSend), "↓ " + Utils::formatBytes(recv - prevRecv));
         emit updateCpuPercent((currentWorkTime - prevWorkTime) * 100.0 / (currentTotalTime - prevTotalTime));
     }
 }
