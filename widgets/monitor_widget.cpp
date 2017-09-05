@@ -29,3 +29,8 @@ void MonitorWidget::setTips(const QString &text)
 {
     tips2->setText(text);
 }
+
+void MonitorWidget::setColor(const QColor &color)
+{
+    progress->setColor(color);
+}

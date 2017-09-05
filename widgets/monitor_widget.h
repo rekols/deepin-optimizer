@@ -16,6 +16,7 @@ public:
     void setPercentValue(const float &value);
     void setTitle(const QString &text);
     void setTips(const QString &text);
+    void setColor(const QColor &color);
 
 private:
     QVBoxLayout *layout;

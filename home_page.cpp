@@ -128,6 +128,10 @@ void HomePage::init()
     memoryMonitor->setTitle("MEMORY");
     diskMonitor->setTitle("DISK");
 
+    cpuMonitor->setTips("CPU Idle");
+    memoryMonitor->setColor("#18BD9B");
+    diskMonitor->setColor("#6F5BEC");
+
     hostName->setText("HostName: " + Utils::getUserName());
     platform->setText("Platform: " + Utils::getPlatform());
     distribution->setText("Distribution: " + Utils::getDistribution());
