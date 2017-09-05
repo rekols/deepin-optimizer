@@ -116,12 +116,12 @@ void Utils::getMemoryInfo(QString &memory, float &percent)
     QStringList lines = buffer.split("\n").filter(QRegExp("^MemTotal|^MemAvailable|^SwapTotal|^SwapFree"));
 
     QRegExp sep("\\s+");
-    quint64 memTotal = lines.at(0).split(sep).at(1).toLong();
-    quint64 memAvailable = lines.at(1).split(sep).at(1).toLong();
-    quint64 swapTotal = lines.at(2).split(sep).at(1).toLong();
-    quint64 swapFree = lines.at(3).split(sep).at(1).toLong();
+    unsigned long long memTotal = lines.at(0).split(sep).at(1).toLong();
+    unsigned long long memAvailable = lines.at(1).split(sep).at(1).toLong();
+    unsigned long long swapTotal = lines.at(2).split(sep).at(1).toLong();
+    unsigned long long swapFree = lines.at(3).split(sep).at(1).toLong();
 
-    memory = QString("%1GB / %2GB").arg(QString::number((memTotal - memAvailable) / 1024.0 / 1024.0, 'r', 1)).arg(QString::number(memTotal / 1024.0 / 1024.0, 'r', 1));
+    memory = QString("%1 / %2").arg(formatBytes((memTotal - memAvailable) * 1024)).arg(formatBytes(memTotal * 1024));
     percent = (memTotal - memAvailable) * 100.0 / memTotal;
 }
 
@@ -150,7 +150,7 @@ void Utils::getDiskInfo(QString &disk, float &percent)
         totalFree += free;
     }
 
-    disk = QString("%1GB / %2GB").arg(QString::number(totalFree / 1024.0 / 1024.0 / 1024.0, 'r', 1)).arg(QString::number(totalSize / 1024.0 / 1024.0 / 1024.0, 'r', 1));
+    disk = QString("%1 / %2").arg(formatBytes(totalFree)).arg(formatBytes(totalSize));
     percent = used * 100.0 / size;
 }
 
@@ -179,19 +179,19 @@ void Utils::getNetworkBandWidth(unsigned long long &receiveBytes, unsigned long 
     file.close();
 }
 
-QString Utils::formatBytes(long bytes)
+QString Utils::formatBytes(unsigned long long bytes)
 {
-    if (bytes < 1024.0)
+    if (bytes < 1024)
         return QString::number(bytes, 'r', 1) + " B";
 
-    if (bytes / 1024.0 < 1024.0)
-        return QString::number(bytes / 1024.0, 'r', 1) + "K";
+    else if (bytes / 1024 < 1024)
+        return QString::number(bytes / 1024.0, 'r', 1) + "KB";
 
-    if (bytes / 1024.0 / 1024.0 < 1024.0)
-        return QString::number(bytes / 1024.0 / 1024.0, 'r', 1) + "M";
+    else if (bytes / 1024 / 1024 < 1024)
+        return QString::number(bytes / 1024.0 / 1024.0, 'r', 1) + "MB";
 
-    if (bytes / 1024.0 / 1024.0 / 1024.0 < 1024.0)
-        return QString::number(bytes / 1024.0 / 1024.0 / 1024.0, 'r', 1) + "G";
+    else if (bytes / 1024 / 1024 / 1024 < 1024)
+        return QString::number(bytes / 1024.0 / 1024.0 / 1024.0, 'r', 1) + "GB";
 }
 
 quint64 Utils::getFileSize(const QString &path)
