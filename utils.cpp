@@ -238,8 +238,7 @@ QFileInfoList Utils::getAppLogs()
 
 QFileInfoList Utils::getAppCaches()
 {
-    QString homePath = getHomePath();
-    QDir caches(homePath + "/.cache");
+    QDir caches(getHomePath() + "/.cache");
 
     return caches.entryInfoList(QDir::Files | QDir::Dirs | QDir::NoDotAndDotDot);
 }
