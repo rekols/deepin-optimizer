@@ -47,9 +47,9 @@ HomePage::HomePage(QWidget *parent)
     uploadTotal = new QLabel("Total 0.0M");
     downloadTotal = new QLabel("Total 0.0M");
 
-    cpuMonitor = new CPUMonitor();
-    memoryMonitor = new MemoryMonitor();
-    diskMonitor = new DiskMonitor();
+    cpuMonitor = new MonitorWidget();
+    memoryMonitor = new MonitorWidget();
+    diskMonitor = new MonitorWidget();
 
     thread = new Thread();
 
@@ -124,6 +124,10 @@ void HomePage::init()
     uploadTotal->setStyleSheet("QLabel { color: #505050 }");
     downloadTotal->setStyleSheet("QLabel { color: #505050 }");
 
+    cpuMonitor->setTitle("CPU");
+    memoryMonitor->setTitle("MEMORY");
+    diskMonitor->setTitle("DISK");
+
     hostName->setText("HostName: " + Utils::getUserName());
     platform->setText("Platform: " + Utils::getPlatform());
     distribution->setText("Distribution: " + Utils::getDistribution());
@@ -137,17 +141,22 @@ void HomePage::init()
 void HomePage::updateCpuPercent(float cpuPercent)
 {
     cpuMonitor->setPercentValue(cpuPercent);
+
+    if (cpuPercent > 0 && cpuPercent < 50)
+        cpuMonitor->setTips("CPU Idle");
+    else if (cpuPercent > 50 && cpuPercent < 100)
+        cpuMonitor->setTips("CPU Busy");
 }
 
 void HomePage::updateMemory(QString memory, float percent)
 {
-    memoryMonitor->setMemoryInfo(memory);
+    memoryMonitor->setTips(memory);
     memoryMonitor->setPercentValue(percent);
 }
 
 void HomePage::updateDisk(QString disk, float percent)
 {
-    diskMonitor->setDiskInfo(disk);
+    diskMonitor->setTips(disk);
     diskMonitor->setPercentValue(percent);
 }
 

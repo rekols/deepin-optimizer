@@ -27,9 +27,7 @@
 #include <QVBoxLayout>
 #include <QLabel>
 #include "thread.h"
-#include "HomePage/cpu_monitor.h"
-#include "HomePage/memory_monitor.h"
-#include "HomePage/disk_monitor.h"
+#include "widgets/monitor_widget.h"
 
 class HomePage : public QWidget
 {
@@ -59,9 +57,9 @@ private:
     QLabel *uploadTotal;
     QLabel *downloadTotal;
 
-    CPUMonitor *cpuMonitor;
-    MemoryMonitor *memoryMonitor;
-    DiskMonitor *diskMonitor;
+    MonitorWidget *cpuMonitor;
+    MonitorWidget *memoryMonitor;
+    MonitorWidget *diskMonitor;
 
     Thread *thread;
 

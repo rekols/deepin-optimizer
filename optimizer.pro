@@ -21,9 +21,6 @@ SOURCES += \
         widgets/tabbar.cpp \
         utils.cpp \
         thread.cpp \
-        HomePage/cpu_monitor.cpp \
-        HomePage/memory_monitor.cpp \
-        HomePage/disk_monitor.cpp \
         widgets/progress_bar.cpp \
         widgets/icon_bar.cpp \
         ClearPage/scan_page.cpp \
@@ -32,16 +29,14 @@ SOURCES += \
     ClearPage/finish_page.cpp \
     ClearPage/scanned_page.cpp \
     cleaner_page.cpp \
-    widgets/hseparator.cpp
+    widgets/hseparator.cpp \
+    widgets/monitor_widget.cpp
 
 HEADERS += \
         main_window.h \
         widgets/tabbar.h \
         utils.h \
         thread.h \
-        HomePage/cpu_monitor.h \
-        HomePage/memory_monitor.h \
-        HomePage/disk_monitor.h \
         widgets/progress_bar.h \
         widgets/icon_bar.h \
         ClearPage/scan_page.h \
@@ -50,6 +45,7 @@ HEADERS += \
     ClearPage/finish_page.h \
     ClearPage/scanned_page.h \
     cleaner_page.h \
-    widgets/hseparator.h
+    widgets/hseparator.h \
+    widgets/monitor_widget.h
 
 RESOURCES = optimizer.qrc
