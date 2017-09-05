@@ -168,9 +168,9 @@ void Utils::getNetworkBandWidth(unsigned long long &receiveBytes, unsigned long 
 
     while ((buffer = file.readLine()) != NULL)
     {
-        QStringList lines = buffer.split(QRegExp("\\s+"));
+        QStringList lines = buffer.trimmed().split(QRegExp("\\s+"));
 
-        if (lines.at(1) != "lo:") {
+        if (lines.first() != "lo:") {
             receiveBytes += lines.at(1).toLong();
             sendBytes += lines.at(9).toLong();
         }
