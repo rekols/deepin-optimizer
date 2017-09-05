@@ -28,7 +28,7 @@ FinishPage::FinishPage(QWidget *parent)
     layout = new QVBoxLayout(this);
     tipsIcon = new QLabel();
     tips = new QLabel();
-    backButton = new QPushButton("back");
+    backButton = new QPushButton("Back");
     tips->setStyleSheet(" QLabel { font-size: 18px; } ");
 
     tipsIcon->setPixmap(QPixmap(":/images/check.svg"));

@@ -31,8 +31,11 @@
 QString Utils::getQssContent(const QString &path)
 {
     QFile file(path);
+    QString qss;
+
     file.open(QIODevice::ReadOnly);
-    QString qss = file.readAll();
+    qss = file.readAll();
+
     file.close();
 
     return qss;
@@ -74,19 +77,18 @@ void Utils::getCpuInfo(QString &cpuModel, QString &cpuCore)
     QStringList model_lines = buffer.split("\n").filter(QRegExp("^model name"));
     QStringList core_lines = buffer.split("\n");
 
-    file.close();
-
     cpuModel = model_lines.first().split(":").at(1);
     cpuCore = QString::number(core_lines.filter(QRegExp("^processor")).count());
+
+    file.close();
 }
 
 void Utils::getCpuTime(unsigned long long &workTime, unsigned long long &totalTime)
 {
     QFile file("/proc/stat");
     file.open(QIODevice::ReadOnly);
-    QString buffer = file.readAll();
-    file.close();
 
+    QString buffer = file.readAll();
     QStringList list = buffer.split("\n").filter(QRegExp("^cpu "));
     QString line = list.first();
     QStringList lines = line.trimmed().split(QRegExp("\\s+"));
@@ -104,18 +106,19 @@ void Utils::getCpuTime(unsigned long long &workTime, unsigned long long &totalTi
 
     workTime = user + nice + system;
     totalTime = user + nice + system + idle + iowait + irq + softirq + steal;
+
+    file.close();
 }
 
 void Utils::getMemoryInfo(QString &memory, float &percent)
 {
     QFile file("/proc/meminfo");
     file.open(QIODevice::ReadOnly);
+
     QString buffer = file.readAll();
-    file.close();
-
     QStringList lines = buffer.split("\n").filter(QRegExp("^MemTotal|^MemAvailable|^SwapTotal|^SwapFree"));
-
     QRegExp sep("\\s+");
+
     unsigned long long memTotal = lines.at(0).split(sep).at(1).toLong();
     unsigned long long memAvailable = lines.at(1).split(sep).at(1).toLong();
     unsigned long long swapTotal = lines.at(2).split(sep).at(1).toLong();
@@ -123,6 +126,8 @@ void Utils::getMemoryInfo(QString &memory, float &percent)
 
     memory = QString("%1 / %2").arg(formatBytes((memTotal - memAvailable) * 1024)).arg(formatBytes(memTotal * 1024));
     percent = (memTotal - memAvailable) * 100.0 / memTotal;
+
+    file.close();
 }
 
 void Utils::getDiskInfo(QString &disk, float &percent)
@@ -166,7 +171,7 @@ void Utils::getNetworkBandWidth(unsigned long long &receiveBytes, unsigned long 
     receiveBytes = 0;
     sendBytes = 0;
 
-    while ((buffer = file.readLine()) != NULL)
+    while ((buffer = file.readLine()) != nullptr)
     {
         QStringList lines = buffer.trimmed().split(QRegExp("\\s+"));
 
