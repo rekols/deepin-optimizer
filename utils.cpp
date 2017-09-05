@@ -162,14 +162,21 @@ void Utils::getNetworkBandWidth(unsigned long long &receiveBytes, unsigned long 
     file.readLine();
     file.readLine();
 
-    QStringList lines = QString(file.readAll()).split("\n");
-    QStringList data = lines.first().split(QRegExp("\\s+"));
+    QString buffer;
+    receiveBytes = 0;
+    sendBytes = 0;
+
+    while ((buffer = file.readLine()) != NULL)
+    {
+        QStringList lines = buffer.split(QRegExp("\\s+"));
+
+        if (lines.at(1) != "lo:") {
+            receiveBytes += lines.at(1).toLong();
+            sendBytes += lines.at(9).toLong();
+        }
+    }
 
     file.close();
-
-    unsigned long long int rBytes, sBytes;
-    receiveBytes = data.at(1).toLong();
-    sendBytes = data.at(9).toLong();
 }
 
 QString Utils::formatBytes(long bytes)
