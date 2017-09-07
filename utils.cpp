@@ -74,11 +74,11 @@ void Utils::getCpuInfo(QString &cpuModel, QString &cpuCore)
     file.open(QIODevice::ReadOnly);
 
     QString buffer = file.readAll();
-    QStringList model_lines = buffer.split("\n").filter(QRegExp("^model name"));
-    QStringList core_lines = buffer.split("\n");
+    QStringList model_line = buffer.split("\n").filter(QRegExp("^model name"));
+    QStringList core_line = buffer.split("\n");
 
-    cpuModel = model_lines.first().split(":").at(1);
-    cpuCore = QString::number(core_lines.filter(QRegExp("^processor")).count());
+    cpuModel = model_line.first().split(":").at(1);
+    cpuCore = QString::number(core_line.filter(QRegExp("^processor")).count());
 
     file.close();
 }
