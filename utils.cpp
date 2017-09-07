@@ -155,7 +155,7 @@ void Utils::getDiskInfo(QString &disk, float &percent)
         totalFree += free;
     }
 
-    disk = QString("%1 / %2").arg(formatBytes(totalFree)).arg(formatBytes(totalSize));
+    disk = QString("%1 / %2").arg(formatBytes(totalSize - totalFree)).arg(formatBytes(totalSize));
     percent = used * 100.0 / size;
 }
 
@@ -187,7 +187,7 @@ void Utils::getNetworkBandWidth(unsigned long long &receiveBytes, unsigned long 
 QString Utils::formatBytes(unsigned long long bytes)
 {
     if (bytes < 1024)
-        return QString::number(bytes, 'r', 1) + " B";
+        return QString::number(bytes, 'r', 1) + "B";
 
     else if (bytes / 1024 < 1024)
         return QString::number(bytes / 1024.0, 'r', 1) + "KB";
