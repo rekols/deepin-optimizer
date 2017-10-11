@@ -4,7 +4,7 @@ rekols-optimizer is Deepin Desktop Environment Optimizer.
 
 ### Build dependencies
 
-`sudo apt install g++ qt5-default libdtkcore-dev libdtkwidget-dev`
+`sudo apt install g++ qt5-default libdtkcore-dev libdtkwidget-dev libqt5svg5-dev`
 
 ### Runtime dependencies
 
