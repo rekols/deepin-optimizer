@@ -26,7 +26,7 @@ TabBar::TabBar(QWidget *parent) : QWidget(parent)
 {
     layout = new QHBoxLayout(this);
     tabBar = new QTabBar();
-    icon = new QLabel();
+    icon = new QSvgWidget(":/images/logo.svg");
 
     layout->setMargin(0);
     layout->addSpacing(5);
@@ -38,7 +38,7 @@ TabBar::TabBar(QWidget *parent) : QWidget(parent)
     tabBar->addTab("Home");
     tabBar->addTab("Cleaner");
 
-    icon->setPixmap(QPixmap(":/images/logo.svg").scaled(22, 22));
+    icon->setFixedSize(22, 22);
 
     connect(tabBar, &QTabBar::currentChanged, this, &TabBar::tabBarCurrentChanged);
 }
