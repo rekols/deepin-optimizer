@@ -6,6 +6,10 @@ MonitorWidget::MonitorWidget(QWidget *parent)
     layout = new QVBoxLayout(this);
     progress = new ProgressBar();
     tips2 = new QLabel();
+    animation = new QVariantAnimation;
+
+    animation->setDuration(300);
+    animation->setEasingCurve(QEasingCurve::OutCirc);
 
     QFont font;
     font.setPointSize(15);
@@ -13,11 +17,18 @@ MonitorWidget::MonitorWidget(QWidget *parent)
 
     layout->addWidget(progress, 0, Qt::AlignHCenter);
     layout->addWidget(tips2, 0, Qt::AlignHCenter);
+
+    connect(animation, &QVariantAnimation::valueChanged, this,
+            [=] (const QVariant &value){
+               progress->setValue(value.toInt());
+            });
 }
 
 void MonitorWidget::setPercentValue(const float &value)
 {
-    progress->setValue(value);
+    animation->setStartValue(progress->currentValue());
+    animation->setEndValue((int) value);
+    animation->start();
 }
 
 void MonitorWidget::setTitle(const QString &text)

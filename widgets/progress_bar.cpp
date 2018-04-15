@@ -89,6 +89,11 @@ void ProgressBar::paintEvent(QPaintEvent *)
     painter.drawText(percentRect, Qt::AlignCenter, strPercent);
 }
 
+int ProgressBar::currentValue()
+{
+    return value;
+}
+
 void ProgressBar::setValue(float percent)
 {
     value = percent;

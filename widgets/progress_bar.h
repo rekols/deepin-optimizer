@@ -47,6 +47,7 @@ private:
     int borderWidth;
 
 public Q_SLOTS:
+    int currentValue();
     void setValue(float percent);
     void setTitle(QString text);
     void setColor(QColor colour);

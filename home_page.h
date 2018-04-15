@@ -24,10 +24,11 @@
 #define HOME_PAGE_H
 
 #include <QWidget>
-#include <QVBoxLayout>
 #include <QLabel>
-#include "thread.h"
+#include <QVBoxLayout>
+
 #include "widgets/monitor_widget.h"
+#include "thread.h"
 
 class HomePage : public QWidget
 {

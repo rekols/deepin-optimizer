@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QVBoxLayout>
+#include <QVariantAnimation>
 #include <QLabel>
 #include "widgets/progress_bar.h"
 
@@ -22,6 +23,7 @@ private:
     QVBoxLayout *layout;
     ProgressBar *progress;
     QLabel *tips2;
+    QVariantAnimation *animation;
 };
 
 #endif // MONITOR_WIDGET_H
