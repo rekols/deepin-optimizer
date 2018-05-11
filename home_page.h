@@ -37,6 +37,9 @@ class HomePage : public QWidget
 public:
     explicit HomePage(QWidget *parent = nullptr);
 
+    void startMonitor();
+    void stopMonitor();
+
 private:
     QVBoxLayout *mainLayout;
     QHBoxLayout *topLayout;

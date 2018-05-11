@@ -98,6 +98,17 @@ HomePage::HomePage(QWidget *parent)
     init();
 }
 
+void HomePage::startMonitor()
+{
+    thread->start();
+}
+
+void HomePage::stopMonitor()
+{
+    // Don't update the data when switching to other pages
+    thread->terminate();
+}
+
 void HomePage::init()
 {
     QString strCpuModel("");

@@ -52,4 +52,10 @@ MainWindow::~MainWindow()
 void MainWindow::tabbarCurrentChanged(int current)
 {
     layout->setCurrentIndex(current);
+
+    if (current == 0) {
+        homePage->startMonitor();
+    } else {
+        homePage->stopMonitor();
+    }
 }
